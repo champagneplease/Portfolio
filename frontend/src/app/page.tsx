@@ -47,11 +47,11 @@ export default function HomePage() {
                   Soy <span className="text-white">Nacho Miranda</span>
                 </h1>
 
-                {/* Real-time Typewriter in NestJS Ruby Red with native font exclamation mark */}
-                <div className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight min-h-[1.25em] flex items-center leading-none">
+                {/* Real-time Typewriter in NestJS Ruby Red (Locked on a single line, no wrapping or layout shift) */}
+                <div className="text-[clamp(1.65rem,4.4vw,3.6rem)] sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight min-h-[1.2em] flex items-center leading-none whitespace-nowrap overflow-visible">
                   <TypewriterText
                     text="Backend Developer!"
-                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight"
+                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight whitespace-nowrap"
                   />
                 </div>
               </div>

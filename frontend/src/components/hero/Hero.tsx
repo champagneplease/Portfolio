@@ -3,6 +3,7 @@
 import { ArrowDown, ArrowUpRight, Mail, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 import { TerminalSnippet } from './TerminalSnippet';
+import { TypewriterText } from './TypewriterText';
 
 export function Hero() {
   return (
@@ -31,9 +32,9 @@ export function Hero() {
             <p className="text-emerald-400 font-mono text-sm tracking-wide">
               Hola, soy Nacho Miranda.
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-100">
-              Backend Developer
-            </h1>
+            <div className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#e0234e] whitespace-nowrap min-h-[1.2em] flex items-center">
+              <TypewriterText text="Backend Developer!" className="whitespace-nowrap" />
+            </div>
             <p className="text-base sm:text-lg text-slate-300 font-medium pt-1">
               Estudiante de Desarrollo de Software enfocado en{' '}
               <span className="text-slate-100">Backend, APIs, arquitectura y DevOps.</span>

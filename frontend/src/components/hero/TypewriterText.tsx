@@ -55,20 +55,19 @@ export function TypewriterText({
   const renderedText = isMounted ? displayedText : text;
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`inline-flex items-center whitespace-nowrap select-none ${className}`}>
       {/* Screen reader announcement */}
       <span className="sr-only">{text}</span>
 
       {/* Visual typewriter stream with native font glyphs */}
-      <span aria-hidden="true" className="tracking-tight">
+      <span aria-hidden="true" className="tracking-tight whitespace-nowrap">
         {renderedText}
       </span>
 
-      {/* Blinking cursor with ruby glow matching typography */}
+      {/* Blinking cursor strictly attached to text end - cannot wrap or shift */}
       <span
         aria-hidden="true"
-        className="inline-block w-[3px] sm:w-[4px] md:w-[5px] h-[0.85em] ml-1 sm:ml-1.5 bg-[#e0234e] animate-pulse rounded-full shadow-[0_0_12px_rgba(224,35,78,0.85)]"
-        style={{ verticalAlign: '-0.05em' }}
+        className="inline-block w-[3px] sm:w-[4px] md:w-[5px] h-[0.8em] ml-1 sm:ml-1.5 bg-[#e0234e] animate-pulse rounded-full shrink-0 shadow-[0_0_12px_rgba(224,35,78,0.85)] self-center"
       />
     </span>
   );
