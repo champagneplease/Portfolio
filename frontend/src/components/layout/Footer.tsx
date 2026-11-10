@@ -32,6 +32,14 @@ export function Footer() {
           >
             GitHub
           </a>
+          <a
+            href="https://www.linkedin.com/in/nachomirnd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>

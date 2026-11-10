@@ -66,7 +66,7 @@ export function Navbar() {
             <span>GitHub</span>
           </a>
           <a
-            href="https://linkedin.com/in/nacho-miranda"
+            href="https://www.linkedin.com/in/nachomirnd/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
@@ -119,7 +119,7 @@ export function Navbar() {
               <span>GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/nacho-miranda"
+              href="https://www.linkedin.com/in/nachomirnd/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white flex items-center gap-1"

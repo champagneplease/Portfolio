@@ -17,7 +17,7 @@ export function HeroProfile({
   email = 'nachomirnd@gmail.com',
   location = 'Catamarca, Argentina',
   githubUrl = 'https://github.com/champagneplease',
-  linkedinUrl = 'https://linkedin.com/in/nacho-miranda',
+  linkedinUrl = 'https://www.linkedin.com/in/nachomirnd/',
 }: HeroProfileProps) {
   return (
     <div className="flex flex-col items-center">

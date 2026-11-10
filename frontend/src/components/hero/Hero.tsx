@@ -78,7 +78,7 @@ export function Hero() {
                 <GithubIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com/in/nacho-miranda"
+                href="https://www.linkedin.com/in/nachomirnd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 text-slate-400 hover:text-slate-100 hover:bg-[#121724] border border-transparent hover:border-[#1e273a] rounded-lg transition-colors"

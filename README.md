@@ -219,5 +219,5 @@ node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app
 - **Nombre**: Nacho Miranda
 - **Rol**: Estudiante de Desarrollo de Software / Junior Backend Developer
 - **Email**: [nachomirnd@gmail.com](mailto:nachomirnd@gmail.com)
-- **LinkedIn**: [linkedin.com/in/nacho-miranda](https://linkedin.com/in/nacho-miranda)
+- **LinkedIn**: [linkedin.com/in/nachomirnd](https://www.linkedin.com/in/nachomirnd/)
 - **GitHub**: [github.com/champagneplease](https://github.com/champagneplease)

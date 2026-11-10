@@ -114,7 +114,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="https://linkedin.com/in/nacho-miranda"
+                href="https://www.linkedin.com/in/nachomirnd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3.5 rounded-lg border border-zinc-700 bg-black hover:border-zinc-500 transition-colors text-zinc-200 hover:text-white"
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     LinkedIn
                   </div>
                   <div className="font-mono text-xs sm:text-sm text-white font-medium">
-                    linkedin.com/in/nacho-miranda
+                    linkedin.com/in/nachomirnd
                   </div>
                 </div>
               </a>
