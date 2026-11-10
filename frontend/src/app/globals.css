@@ -2,33 +2,110 @@
 
 :root {
   color-scheme: dark;
-  --background: #000000;
-  --foreground: #ededed;
-  --muted: #888888;
-  --border: #1a1a1a;
-  --border-hover: #2e2e2e;
-  --card: #0a0a0a;
+  --p-bg: #000000;
+  --p-surface: #0a0a0a;
+  --p-ink: #ffffff;
+  --p-muted: #888888;
+  --p-accent: #ffffff;
+  --p-accent-ink: #000000;
+  --p-action: #ffffff;
+  --p-action-ink: #000000;
+  --p-inv-bg: #ffffff;
+  --p-inv-surface: #f4f4f4;
+  --p-inv-ink: #000000;
+  --p-inv-muted: #666666;
+  --p-inv-accent: #000000;
+  --p-inv-accent-ink: #ffffff;
+  --p-inv-action: #000000;
+  --p-inv-action-ink: #ffffff;
+
+  /* Typography: Host Grotesk + JetBrains Mono */
+  --font-display: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-text: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.04em;
 }
 
 html {
   color-scheme: dark;
   background-color: #000000;
   color: #ededed;
+  font-family: var(--font-text);
   scroll-behavior: smooth;
 }
 
 body {
   background-color: #000000;
   color: #ededed;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: -0.011em;
+  font-family: var(--font-text);
+  letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Monospace fonts for code & architecture */
 code, pre, .font-mono {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
+}
+
+/* Taste-skill button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.btn-primary:hover {
+  background-color: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0a0a0a;
+  color: #ededed;
+  border: 1px solid #27272a;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.btn-secondary:hover {
+  border-color: #52525b;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Taste-skill card hover */
+.card-taste {
+  border: 1px solid #1f1f23;
+  background-color: #08080a;
+  border-radius: 6px;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.card-taste:hover {
+  border-color: #3f3f46;
+  transform: translateY(-2px);
 }
 
 /* Reduced motion accessibility */
@@ -49,13 +126,6 @@ code, pre, .font-mono {
 :focus-visible {
   outline: 1px solid #ffffff;
   outline-offset: 2px;
-}
-
-/* Form validation following modern web guidance */
-input:user-invalid,
-textarea:user-invalid {
-  border-color: #71717a !important;
-  background-color: rgba(255, 255, 255, 0.02);
 }
 
 /* Clean minimal selection */

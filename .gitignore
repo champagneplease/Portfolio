@@ -25,6 +25,9 @@ yarn-error.log*
 # Database & Docker volumes
 postgres_data/
 
+# Taste skill cache
+.taste-skill/
+
 # OS Files
 .DS_Store
 *.pem

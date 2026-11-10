@@ -238,7 +238,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 rounded bg-white hover:bg-zinc-200 disabled:opacity-50 text-black font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+              className="btn-primary w-full disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -258,3 +258,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

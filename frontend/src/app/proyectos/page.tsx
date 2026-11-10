@@ -69,7 +69,7 @@ export default function ProjectsPage() {
                   href={burgerSosa.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-colors"
+                  className="btn-primary"
                 >
                   <span>Visitar sitio en producción</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
               )}
               <Link
                 href="/proyectos/burger-sosa"
-                className="inline-flex items-center gap-1 text-xs font-mono text-zinc-400 hover:text-white px-3 py-2 border border-zinc-800 rounded hover:border-zinc-700 transition-colors"
+                className="btn-secondary"
               >
                 <span>Ver arquitectura y pipeline</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -105,7 +105,7 @@ export default function ProjectsPage() {
           {secondaryProjects.map((p) => (
             <div
               key={p.slug}
-              className="border border-zinc-800 bg-zinc-950/60 rounded-lg p-6 flex flex-col justify-between space-y-4 hover:border-zinc-700 transition-colors"
+              className="border border-zinc-800 bg-zinc-950/60 rounded-lg p-6 flex flex-col justify-between space-y-4 card-taste"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
@@ -180,3 +180,4 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
