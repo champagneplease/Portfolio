@@ -15,7 +15,6 @@ import {
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { DeveloperGreeting } from "@/components/hero/DeveloperGreeting";
 import { TypewriterText } from "@/components/hero/TypewriterText";
-import { NetworkBackground } from "@/components/hero/NetworkBackground";
 import { HeroProfile } from "@/components/hero/HeroProfile";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PROJECTS_DATA } from "@/lib/projects-data";
@@ -30,11 +29,8 @@ export default function HomePage() {
 
   return (
     <div className="w-full">
-      {/* 1. HERO SECTION (Inspired by Devfolio layout + NestJS Red Accent) */}
+      {/* 1. HERO SECTION (NestJS Red Accent + High-Contrast Minimalist) */}
       <section className="relative w-full border-b border-zinc-800/80 overflow-hidden">
-        {/* Geometric Network background */}
-        <NetworkBackground />
-
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-12 animate-fade-in-up">
           {/* Main Grid: Presentation left / Profile circle right (Smooth lateral entrance) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
