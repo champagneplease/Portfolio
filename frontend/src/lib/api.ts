@@ -1,8 +1,8 @@
 import { Project, ContactFormData, ApiResponse } from '@/types/project';
 import { PROJECTS_DATA } from './projects-data';
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api').trim().replace(/\/+$/, '');
+const API_BASE_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 
 export async function fetchProjects(): Promise<{
   projects: Project[];
