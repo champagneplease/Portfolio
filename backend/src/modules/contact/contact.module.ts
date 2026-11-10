@@ -7,3 +7,4 @@ import { ContactService } from './contact.service';
   providers: [ContactService],
 })
 export class ContactModule {}
+

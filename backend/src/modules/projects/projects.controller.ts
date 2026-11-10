@@ -18,3 +18,4 @@ export class ProjectsController {
     return this.projectsService.findBySlug(slug);
   }
 }
+

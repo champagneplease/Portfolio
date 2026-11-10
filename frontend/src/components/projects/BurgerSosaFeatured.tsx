@@ -172,3 +172,4 @@ export function BurgerSosaFeatured({ project, onSelectProject }: BurgerSosaFeatu
     </div>
   );
 }
+

@@ -196,3 +196,4 @@ La aplicación web estará disponible en `http://localhost:3000`.
 - **Email**: [contactonachomiranda@gmail.com](mailto:contactonachomiranda@gmail.com)
 - **LinkedIn**: [linkedin.com/in/nacho-miranda](https://linkedin.com/in/nacho-miranda)
 - **GitHub**: [github.com/champagneplease](https://github.com/champagneplease)
+

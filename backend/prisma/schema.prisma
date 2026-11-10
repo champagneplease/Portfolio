@@ -35,3 +35,4 @@ model ContactMessage {
   ipAddress String?
   createdAt DateTime @default(now())
 }
+

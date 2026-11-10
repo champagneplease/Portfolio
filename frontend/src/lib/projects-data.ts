@@ -146,3 +146,4 @@ export const PROJECTS_DATA: Project[] = [
     order: 5,
   },
 ];
+

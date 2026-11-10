@@ -18,3 +18,4 @@ export class ContactController {
     return this.contactService.create(createContactDto, ip);
   }
 }
+

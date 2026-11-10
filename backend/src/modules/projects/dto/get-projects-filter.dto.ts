@@ -5,3 +5,4 @@ export class GetProjectsFilterDto {
   @IsBooleanString()
   featured?: string;
 }
+
