@@ -3,6 +3,9 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+# Placeholder for build-time prisma generate (overridden by Railway at runtime)
+ENV DATABASE_URL="postgresql://placeholder:placeholder@localhost:5432/placeholder"
+
 # Install dependencies needed for build
 COPY package*.json ./
 COPY prisma ./prisma/
@@ -24,6 +27,8 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=4000
+# Default fallback for build-time prisma generate (overridden by Railway at runtime)
+ENV DATABASE_URL="postgresql://placeholder:placeholder@localhost:5432/placeholder"
 
 # Install openssl for Prisma runtime
 RUN apk add --no-cache openssl
