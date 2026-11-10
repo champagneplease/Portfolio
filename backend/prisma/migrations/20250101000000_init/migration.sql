@@ -38,3 +38,4 @@ CREATE TABLE IF NOT EXISTS "ContactMessage" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX IF NOT EXISTS "Project_slug_key" ON "Project"("slug");
+

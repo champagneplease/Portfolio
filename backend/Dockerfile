@@ -28,6 +28,9 @@ ENV PORT=4000
 # Install openssl for Prisma runtime
 RUN apk add --no-cache openssl
 
+# Ensure non-root node user owns /app to allow creating node_modules
+RUN chown -R node:node /app
+
 # Create non-root user for security
 USER node
 
