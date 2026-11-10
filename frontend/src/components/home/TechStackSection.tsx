@@ -23,7 +23,7 @@ const CATEGORIES: StackCategory[] = [
   {
     number: '01',
     title: 'Backend Development',
-    subtitle: 'APIs, arquitectura y desarrollo de servicios',
+    subtitle: 'APIs, arquitectura y servicios backend',
     isPrincipal: true,
     items: [
       {
@@ -39,12 +39,12 @@ const CATEGORIES: StackCategory[] = [
       },
       {
         name: 'FastAPI',
-        role: 'APIs con Python',
+        role: 'APIs REST con Python',
         iconSrc: '/assets/icons/demo/fastapi.svg',
       },
       {
         name: 'Django',
-        role: 'Backend Python',
+        role: 'Backend & Web Framework',
         iconSrc: '/assets/icons/demo/django.svg',
       },
     ],
@@ -104,7 +104,7 @@ const CATEGORIES: StackCategory[] = [
   {
     number: '03',
     title: 'Databases & Data Management',
-    subtitle: 'Persistencia, consultas y gestión de datos',
+    subtitle: 'Persistencia, consultas y modelado relacional / NoSQL',
     items: [
       {
         name: 'PostgreSQL',
@@ -173,170 +173,128 @@ const CATEGORIES: StackCategory[] = [
         role: 'Interfaces reactivas',
         iconSrc: '/assets/icons/demo/react.svg',
       },
-      {
-        name: 'Tailwind CSS',
-        role: 'Diseño utilitario',
-        iconSrc: '/assets/icons/demo/tailwindcss.svg',
-      },
     ],
   },
   {
     number: '06',
     title: 'Development Tools',
-    subtitle: 'Herramientas de desarrollo y productividad',
+    subtitle: 'Herramientas de desarrollo, testing y despliegues',
     items: [
+      {
+        name: 'Antigravity IDE',
+        role: 'AI-First IDE & Agentic Coding',
+        iconSrc: '/assets/icons/demo/antigravity.svg',
+      },
       {
         name: 'Postman',
         role: 'API Testing & Docs',
         iconSrc: '/assets/icons/demo/postman.svg',
       },
       {
-        name: 'VS Code',
-        role: 'Editor de código',
-        iconSrc: '/assets/icons/demo/visual-studio-code.svg',
-      },
-      {
-        name: 'Antigravity',
-        role: 'AI-Assisted Development',
-        iconSrc: '/assets/icons/demo/antigravity.svg',
-      },
-      {
         name: 'Vercel',
-        role: 'Web Deployment',
+        role: 'Web & Serverless Deployment',
         iconSrc: '/assets/icons/demo/vercel.svg',
         invert: true,
-      },
-      {
-        name: 'Netlify',
-        role: 'Web Deployment',
-        iconSrc: '/assets/icons/demo/netlify.svg',
       },
     ],
   },
 ];
 
-function CategoryPanel({ category }: { category: StackCategory }) {
-  return (
-    <div className="card-taste border border-zinc-800/80 bg-[#0c0c0e]/95 rounded-xl p-5 sm:p-6 space-y-4 shadow-md transition-all duration-300 hover:border-zinc-700">
-      {/* Panel Header */}
-      <div className="flex items-start justify-between gap-3 border-b border-zinc-800/80 pb-3.5">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-zinc-400 font-semibold">
-              {category.number} /
-            </span>
-            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-              {category.title}
-            </h3>
-          </div>
-          <p className="text-xs text-zinc-400 font-mono mt-1">
-            {category.subtitle}
-          </p>
-        </div>
-
-        {category.isPrincipal && (
-          <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
-            Principal
-          </span>
-        )}
-      </div>
-
-      {/* Compact Items Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-        {category.items.map((item) => (
-          <div
-            key={item.name}
-            className={`group flex items-center gap-2.5 p-2.5 rounded-lg border transition-all duration-200 select-none ${
-              item.featured
-                ? 'border-[#e0234e]/50 bg-gradient-to-r from-[#e0234e]/10 to-zinc-900/60 shadow-[0_0_12px_rgba(224,35,78,0.15)] hover:border-[#e0234e]'
-                : 'border-zinc-800/80 bg-zinc-900/50 hover:bg-zinc-800/60 hover:border-zinc-700'
-            }`}
-          >
-            {/* Compact Icon */}
-            <div className="w-8 h-8 rounded-md bg-zinc-900/90 border border-zinc-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-              <Image
-                src={item.iconSrc}
-                alt={item.name}
-                width={20}
-                height={20}
-                className={`w-5 h-5 object-contain ${
-                  item.invert ? 'filter invert brightness-125' : ''
-                }`}
-              />
-            </div>
-
-            {/* Content */}
-            <div className="min-w-0 flex-1">
-              <div className="text-xs sm:text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
-                {item.name}
-              </div>
-              <div className="text-[10px] sm:text-[11px] font-mono text-zinc-400 truncate">
-                {item.role}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function TechStackSection() {
-  const leftColumn = [CATEGORIES[0], CATEGORIES[2], CATEGORIES[4]]; // 01 Backend, 03 Databases, 05 Frontend
-  const rightColumn = [CATEGORIES[1], CATEGORIES[3], CATEGORIES[5]]; // 02 DevOps, 04 CI/CD, 06 Tools
-
   return (
     <section className="border-t border-zinc-800/80 bg-black py-16 sm:py-20 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto space-y-12">
-        {/* Section Header */}
+        {/* Section Header: Clean, Unboxed & Minimalist */}
         <ScrollReveal direction="up">
-          <div className="text-center space-y-2.5">
+          <div className="space-y-3">
             <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest font-semibold">
               Tecnologías & Arquitectura
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-              Skills & Stack
-            </h2>
-            {/* Center accent underline bar */}
-            <div
-              aria-hidden="true"
-              className="mx-auto mt-2 h-1 w-14 rounded-full bg-[#e0234e] shadow-[0_0_14px_rgba(224,35,78,0.85)]"
-            />
-            <p className="text-sm sm:text-base text-zinc-300 max-w-xl mx-auto pt-1 leading-relaxed">
-              Herramientas, arquitectura y tecnologías con las que construyo y despliego software en producción.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 border-b border-zinc-800 pb-4">
+              <div className="space-y-1">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+                  Skills & Stack
+                </h2>
+                <div
+                  aria-hidden="true"
+                  className="h-1 w-12 rounded-full bg-[#e0234e]"
+                />
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-300 font-mono max-w-md sm:text-right">
+                Herramientas, arquitectura y tecnologías con las que construyo y despliego software en producción.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* 2-Column Balanced Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          {/* Left Column: Backend, Databases, Frontend */}
-          <div className="space-y-6">
-            {leftColumn.map((category, idx) => (
-              <ScrollReveal
-                key={category.number}
-                direction="left"
-                delay={idx * 75}
-                distance={30}
-              >
-                <CategoryPanel category={category} />
-              </ScrollReveal>
-            ))}
-          </div>
+        {/* Categories: Unboxed, Clean & Airy Rows */}
+        <div className="space-y-10">
+          {CATEGORIES.map((category, idx) => (
+            <ScrollReveal
+              key={category.number}
+              direction="up"
+              delay={idx * 50}
+              distance={20}
+              className="space-y-4 border-b border-zinc-800/60 pb-8 last:border-b-0 last:pb-0"
+            >
+              {/* Category Header Row */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs font-mono text-[#e0234e] font-semibold tracking-wider">
+                    {category.number} //
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                    {category.title}
+                  </h3>
+                  {category.isPrincipal && (
+                    <span className="ml-2 px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
+                      Foco Principal
+                    </span>
+                  )}
+                </div>
+                <span className="text-xs font-mono text-zinc-400">
+                  {category.subtitle}
+                </span>
+              </div>
 
-          {/* Right Column: DevOps & Cloud, CI/CD, Development Tools */}
-          <div className="space-y-6">
-            {rightColumn.map((category, idx) => (
-              <ScrollReveal
-                key={category.number}
-                direction="right"
-                delay={idx * 75}
-                distance={30}
-              >
-                <CategoryPanel category={category} />
-              </ScrollReveal>
-            ))}
-          </div>
+              {/* Items Grid: Unboxed, Airy, Sleek */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 pt-1">
+                {category.items.map((item) => (
+                  <div
+                    key={item.name}
+                    className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-200 group select-none ${
+                      item.featured
+                        ? 'bg-gradient-to-r from-[#e0234e]/10 via-[#e0234e]/5 to-transparent border-l-2 border-[#e0234e] pl-2.5'
+                        : 'hover:bg-zinc-900/40 border-l-2 border-transparent hover:border-zinc-700 pl-2.5'
+                    }`}
+                  >
+                    {/* Icon */}
+                    <div className="w-8 h-8 rounded-md bg-zinc-900/60 border border-zinc-800/80 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-zinc-600 transition-all">
+                      <Image
+                        src={item.iconSrc}
+                        alt={item.name}
+                        width={20}
+                        height={20}
+                        className={`w-5 h-5 object-contain ${
+                          item.invert ? 'filter invert brightness-125' : ''
+                        }`}
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
+                        {item.name}
+                      </div>
+                      <div className="text-[11px] font-mono text-zinc-400 truncate">
+                        {item.role}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
