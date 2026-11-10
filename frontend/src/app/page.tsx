@@ -17,6 +17,7 @@ import { DeveloperGreeting } from "@/components/hero/DeveloperGreeting";
 import { TypewriterText } from "@/components/hero/TypewriterText";
 import { HeroProfile } from "@/components/hero/HeroProfile";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TechStackSection } from "@/components/home/TechStackSection";
 import { PROJECTS_DATA } from "@/lib/projects-data";
 
 export default function HomePage() {
@@ -136,7 +137,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. BURGER SOSA FEATURED SPOTLIGHT */}
+      {/* 2. TECNOLOGÍAS & STACK (Inspirado en layout de Skills por tarjetas) */}
+      <TechStackSection />
+
+      {/* 3. BURGER SOSA FEATURED SPOTLIGHT */}
       <section className="border-t border-zinc-800 bg-[#08080a] py-20">
         <div className="max-w-5xl mx-auto px-6 space-y-8">
           <ScrollReveal direction="up">
