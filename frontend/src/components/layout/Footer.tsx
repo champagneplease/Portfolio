@@ -1,49 +1,36 @@
-import { Terminal, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
+import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#141b2a] bg-[#07090f] py-12 px-4 sm:px-6 text-xs text-slate-500">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        {/* Brand & Stack Info */}
-        <div className="space-y-1 text-center sm:text-left">
-          <div className="font-semibold text-slate-200 text-sm">
-            Nacho Miranda <span className="font-normal text-slate-400">— Backend Developer</span>
-          </div>
-          <div className="font-mono text-[11px] text-slate-500">
-            Built with Next.js + NestJS + PostgreSQL + Docker
-          </div>
+    <footer className="w-full border-t border-zinc-900 bg-black py-12 px-6 text-xs text-zinc-400">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <p className="text-zinc-200 font-medium">Nacho Miranda</p>
+          <p className="text-zinc-400 font-mono mt-0.5">
+            Backend Developer | NestJS + TypeScript & Python
+          </p>
         </div>
 
-        {/* Links & Copyright */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 font-mono text-xs text-zinc-400">
+          <Link href="/proyectos" className="hover:text-zinc-200 transition-colors">
+            Proyectos
+          </Link>
+          <Link href="/devops" className="hover:text-zinc-200 transition-colors">
+            DevOps
+          </Link>
+          <Link href="/sobre-mi" className="hover:text-zinc-200 transition-colors">
+            Sobre mí
+          </Link>
+          <Link href="/contacto" className="hover:text-zinc-200 transition-colors">
+            Contacto
+          </Link>
           <a
             href="https://github.com/champagneplease"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-slate-300 transition-colors"
+            className="hover:text-zinc-200 transition-colors"
           >
             GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/nacho-miranda"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-slate-300 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="mailto:contactonachomiranda@gmail.com"
-            className="hover:text-slate-300 transition-colors"
-          >
-            Email
-          </a>
-          <a
-            href="#top"
-            className="text-emerald-400 hover:text-emerald-300 font-mono transition-colors"
-          >
-            ↑ Volver arriba
           </a>
         </div>
       </div>
