@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Left: Brand */}
         <div className="flex-1 flex items-center justify-start">
           <Link
@@ -142,7 +142,7 @@ export function Navbar() {
             : 'max-h-0 opacity-0 border-transparent bg-transparent pointer-events-none'
         }`}
       >
-        <div className="px-6 py-5 space-y-4">
+        <div className="px-4 sm:px-6 py-5 space-y-4">
           <nav className="flex flex-col space-y-1 text-sm">
             {NAV_ITEMS.map((item, index) => {
               const isActive =

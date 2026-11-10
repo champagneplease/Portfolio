@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-zinc-800 bg-[#08080a] py-12 px-6 text-sm text-zinc-300">
+    <footer className="w-full border-t border-zinc-800 bg-[#08080a] py-12 px-4 sm:px-6 text-sm text-zinc-300 overflow-hidden">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <p className="text-white font-bold">Nacho Miranda</p>

@@ -93,7 +93,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up overflow-hidden">
       {/* Header */}
       <ScrollReveal direction="up">
         <div className="space-y-3">

@@ -32,11 +32,11 @@ export default function HomePage() {
     <div className="w-full">
       {/* 1. HERO SECTION (NestJS Red Accent + High-Contrast Minimalist) */}
       <section className="relative w-full border-b border-zinc-800/80 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-12 animate-fade-in-up">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-12 animate-fade-in-up">
           {/* Main Grid: Presentation left / Profile circle right (Smooth lateral entrance) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column (Slides in from Left) */}
-            <ScrollReveal direction="left" distance={32} duration={800} className="lg:col-span-7 space-y-6">
+            <ScrollReveal direction="left" distance={32} duration={850} className="lg:col-span-7 space-y-6">
               {/* Dynamic Developer Terminal Greeting (No static box/pill) */}
               <DeveloperGreeting />
 
@@ -45,11 +45,11 @@ export default function HomePage() {
                   Nacho Miranda
                 </h1>
 
-                {/* Real-time Typewriter in NestJS Ruby Red (Locked on a single line, no wrapping or layout shift) */}
-                <div className="text-[clamp(1.65rem,4.4vw,3.6rem)] sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight min-h-[1.2em] flex items-center leading-none whitespace-nowrap overflow-visible">
+                {/* Real-time Typewriter in NestJS Ruby Red (Responsive clamp to never overflow narrow mobile viewports) */}
+                <div className="text-[clamp(1.25rem,6vw,3.6rem)] sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight min-h-[1.2em] flex items-center leading-none whitespace-nowrap overflow-hidden max-w-full">
                   <TypewriterText
                     text="Backend Developer!"
-                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight whitespace-nowrap typewriter-glow"
+                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight whitespace-nowrap typewriter-glow max-w-full"
                   />
                 </div>
               </div>
@@ -141,8 +141,8 @@ export default function HomePage() {
       <TechStackSection />
 
       {/* 3. BURGER SOSA FEATURED SPOTLIGHT */}
-      <section className="border-t border-zinc-800 bg-[#08080a] py-20">
-        <div className="max-w-5xl mx-auto px-6 space-y-8">
+      <section className="border-t border-zinc-800 bg-[#08080a] py-16 sm:py-20 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
           <ScrollReveal direction="up">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
@@ -159,7 +159,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-10 space-y-8 shadow-xl">
+          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-5 sm:p-10 space-y-8 shadow-xl">
             {/* Split row: Left text slides from left, Right architecture slides from right */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <ScrollReveal direction="left" distance={36} duration={850} className="lg:col-span-6 space-y-4">
@@ -273,7 +273,7 @@ export default function HomePage() {
             {/* Actions */}
             <ScrollReveal direction="up" delay={250}>
               <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <a
                     href={
                       burgerSosa.liveUrl || "https://burger-sosa.up.railway.app/"
@@ -300,7 +300,7 @@ export default function HomePage() {
       </section>
 
       {/* 3. MÁS ALLÁ DEL CÓDIGO (Lateral reveals: text from left, quote from right) */}
-      <section className="max-w-5xl mx-auto px-6 py-20 space-y-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-8 overflow-hidden">
         <ScrollReveal direction="up">
           <div className="space-y-2">
             <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
@@ -355,8 +355,8 @@ export default function HomePage() {
       </section>
 
       {/* 4. EXPLORANDO DEVOPS & INFRAESTRUCTURA (Staggered lateral cards) */}
-      <section className="border-t border-zinc-800 bg-[#08080a] py-20">
-        <div className="max-w-5xl mx-auto px-6 space-y-8">
+      <section className="border-t border-zinc-800 bg-[#08080a] py-16 sm:py-20 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
           <ScrollReveal direction="up">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
@@ -446,7 +446,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. OTROS PROYECTOS (Staggered card reveal) */}
-      <section className="max-w-5xl mx-auto px-6 py-20 space-y-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-8 overflow-hidden">
         <ScrollReveal direction="up">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
             <div>
@@ -498,9 +498,9 @@ export default function HomePage() {
       </section>
 
       {/* 6. CALL TO ACTION FINAL */}
-      <section className="border-t border-zinc-800 bg-[#08080a] py-20">
+      <section className="border-t border-zinc-800 bg-[#08080a] py-16 sm:py-20 overflow-hidden">
         <ScrollReveal direction="up" distance={30}>
-          <div className="max-w-3xl mx-auto px-6 text-center space-y-5">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-5">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
               ¿Hablamos?
             </h2>

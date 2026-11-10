@@ -68,6 +68,12 @@ export function ScrollReveal({
       return 'translate3d(0, 0, 0)';
     }
 
+    // On mobile devices (< 768px), avoid off-screen horizontal translate that expands document width
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (isMobile && (direction === 'left' || direction === 'right')) {
+      return `translate3d(0, ${Math.min(distance, 20)}px, 0)`;
+    }
+
     switch (direction) {
       case 'up':
         return `translate3d(0, ${distance}px, 0)`;
@@ -90,7 +96,7 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={className}
+      className={`max-w-full ${className}`.trim()}
       style={{
         opacity: !isMounted || isVisible ? 1 : 0,
         transform: getTransform(),

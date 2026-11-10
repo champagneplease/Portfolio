@@ -202,7 +202,7 @@ const CATEGORIES: StackCategory[] = [
 
 export function TechStackSection() {
   return (
-    <section className="border-t border-zinc-800/80 bg-black py-16 sm:py-20 px-6 overflow-hidden">
+    <section className="border-t border-zinc-800/80 bg-black py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Section Header: Clean, Unboxed & Minimalist */}
         <ScrollReveal direction="up">

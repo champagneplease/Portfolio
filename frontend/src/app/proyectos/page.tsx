@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   const secondaryProjects = PROJECTS_DATA.filter((p) => !p.featured);
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up overflow-hidden">
       {/* Page Header */}
       <ScrollReveal direction="up">
         <div className="space-y-3">
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
             <span>Burger Sosa</span>
           </div>
 
-          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-10 space-y-6 shadow-xl card-taste">
+          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-5 sm:p-10 space-y-6 shadow-xl card-taste">
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
                 <span className="px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-semibold">
@@ -67,7 +67,7 @@ export default function ProjectsPage() {
 
             {/* Actions */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 {burgerSosa.liveUrl && (
                   <a
                     href={burgerSosa.liveUrl}

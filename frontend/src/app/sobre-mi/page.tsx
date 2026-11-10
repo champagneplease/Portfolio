@@ -32,7 +32,7 @@ const EVOLUTION_STEPS = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up overflow-hidden">
       {/* 1. Header & Bio */}
       <ScrollReveal direction="left" distance={36}>
         <section className="space-y-6">

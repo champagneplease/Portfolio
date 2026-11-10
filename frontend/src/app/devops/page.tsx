@@ -85,7 +85,7 @@ Production Deploy (Railway / Cloud)`,
 
 export default function DevOpsPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up overflow-hidden">
       {/* Header */}
       <ScrollReveal direction="up">
         <div className="space-y-4">
@@ -112,7 +112,7 @@ export default function DevOpsPage() {
           const dir = idx % 2 === 0 ? 'left' : 'right';
           return (
             <ScrollReveal key={t.name} direction={dir} distance={36} duration={800}>
-              <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg card-taste">
+              <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-5 sm:p-8 space-y-5 shadow-lg card-taste">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-sm font-mono text-zinc-400 font-semibold">0{idx + 1}</span>
@@ -133,7 +133,7 @@ export default function DevOpsPage() {
                 {t.sample && (
                   <div className="pt-2">
                     <div className="text-xs font-mono text-zinc-300 mb-1.5 font-medium">Snippet ilustrativo:</div>
-                    <pre className="code-snippet-pre font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
+                    <pre className="code-snippet-pre font-mono text-xs sm:text-sm text-zinc-100 bg-black p-4 sm:p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner max-w-full">
                       {t.sample}
                     </pre>
                   </div>

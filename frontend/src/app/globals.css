@@ -27,6 +27,9 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -37,7 +40,27 @@ body {
   letter-spacing: -0.01em;
   hyphens: none !important;
   -webkit-hyphens: none !important;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Hard guard against horizontal layout shift / overflow on mobile */
+html,
+body,
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure code, pre and preformatted architecture boxes never expand container */
+pre,
+code,
+.architecture-flow-box,
+.code-snippet-pre {
+  max-width: 100%;
 }
 
 /* Headings with high contrast and natural line-height */

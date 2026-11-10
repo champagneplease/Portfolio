@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <article className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up">
+    <article className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up overflow-hidden">
       {/* Back button */}
       <div>
         <Link
@@ -170,7 +170,7 @@ export default async function ProjectDetailPage({
       </section>
 
       {/* Bottom Navigation */}
-      <div className="border-t border-zinc-800 pt-8 flex items-center justify-between">
+      <div className="border-t border-zinc-800 pt-8 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/proyectos"
           className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1.5 transition-colors font-medium"
