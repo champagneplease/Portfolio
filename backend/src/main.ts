@@ -75,10 +75,14 @@ async function bootstrap() {
   );
 
   const port = process.env.PORT || 4000;
+  logger.log(`Starting bootstrap on 0.0.0.0:${port} (process.env.PORT = ${process.env.PORT})...`);
   await app.listen(port, '0.0.0.0');
   logger.log(`🚀 NestJS Portfolio API running at http://0.0.0.0:${port}/api`);
   logger.log(`🩺 Health check endpoint: http://localhost:${port}/api/health`);
   logger.log(`📂 Projects endpoint: http://localhost:${port}/api/projects`);
 }
 
-bootstrap();
+bootstrap().catch((err) => {
+  console.error('❌ Fatal bootstrap error in NestJS:', err);
+  process.exit(1);
+});
