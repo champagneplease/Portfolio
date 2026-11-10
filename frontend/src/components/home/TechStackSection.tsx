@@ -28,23 +28,23 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'NestJS',
-        role: 'Backend TypeScript',
+        role: 'TypeScript Backend',
         iconSrc: '/assets/icons/demo/nestjs.svg',
         featured: true,
       },
       {
         name: 'Node.js',
-        role: 'Runtime JavaScript',
+        role: 'JS Runtime',
         iconSrc: '/assets/icons/demo/nodejs.svg',
       },
       {
         name: 'FastAPI',
-        role: 'APIs REST con Python',
+        role: 'Python APIs',
         iconSrc: '/assets/icons/demo/fastapi.svg',
       },
       {
         name: 'Django',
-        role: 'Backend & Web Framework',
+        role: 'Python Web',
         iconSrc: '/assets/icons/demo/django.svg',
       },
     ],
@@ -57,45 +57,45 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'Docker',
-        role: 'Contenedores aislados',
+        role: 'Containers',
         iconSrc: '/assets/icons/demo/docker.svg',
       },
       {
         name: 'Docker Compose',
-        role: 'Orquestación de servicios',
+        role: 'Multi-container',
         iconSrc: '/assets/icons/demo/docker.svg',
       },
       {
         name: 'Linux & Bash',
-        role: 'Servidores & CLI',
+        role: 'Servers & CLI',
         iconSrc: '/assets/icons/demo/bash.svg',
         invert: true,
       },
       {
         name: 'AWS',
-        role: 'Cloud (EC2, S3)',
+        role: 'EC2 · S3',
         iconSrc: '/assets/icons/demo/aws.svg',
         invert: true,
       },
       {
         name: 'Nginx',
-        role: 'Reverse Proxy & Web Server',
+        role: 'Reverse Proxy',
         iconSrc: '/assets/icons/demo/nginx.svg',
       },
       {
         name: 'Terraform',
-        role: 'Infrastructure as Code',
+        role: 'IaC',
         iconSrc: '/assets/icons/demo/terraform.svg',
       },
       {
         name: 'Railway',
-        role: 'PaaS & Producción',
+        role: 'Cloud PaaS',
         iconSrc: '/assets/icons/demo/railway.svg',
         invert: true,
       },
       {
         name: 'Render',
-        role: 'Cloud Deployment',
+        role: 'Cloud Hosting',
         iconSrc: '/assets/icons/demo/render.svg',
         invert: true,
       },
@@ -108,22 +108,22 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'PostgreSQL',
-        role: 'Base de datos relacional',
+        role: 'SQL Relacional',
         iconSrc: '/assets/icons/demo/postgres.svg',
       },
       {
         name: 'MySQL',
-        role: 'Base de datos relacional',
+        role: 'SQL Relacional',
         iconSrc: '/assets/icons/demo/mysql.svg',
       },
       {
         name: 'MongoDB',
-        role: 'Base de datos NoSQL',
+        role: 'NoSQL DB',
         iconSrc: '/assets/icons/demo/mongodb.svg',
       },
       {
         name: 'Supabase',
-        role: 'Backend-as-a-Service',
+        role: 'BaaS & Auth',
         iconSrc: '/assets/icons/demo/supabase.svg',
       },
       {
@@ -141,18 +141,18 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'Git',
-        role: 'Control de versiones',
+        role: 'Version Control',
         iconSrc: '/assets/icons/demo/git.svg',
       },
       {
         name: 'GitHub',
-        role: 'Alojamiento de código',
+        role: 'Code Hosting',
         iconSrc: '/assets/icons/demo/github.svg',
         invert: true,
       },
       {
         name: 'GitHub Actions',
-        role: 'Pipelines CI/CD',
+        role: 'CI/CD Pipelines',
         iconSrc: '/assets/icons/demo/github-actions.svg',
       },
     ],
@@ -164,13 +164,13 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'Next.js',
-        role: 'App Router & SSR',
+        role: 'SSR & App Router',
         iconSrc: '/assets/icons/demo/nextjs.svg',
         invert: true,
       },
       {
         name: 'React',
-        role: 'Interfaces reactivas',
+        role: 'UI Library',
         iconSrc: '/assets/icons/demo/react.svg',
       },
     ],
@@ -182,17 +182,17 @@ const CATEGORIES: StackCategory[] = [
     items: [
       {
         name: 'Antigravity IDE',
-        role: 'AI-First IDE & Agentic Coding',
+        role: 'AI-First IDE',
         iconSrc: '/assets/icons/demo/antigravity.svg',
       },
       {
         name: 'Postman',
-        role: 'API Testing & Docs',
+        role: 'API Testing',
         iconSrc: '/assets/icons/demo/postman.svg',
       },
       {
         name: 'Vercel',
-        role: 'Web & Serverless Deployment',
+        role: 'Deployment',
         iconSrc: '/assets/icons/demo/vercel.svg',
         invert: true,
       },
@@ -247,10 +247,11 @@ export function TechStackSection() {
                     {category.title}
                   </h3>
                   {category.isPrincipal && (
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#e0234e]" aria-hidden="true" />
-                      foco principal
-                    </span>
+                    <span
+                      title="Foco de desarrollo principal"
+                      className="w-2 h-2 rounded-full bg-[#e0234e] shadow-[0_0_8px_rgba(224,35,78,0.7)] shrink-0"
+                      aria-label="Foco principal"
+                    />
                   )}
                 </div>
                 <p className="text-xs sm:text-sm font-mono text-zinc-400">
