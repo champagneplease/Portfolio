@@ -175,6 +175,28 @@ node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app
 
 ---
 
+## 🚀 Despliegue en Producción (Railway / Vercel)
+
+El proyecto está diseñado para desplegarse como un sistema desacoplado y resiliente:
+
+### 1. Base de Datos & Backend (Railway)
+- **PostgreSQL**: Provisionado con el plugin oficial de Railway.
+- **Backend (NestJS)**:
+  - **Root Directory**: `backend`
+  - **Variables de Entorno**:
+    - `DATABASE_URL`: `${{Postgres.DATABASE_URL}}`
+    - `NODE_ENV`: `production`
+    - `CORS_ORIGIN`: `https://tu-frontend.vercel.app, https://tu-dominio.com`
+  - **Migraciones automáticas**: Al iniciar el contenedor, ejecuta `npx prisma migrate deploy` antes de levantar el servidor HTTP.
+
+### 2. Frontend (Vercel o Railway)
+- **Root Directory**: `frontend`
+- **Variables de Entorno**:
+  - `NEXT_PUBLIC_API_URL`: `https://tu-backend.up.railway.app/api`
+  - `NEXT_PUBLIC_SITE_URL`: `https://tu-frontend.vercel.app`
+
+---
+
 ## 🔌 Endpoints de la API REST
 
 | Método | Endpoint              | Descripción                                             | Rate Limit  |
