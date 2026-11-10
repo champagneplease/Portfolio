@@ -13,20 +13,22 @@ Este repositorio contiene la arquitectura completa de mi portfolio personal prof
 portfolio/
 ├── frontend/                     # Aplicación Next.js (App Router, Tailwind CSS, TypeScript)
 │   ├── src/
-│   │   ├── app/                  # Rutas App Router, layout, metadata SEO, robots & sitemap
+│   │   ├── app/                  # Rutas App Router (multi-página), layout, SEO, robots & sitemap
+│   │   │   ├── page.tsx          # Home: Hero, Terminal, Spotlight Burger Sosa, DevOps & Filosofía
+│   │   │   ├── proyectos/        # Catálogo técnico de proyectos
+│   │   │   │   ├── page.tsx      # Listado completo de proyectos
+│   │   │   │   └── [slug]/       # Páginas dinámicas de caso de estudio
+│   │   │   ├── devops/           # Sección dedicada a Docker, AWS, Terraform, Linux y CI/CD
+│   │   │   ├── sobre-mi/         # Biografía, trayectoria, fundamentos vs IA y búsqueda activa
+│   │   │   ├── contacto/         # Canales directos y formulario funcional con honeypot
+│   │   │   ├── layout.tsx        # Shell global, fuentes (Host Grotesk, JetBrains Mono) y Navbar
+│   │   │   ├── globals.css       # Tokens de diseño Taste-skill, paleta monocromática y tipografía
+│   │   │   ├── robots.ts         # Generación dinámica de robots.txt
+│   │   │   └── sitemap.ts        # Generación dinámica de sitemap.xml
 │   │   ├── components/           # Componentes modulares y accesibles
-│   │   │   ├── hero/             # Hero section con terminal visual
-│   │   │   ├── about/            # Sobre mí & Enfoque actual
-│   │   │   ├── philosophy/       # "Más allá del código" (criterio técnico vs IA)
-│   │   │   ├── projects/         # Burger Sosa (producción) y proyectos secundarios
-│   │   │   ├── devops/           # Sección "Explorando DevOps & Cloud"
-│   │   │   ├── technologies/     # Stack categorizado con prioridad en Backend
-│   │   │   ├── journey/          # "De proyectos a producción"
-│   │   │   ├── seeking/          # "Qué estoy buscando" (búsqueda Junior genuina)
-│   │   │   ├── challenges/       # "Me gustan los problemas difíciles"
-│   │   │   ├── contact/          # Formulario de contacto con validación y honeypot
-│   │   │   └── layout/           # Navbar sticky, Drawer accesible y Footer
-│   │   ├── lib/                  # Cliente API con fallback resiliente y dataset estático
+│   │   │   ├── layout/           # Navbar sticky activo y Footer minimalista
+│   │   │   └── ui/               # Iconos SVG nativos (GitHub, LinkedIn)
+│   │   ├── lib/                  # Cliente API con fallback resiliente y dataset estático tipado
 │   │   └── types/                # Definiciones de tipos TypeScript estrictos
 │   ├── Dockerfile                # Multi-stage build con salida standalone y usuario non-root
 │   └── package.json
@@ -38,8 +40,8 @@ portfolio/
 │   │   │   └── interceptors/     # TransformInterceptor (formato uniforme) y Logging
 │   │   ├── modules/
 │   │   │   ├── prisma/           # PrismaService y conexión de base de datos
-│   │   │   ├── projects/         # Controller, Service y DTOs de proyectos
-│   │   │   ├── contact/          # Controller, Service y CreateContactDto con validación
+│   │   │   ├── projects/         # Controller, Service, DTOs y tests unitarios de proyectos
+│   │   │   ├── contact/          # Controller, Service, DTOs con validación y tests unitarios
 │   │   │   └── health/           # Healthcheck endpoint (/api/health)
 │   │   ├── app.module.ts         # Orquestación con ThrottlerModule y ConfigModule
 │   │   └── main.ts               # Bootstrap con Helmet, CORS y ValidationPipe
@@ -49,6 +51,7 @@ portfolio/
 │   ├── Dockerfile                # Multi-stage build optimizado para producción
 │   └── package.json
 │
+├── .github/workflows/ci.yml      # Pipeline CI automatizado (lint, build y tests)
 ├── docker-compose.yml            # Orquestación de PostgreSQL 16 + Backend + Frontend
 ├── .env.example                  # Plantilla de variables de entorno
 └── README.md
@@ -147,6 +150,24 @@ npm run dev
 ```
 
 La aplicación web estará disponible en `http://localhost:3000`.
+
+---
+
+### Ejecución de Pruebas y Linters
+
+```bash
+# Backend: Tests unitarios con Jest (Projects & Contact)
+cd backend && npm test
+
+# Backend: Verificación de compilación TypeScript
+cd backend && npm run build
+
+# Frontend: Compilación estática Next.js (App Router)
+cd frontend && npm run build
+
+# Frontend: Control de pautas anti-slop y tono técnico
+node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app/page.tsx --kind software
+```
 
 ---
 

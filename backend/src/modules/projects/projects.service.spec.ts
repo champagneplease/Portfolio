@@ -58,3 +58,4 @@ describe('ProjectsService', () => {
     await expect(service.findBySlug('non-existent')).rejects.toThrow();
   });
 });
+
