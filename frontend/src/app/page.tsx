@@ -1,6 +1,9 @@
 import Link from 'next/link';
-import { ArrowRight, ExternalLink, ArrowUpRight, Terminal, Server, Shield, Layers, Smartphone, Search, Database } from 'lucide-react';
+import { ArrowRight, ExternalLink, ArrowUpRight, Terminal, Server, Shield, Layers, Smartphone, Search, Database, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
+import { TypewriterText } from '@/components/hero/TypewriterText';
+import { NetworkBackground } from '@/components/hero/NetworkBackground';
+import { HeroProfile } from '@/components/hero/HeroProfile';
 import { PROJECTS_DATA } from '@/lib/projects-data';
 
 export default function HomePage() {
@@ -9,94 +12,137 @@ export default function HomePage() {
 
   return (
     <div className="w-full">
-      {/* 1. HERO SECTION */}
-      <section className="max-w-5xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-10">
-        <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-700 bg-zinc-900/80 text-xs font-mono text-zinc-200">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Nacho Miranda — Backend & DevOps</span>
+      {/* 1. HERO SECTION (Inspired by Devfolio layout + NestJS Red Accent) */}
+      <section className="relative w-full border-b border-zinc-800/80 overflow-hidden">
+        {/* Geometric Network background */}
+        <NetworkBackground />
+
+        <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-12">
+          {/* Main Grid: Presentation left / Profile circle right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Column (Greeting, Name, Real-time Typewriter in NestJS Red) */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-700/80 bg-zinc-900/90 text-xs font-mono text-zinc-300 backdrop-blur-sm shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Hola mundo. Te doy la bienvenida a mi portfolio</span>
+              </div>
+
+              <div className="space-y-3">
+                <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                  Soy <span className="text-white">Nacho Miranda</span>
+                </h1>
+
+                {/* Real-time Typewriter in NestJS Ruby Red */}
+                <div className="text-3xl sm:text-5xl font-bold tracking-tight min-h-[1.3em] flex items-center">
+                  <TypewriterText
+                    text="Backend Developer"
+                    className="text-[#e0234e] drop-shadow-[0_0_24px_rgba(224,35,78,0.45)]"
+                    cursorClassName="text-[#e0234e]"
+                  />
+                </div>
+              </div>
+
+              <p className="text-lg sm:text-xl text-zinc-200 font-medium leading-relaxed">
+                Estudiante de Desarrollo de Software enfocado en Backend, APIs, arquitectura y DevOps.
+              </p>
+
+              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl">
+                Me interesa construir software que no solo funcione, sino que pueda{' '}
+                <strong className="text-white font-semibold">crecer, desplegarse y mantenerse correctamente en producción</strong>.
+              </p>
+
+              {/* Action Buttons & Social Icons */}
+              <div className="space-y-5 pt-2">
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href="/proyectos" className="btn-primary">
+                    <span>Ver proyectos</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
+                  <Link href="/contacto" className="btn-secondary">
+                    <span>Contactarme</span>
+                  </Link>
+                </div>
+
+                {/* Social circular buttons matching inspiration layout */}
+                <div className="flex items-center gap-3 pt-1">
+                  <a
+                    href="https://github.com/champagneplease"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub de Nacho Miranda"
+                    title="GitHub"
+                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
+                  >
+                    <GithubIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/nacho-miranda"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn de Nacho Miranda"
+                    title="LinkedIn"
+                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
+                  >
+                    <LinkedinIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  </a>
+
+                  <a
+                    href="mailto:contactonachomiranda@gmail.com"
+                    aria-label="Enviar correo a Nacho Miranda"
+                    title="Email: contactonachomiranda@gmail.com"
+                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
+                  >
+                    <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  </a>
+
+                  <span className="text-xs font-mono text-zinc-400 pl-2">
+                    contactonachomiranda@gmail.com
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column (Circular Profile Picture with NestJS red halo) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <HeroProfile imageSrc="/avatar.png" alt="Nacho Miranda — Backend Developer" />
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
-            Backend Developer
-          </h1>
-
-          <p className="text-xl sm:text-2xl text-zinc-100 font-medium leading-relaxed">
-            Estudiante de Desarrollo de Software enfocado en Backend, APIs, arquitectura y DevOps.
-          </p>
-
-          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
-            Me interesa construir software que no solo funcione, sino que pueda{' '}
-            <strong className="text-white font-semibold">crecer, desplegarse y mantenerse correctamente en producción</strong>.
-          </p>
-        </div>
-
-        {/* Minimal Terminal */}
-        <div className="max-w-xl rounded-lg border border-zinc-700 bg-[#0c0c0e] p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 text-zinc-400 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-              <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-              <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-              <span className="ml-2 text-zinc-300 font-medium">nacho@macbook ~</span>
-            </div>
-            <span className="text-zinc-400">bash</span>
-          </div>
-
-          <div className="space-y-3">
-            <div>
-              <div className="text-zinc-400 flex items-center gap-1.5">
-                <span className="text-white font-bold">$</span>
-                <span className="text-white">whoami</span>
+          {/* Minimal Terminal Card */}
+          <div className="max-w-2xl rounded-lg border border-zinc-700 bg-[#0c0c0e]/95 p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl backdrop-blur-sm">
+            <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 text-zinc-400 text-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                <span className="ml-2 text-zinc-300 font-medium">nacho@macbook ~</span>
               </div>
-              <div className="text-zinc-100 pl-4 font-semibold mt-0.5">nacho-miranda</div>
+              <span className="text-zinc-400">bash</span>
             </div>
 
-            <div>
-              <div className="text-zinc-400 flex items-center gap-1.5">
-                <span className="text-white font-bold">$</span>
-                <span className="text-white">focus</span>
+            <div className="space-y-3">
+              <div>
+                <div className="text-zinc-400 flex items-center gap-1.5">
+                  <span className="text-white font-bold">$</span>
+                  <span className="text-white">whoami</span>
+                </div>
+                <div className="text-zinc-100 pl-4 font-semibold mt-0.5">nacho-miranda</div>
               </div>
-              <div className="text-zinc-200 pl-4 mt-0.5 space-y-1">
-                <div>• backend (NestJS, Express, Python, PostgreSQL, Prisma)</div>
-                <div>• devops & cloud (Docker, AWS, Terraform, Linux)</div>
-                <div>• arquitectura y software real en producción</div>
+
+              <div>
+                <div className="text-zinc-400 flex items-center gap-1.5">
+                  <span className="text-white font-bold">$</span>
+                  <span className="text-white">focus</span>
+                </div>
+                <div className="text-zinc-200 pl-4 mt-0.5 space-y-1">
+                  <div>• backend (NestJS, Express, Python, PostgreSQL, Prisma)</div>
+                  <div>• devops & cloud (Docker, AWS, Terraform, Linux)</div>
+                  <div>• arquitectura y software real en producción</div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center gap-4 pt-2">
-          <Link href="/proyectos" className="btn-primary">
-            <span>Ver proyectos</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-
-          <Link href="/contacto" className="btn-secondary">
-            <span>Contactarme</span>
-          </Link>
-
-          <div className="flex items-center gap-4 pl-2 text-xs font-mono text-zinc-300">
-            <a
-              href="https://github.com/champagneplease"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5 font-medium"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <span className="text-zinc-600">•</span>
-            <a
-              href="https://linkedin.com/in/nacho-miranda"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors flex items-center gap-1.5 font-medium"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-              <span>LinkedIn</span>
-            </a>
           </div>
         </div>
       </section>
