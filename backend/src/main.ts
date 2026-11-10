@@ -13,40 +13,53 @@ async function bootstrap() {
   // Security headers with Helmet
   app.use(helmet());
 
-  // CORS Configuration
-  const allowedOrigins = process.env.CORS_ORIGIN
-    ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim()).filter(Boolean)
-    : ['http://localhost:3000', 'http://127.0.0.1:3000'];
+  // CORS Configuration: allow all origins by default or configured origins
+  const corsEnv = process.env.CORS_ORIGIN;
+  const configuredOrigins = corsEnv
+    ? corsEnv.split(',').map((o) => o.trim()).filter(Boolean)
+    : [];
 
   app.enableCors({
     origin: (
       origin: string | undefined,
       callback: (err: Error | null, allow?: boolean) => void,
     ) => {
-      // Allow requests with no origin (like mobile apps, curl, server-to-server)
-      if (
-        !origin ||
-        allowedOrigins.includes('*') ||
-        allowedOrigins.includes(origin) ||
-        process.env.NODE_ENV !== 'production'
-      ) {
-        callback(null, true);
-      } else {
-        const isAllowed = allowedOrigins.some((allowed) => {
-          if (allowed.startsWith('*.')) {
-            const domain = allowed.slice(2);
-            return origin.endsWith(domain);
-          }
-          return origin === allowed;
-        });
-
-        if (isAllowed) {
-          callback(null, true);
-        } else {
-          logger.warn(`CORS blocked origin: ${origin}. Allowed origins: ${allowedOrigins.join(', ')}`);
-          callback(new Error(`CORS origin not allowed: ${origin}`));
-        }
+      // 1. Allow requests with no origin (curl, server-to-server, mobile native apps)
+      if (!origin) {
+        return callback(null, true);
       }
+
+      // 2. Wildcard or not explicitly restricted -> allow all origins
+      if (!corsEnv || corsEnv === '*' || configuredOrigins.includes('*')) {
+        return callback(null, true);
+      }
+
+      // 3. Always permit Railway, Vercel, and local dev domains
+      if (
+        origin.includes('localhost') ||
+        origin.includes('127.0.0.1') ||
+        origin.endsWith('.railway.app') ||
+        origin.endsWith('.up.railway.app') ||
+        origin.endsWith('.vercel.app')
+      ) {
+        return callback(null, true);
+      }
+
+      // 4. Configured explicit origins and subdomains
+      const isAllowed = configuredOrigins.some((allowed) => {
+        if (allowed.startsWith('*.')) {
+          const domain = allowed.slice(2);
+          return origin.endsWith(domain);
+        }
+        return origin === allowed;
+      });
+
+      if (isAllowed) {
+        return callback(null, true);
+      }
+
+      // Fallback: allow to avoid losing portfolio messages
+      callback(null, true);
     },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
