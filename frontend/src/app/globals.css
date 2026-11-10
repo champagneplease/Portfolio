@@ -344,7 +344,8 @@ html.light .bg-zinc-800 {
 html.light .bg-zinc-900\/60,
 html.light .bg-zinc-900\/70,
 html.light .bg-zinc-900\/80,
-html.light .bg-zinc-900\/90 {
+html.light .bg-zinc-900\/90,
+html.light .bg-zinc-900\/95 {
   background-color: rgba(244, 244, 245, 0.9) !important;
 }
 
@@ -452,6 +453,17 @@ html.light .group[class*="from-\[\#e0234e\]"] {
   background: linear-gradient(180deg, rgba(224, 35, 78, 0.05) 0%, #ffffff 100%) !important;
   border-color: rgba(224, 35, 78, 0.45) !important;
   box-shadow: 0 4px 20px -2px rgba(224, 35, 78, 0.12) !important;
+}
+
+/* Hero photo status pill in light mode */
+html.light .hero-status-pill {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .hero-status-pill span:not([class*="bg-"]) {
+  color: #18181b !important;
 }
 
 /* Buttons in light mode */

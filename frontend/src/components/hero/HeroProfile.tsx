@@ -48,9 +48,9 @@ export function HeroProfile({
           </div>
 
           {/* Floating status pill */}
-          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-700 bg-zinc-900/95 text-xs font-mono text-zinc-100 shadow-xl backdrop-blur-md whitespace-nowrap transition-transform duration-300 group-hover:scale-105">
-            <span className="w-2 h-2 rounded-full bg-[#e0234e] animate-pulse shadow-[0_0_8px_#e0234e]" />
-            <span>NestJS • Python • DevOps</span>
+          <div className="hero-status-pill absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/95 dark:bg-zinc-900/95 text-xs font-mono text-zinc-900 dark:text-zinc-100 shadow-xl backdrop-blur-md whitespace-nowrap transition-transform duration-300 group-hover:scale-105">
+            <span className="w-2 h-2 rounded-full bg-[#e0234e] animate-pulse shadow-[0_0_8px_#e0234e] shrink-0" />
+            <span className="font-medium text-zinc-900 dark:text-zinc-100">NestJS • Python • DevOps</span>
           </div>
         </div>
       </div>
