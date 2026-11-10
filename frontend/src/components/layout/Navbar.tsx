@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 
 const NAV_ITEMS = [
@@ -89,22 +88,42 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile menu trigger */}
+        {/* Mobile menu trigger with fluid morphing hamburger icon */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-zinc-400 hover:text-white p-2"
+          className="md:hidden relative w-10 h-10 rounded-lg flex flex-col items-center justify-center gap-1.5 text-zinc-300 hover:text-white hover:bg-zinc-900/60 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-600"
           aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          <span
+            className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+              mobileMenuOpen ? 'translate-y-[8px] rotate-45 bg-[#e0234e]' : 'bg-current'
+            }`}
+          />
+          <span
+            className={`w-5 h-[2px] rounded-full transition-all duration-200 ease-out origin-center ${
+              mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 bg-current'
+            }`}
+          />
+          <span
+            className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+              mobileMenuOpen ? '-translate-y-[8px] -rotate-45 bg-[#e0234e]' : 'bg-current'
+            }`}
+          />
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-b border-zinc-900 bg-black px-6 py-4 space-y-3">
-          <nav className="flex flex-col space-y-2 text-sm">
-            {NAV_ITEMS.map((item) => {
+      {/* Mobile Drawer with smooth unfolding transition & staggered item reveal */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] border-b ${
+          mobileMenuOpen
+            ? 'max-h-[460px] opacity-100 border-zinc-800 bg-[#08080a]/95 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]'
+            : 'max-h-0 opacity-0 border-transparent bg-transparent pointer-events-none'
+        }`}
+      >
+        <div className="px-6 py-5 space-y-4">
+          <nav className="flex flex-col space-y-1 text-sm">
+            {NAV_ITEMS.map((item, index) => {
               const isActive =
                 item.href === '/'
                   ? pathname === '/'
@@ -114,46 +133,67 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`relative py-1.5 text-sm transition-colors ${
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 35}ms` : '0ms',
+                    transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-6px)',
+                    opacity: mobileMenuOpen ? 1 : 0,
+                  }}
+                  className={`relative py-2.5 px-3 rounded-lg text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between group ${
                     isActive
-                      ? 'text-white font-semibold pl-3'
-                      : 'text-zinc-400 hover:text-zinc-200 pl-3'
+                      ? 'text-white bg-zinc-900/90 font-semibold'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-900/40'
                   }`}
                 >
+                  <span className="flex items-center gap-2.5">
+                    {isActive && (
+                      <span
+                        aria-hidden="true"
+                        className="w-1.5 h-1.5 rounded-full bg-[#e0234e] shadow-[0_0_8px_#e0234e]"
+                      />
+                    )}
+                    <span>{item.label}</span>
+                  </span>
                   {isActive && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-[#e0234e] to-[#ff5376] shadow-[0_0_8px_rgba(224,35,78,0.7)] animate-nav-mobile"
-                    />
+                    <span className="text-xs font-mono text-[#e0234e]">activo</span>
                   )}
-                  <span>{item.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-3 border-t border-zinc-900 flex items-center gap-4 text-xs font-mono text-zinc-400">
-            <a
-              href="https://github.com/champagneplease"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white flex items-center gap-1"
-            >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nachomirnd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white flex items-center gap-1"
-            >
-              <LinkedinIcon className="w-3.5 h-3.5" />
-              <span>LinkedIn</span>
-            </a>
+          <div
+            style={{
+              transitionDelay: mobileMenuOpen ? `${NAV_ITEMS.length * 35}ms` : '0ms',
+              transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-6px)',
+              opacity: mobileMenuOpen ? 1 : 0,
+            }}
+            className="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          >
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/champagneplease"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white flex items-center gap-1.5 transition-colors"
+              >
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nachomirnd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white flex items-center gap-1.5 transition-colors"
+              >
+                <LinkedinIcon className="w-3.5 h-3.5" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+            <span className="text-zinc-500 font-mono text-[11px]">Nacho Miranda</span>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
