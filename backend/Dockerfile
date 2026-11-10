@@ -42,5 +42,5 @@ COPY --chown=node:node --from=builder /app/dist ./dist
 
 EXPOSE 4000
 
-CMD ["node", "dist/src/main.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/main.js"]
 

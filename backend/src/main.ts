@@ -15,7 +15,7 @@ async function bootstrap() {
 
   // CORS Configuration
   const allowedOrigins = process.env.CORS_ORIGIN
-    ? process.env.CORS_ORIGIN.split(',')
+    ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim()).filter(Boolean)
     : ['http://localhost:3000', 'http://127.0.0.1:3000'];
 
   app.enableCors({
@@ -26,12 +26,26 @@ async function bootstrap() {
       // Allow requests with no origin (like mobile apps, curl, server-to-server)
       if (
         !origin ||
+        allowedOrigins.includes('*') ||
         allowedOrigins.includes(origin) ||
         process.env.NODE_ENV !== 'production'
       ) {
         callback(null, true);
       } else {
-        callback(new Error('CORS origin not allowed'));
+        const isAllowed = allowedOrigins.some((allowed) => {
+          if (allowed.startsWith('*.')) {
+            const domain = allowed.slice(2);
+            return origin.endsWith(domain);
+          }
+          return origin === allowed;
+        });
+
+        if (isAllowed) {
+          callback(null, true);
+        } else {
+          logger.warn(`CORS blocked origin: ${origin}. Allowed origins: ${allowedOrigins.join(', ')}`);
+          callback(new Error(`CORS origin not allowed: ${origin}`));
+        }
       }
     },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
