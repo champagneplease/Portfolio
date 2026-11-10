@@ -71,20 +71,13 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
         <meta name="page-type" content="software" />
         <meta name="site-kind" content="software" />
-        {/* Google Fonts: Host Grotesk + JetBrains Mono (Taste Skill Specification) */}
+        {/* Google Fonts: Host Grotesk + JetBrains Mono */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        {/* Taste Skill System Stylesheets */}
-        <link rel="stylesheet" href="/assets/system.css" />
-        <link rel="stylesheet" href="/assets/ui/cards.css" />
-        <link rel="stylesheet" href="/assets/motion/motion.css" />
-        <link rel="stylesheet" href="/assets/layout/layout.css" />
-        {/* Taste Skill Micro-interactions Layer */}
-        <script src="/assets/system.js" defer />
       </head>
       <body className="min-h-screen bg-black text-white antialiased flex flex-col justify-between">
         <Navbar />

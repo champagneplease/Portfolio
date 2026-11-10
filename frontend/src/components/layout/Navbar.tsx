@@ -41,10 +41,10 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-colors ${
+                className={`transition-colors py-1 ${
                   isActive
-                    ? 'text-white font-medium'
-                    : 'text-zinc-400 hover:text-zinc-200'
+                    ? 'text-white font-bold border-b border-white'
+                    : 'text-zinc-300 hover:text-white font-medium'
                 }`}
               >
                 {item.label}
@@ -59,20 +59,20 @@ export function Navbar() {
             href="https://github.com/champagneplease"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
+            className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
             aria-label="GitHub de Nacho Miranda"
           >
-            <GithubIcon className="w-3.5 h-3.5" />
+            <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
           </a>
           <a
             href="https://linkedin.com/in/nacho-miranda"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
+            className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
             aria-label="LinkedIn de Nacho Miranda"
           >
-            <LinkedinIcon className="w-3.5 h-3.5" />
+            <LinkedinIcon className="w-4 h-4" />
             <span>LinkedIn</span>
           </a>
         </div>

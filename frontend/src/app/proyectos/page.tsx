@@ -17,46 +17,46 @@ export default function ProjectsPage() {
     <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16">
       {/* Page Header */}
       <div className="space-y-3">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
           Portafolio
         </span>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
           Proyectos
         </h1>
-        <p className="text-sm sm:text-base text-zinc-400 max-w-2xl leading-relaxed">
+        <p className="text-base sm:text-lg text-zinc-200 max-w-2xl leading-relaxed">
           Una selección de proyectos ordenados según su evolución técnica: desde servicios experimentales de APIs y persistencia hasta una aplicación gastronómica completa desplegada en producción real.
         </p>
       </div>
 
       {/* Featured Project Showcase */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-zinc-900 pb-2">
-          <span>01 / PROYECTO PRINCIPAL EN PRODUCCIÓN</span>
+        <div className="flex items-center justify-between text-xs font-mono text-zinc-300 border-b border-zinc-800 pb-2.5">
+          <span className="font-semibold text-white">01 / PROYECTO PRINCIPAL EN PRODUCCIÓN</span>
           <span>Burger Sosa</span>
         </div>
 
-        <div className="border border-zinc-800 bg-zinc-950/80 rounded-lg p-6 sm:p-8 space-y-6">
-          <div className="space-y-2">
+        <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-10 space-y-6 shadow-xl">
+          <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-              <span className="px-2 py-0.5 rounded border border-zinc-700 bg-zinc-900 text-white font-medium">
+              <span className="px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-semibold">
                 ● En producción real
               </span>
-              <span className="text-zinc-400">{burgerSosa.category}</span>
+              <span className="text-zinc-300 font-medium">{burgerSosa.category}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
               {burgerSosa.title}
             </h2>
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-zinc-200 leading-relaxed max-w-3xl">
               {burgerSosa.longDescription}
             </p>
           </div>
 
           {/* Highlights checklist */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 border-y border-zinc-900 py-4 text-xs text-zinc-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 border-y border-zinc-800 py-5 text-sm text-zinc-200">
             {burgerSosa.highlights.map((h, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <span className="text-zinc-400 font-mono mt-0.5">—</span>
-                <span>{h}</span>
+              <div key={i} className="flex items-start gap-2.5">
+                <span className="text-white font-bold mt-0.5">•</span>
+                <span className="leading-snug">{h}</span>
               </div>
             ))}
           </div>
@@ -83,9 +83,9 @@ export default function ProjectsPage() {
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            <div className="flex flex-wrap gap-1.5 text-xs font-mono text-zinc-400">
+            <div className="flex flex-wrap gap-2 text-xs font-mono text-zinc-300">
               {burgerSosa.technologies.map((t) => (
-                <span key={t} className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">
+                <span key={t} className="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-700">
                   {t}
                 </span>
               ))}
@@ -95,9 +95,9 @@ export default function ProjectsPage() {
       </section>
 
       {/* Secondary Projects Section */}
-      <section className="space-y-6 pt-6">
-        <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-zinc-900 pb-2">
-          <span>02 / PROYECTOS SECUNDARIOS Y EXPERIMENTACIÓN</span>
+      <section className="space-y-6 pt-4">
+        <div className="flex items-center justify-between text-xs font-mono text-zinc-300 border-b border-zinc-800 pb-2.5">
+          <span className="font-semibold text-white">02 / PROYECTOS SECUNDARIOS Y EXPERIMENTACIÓN</span>
           <span>{secondaryProjects.length} proyectos</span>
         </div>
 
@@ -105,18 +105,18 @@ export default function ProjectsPage() {
           {secondaryProjects.map((p) => (
             <div
               key={p.slug}
-              className="border border-zinc-800 bg-zinc-950/60 rounded-lg p-6 flex flex-col justify-between space-y-4 card-taste"
+              className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 flex flex-col justify-between space-y-5 card-taste shadow-lg"
             >
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-                  <span>{p.category}</span>
+                <div className="flex items-center justify-between text-xs font-mono text-zinc-300">
+                  <span className="font-semibold text-zinc-200">{p.category}</span>
                   <div className="flex items-center gap-2">
                     {p.githubUrl && (
                       <a
                         href={p.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white p-1"
+                        className="text-zinc-300 hover:text-white p-1"
                         aria-label={`Ver código de ${p.title} en GitHub`}
                       >
                         <GithubIcon className="w-4 h-4" />
@@ -127,7 +127,7 @@ export default function ProjectsPage() {
                         href={p.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white p-1"
+                        className="text-zinc-300 hover:text-white p-1"
                         aria-label={`Ver demo de ${p.title}`}
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -136,30 +136,30 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-xl font-bold text-white">
                   <Link href={`/proyectos/${p.slug}`} className="hover:underline">
                     {p.title}
                   </Link>
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-200 leading-relaxed">
                   {p.description}
                 </p>
 
-                <div className="space-y-1 text-xs text-zinc-300 pt-2 border-t border-zinc-900">
+                <div className="space-y-1.5 text-xs text-zinc-300 pt-3 border-t border-zinc-800">
                   {p.highlights.slice(0, 3).map((h, i) => (
-                    <div key={i} className="flex items-start gap-1.5 text-zinc-400">
-                      <span className="text-zinc-600 font-mono">›</span>
+                    <div key={i} className="flex items-start gap-2 text-zinc-200">
+                      <span className="text-zinc-400 font-mono mt-0.5">›</span>
                       <span>{h}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1 text-[11px] font-mono text-zinc-400">
+              <div className="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                <div className="flex flex-wrap gap-1.5 text-xs font-mono text-zinc-300">
                   {p.technologies.slice(0, 3).map((t) => (
-                    <span key={t} className="px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800">
+                    <span key={t} className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-700">
                       {t}
                     </span>
                   ))}
@@ -167,10 +167,10 @@ export default function ProjectsPage() {
 
                 <Link
                   href={`/proyectos/${p.slug}`}
-                  className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1 transition-colors"
+                  className="text-xs font-mono text-zinc-200 hover:text-white flex items-center gap-1 transition-colors font-medium"
                 >
                   <span>Detalles</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -180,4 +180,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-

@@ -2,55 +2,70 @@
 
 :root {
   color-scheme: dark;
-  --p-bg: #000000;
-  --p-surface: #0a0a0a;
-  --p-ink: #ffffff;
-  --p-muted: #888888;
-  --p-accent: #ffffff;
-  --p-accent-ink: #000000;
-  --p-action: #ffffff;
-  --p-action-ink: #000000;
-  --p-inv-bg: #ffffff;
-  --p-inv-surface: #f4f4f4;
-  --p-inv-ink: #000000;
-  --p-inv-muted: #666666;
-  --p-inv-accent: #000000;
-  --p-inv-accent-ink: #ffffff;
-  --p-inv-action: #000000;
-  --p-inv-action-ink: #ffffff;
+  --background: #000000;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --border: #27272a;
 
-  /* Typography: Host Grotesk + JetBrains Mono */
-  --font-display: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-text: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --display-weight: 500;
-  --display-tracking: -0.035em;
-  --display-tracking-xl: -0.04em;
+  /* Typography */
+  --font-sans: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
 }
 
 html {
   color-scheme: dark;
   background-color: #000000;
-  color: #ededed;
-  font-family: var(--font-text);
+  color: #f4f4f5;
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #000000;
-  color: #ededed;
-  font-family: var(--font-text);
-  letter-spacing: -0.015em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  overflow-x: hidden;
+}
+
+/* Headings with high contrast and natural line-height */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 /* Monospace fonts for code & architecture */
 code, pre, .font-mono {
   font-family: var(--font-mono);
+  letter-spacing: 0;
 }
 
-/* Taste-skill button styles */
+/* High contrast text classes */
+.text-high {
+  color: #ffffff;
+}
+
+.text-medium {
+  color: #e4e4e7;
+}
+
+.text-subtle {
+  color: #a1a1aa;
+}
+
+/* Primary Button */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -60,13 +75,14 @@ code, pre, .font-mono {
   color: #000000;
   font-weight: 600;
   font-size: 0.875rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: 4px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
   transition: background-color 150ms ease, transform 150ms ease;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
-  background-color: #e5e5e5;
+  background-color: #e4e4e7;
   transform: translateY(-1px);
 }
 
@@ -74,61 +90,56 @@ code, pre, .font-mono {
   transform: translateY(0);
 }
 
+/* Secondary Button */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #0a0a0a;
-  color: #ededed;
+  background-color: #111113;
+  color: #f4f4f5;
   border: 1px solid #27272a;
   font-size: 0.875rem;
   font-weight: 500;
-  padding: 0.625rem 1.25rem;
-  border-radius: 4px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
   transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {
   border-color: #52525b;
-  background-color: #121212;
+  background-color: #18181b;
   color: #ffffff;
 }
 
-/* Taste-skill card hover */
+/* Card with crisp border and readable contrast */
 .card-taste {
-  border: 1px solid #1f1f23;
-  background-color: #08080a;
-  border-radius: 6px;
+  border: 1px solid #27272a;
+  background-color: #09090b;
+  border-radius: 8px;
   transition: border-color 150ms ease, transform 150ms ease;
 }
 
 .card-taste:hover {
-  border-color: #3f3f46;
+  border-color: #52525b;
   transform: translateY(-2px);
-}
-
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto !important;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 /* Accessible focus visible */
 :focus-visible {
-  outline: 1px solid #ffffff;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
-/* Clean minimal selection */
+/* Form validation */
+input:user-invalid,
+textarea:user-invalid {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Selection */
 ::selection {
   background-color: #ffffff;
   color: #000000;

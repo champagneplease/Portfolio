@@ -43,46 +43,46 @@ export default async function ProjectDetailPage({
       <div>
         <Link
           href="/proyectos"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-mono text-zinc-300 hover:text-white transition-colors"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Volver a proyectos</span>
+          <ArrowLeft className="w-4 h-4" />
+          <span>Volver al catálogo de proyectos</span>
         </Link>
       </div>
 
       {/* Header */}
-      <header className="space-y-4 border-b border-zinc-900 pb-8">
-        <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
-          <span className="text-zinc-300 font-semibold">{project.category}</span>
+      <header className="space-y-4 border-b border-zinc-800 pb-8">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-300">
+          <span className="text-white font-semibold">{project.category}</span>
           {project.featured && (
             <>
-              <span>•</span>
-              <span className="px-2 py-0.5 rounded border border-zinc-700 bg-zinc-900 text-white font-medium">
+              <span className="text-zinc-600">•</span>
+              <span className="px-2.5 py-0.5 rounded border border-zinc-600 bg-zinc-800 text-white font-semibold">
                 ● En producción
               </span>
             </>
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
           {project.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
+        <p className="text-lg sm:text-xl text-zinc-200 leading-relaxed max-w-3xl">
           {project.description}
         </p>
 
         {/* Links */}
-        <div className="flex flex-wrap items-center gap-4 pt-2">
+        <div className="flex flex-wrap items-center gap-4 pt-3">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-colors"
+              className="btn-primary"
             >
               <span>Ver aplicación desplegada</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-4 h-4" />
             </a>
           )}
           {project.githubUrl && (
@@ -90,9 +90,9 @@ export default async function ProjectDetailPage({
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded border border-zinc-800 text-zinc-300 text-xs font-mono hover:text-white hover:border-zinc-700 transition-colors"
+              className="btn-secondary"
             >
-              <GithubIcon className="w-3.5 h-3.5" />
+              <GithubIcon className="w-4 h-4" />
               <span>Ver código fuente</span>
             </a>
           )}
@@ -100,22 +100,22 @@ export default async function ProjectDetailPage({
       </header>
 
       {/* Overview Context */}
-      <section className="space-y-4">
-        <h2 className="text-sm font-mono text-zinc-400 uppercase tracking-widest">
-          Contexto y Alcance
+      <section className="space-y-3">
+        <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+          Contexto y Solución Técnica
         </h2>
-        <div className="text-sm sm:text-base text-zinc-300 leading-relaxed space-y-4">
+        <div className="text-base text-zinc-200 leading-relaxed space-y-4">
           <p>{project.longDescription || project.description}</p>
         </div>
       </section>
 
       {/* Architecture Flow */}
       {project.architectureFlow && (
-        <section className="space-y-4">
-          <h2 className="text-sm font-mono text-zinc-400 uppercase tracking-widest">
+        <section className="space-y-3">
+          <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
             Flujo de Arquitectura Backend
           </h2>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-5 font-mono text-xs text-zinc-300 overflow-x-auto whitespace-pre leading-relaxed">
+          <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
             {project.architectureFlow}
           </div>
         </section>
@@ -123,11 +123,11 @@ export default async function ProjectDetailPage({
 
       {/* DevOps Pipeline */}
       {project.devopsFlow && (
-        <section className="space-y-4">
-          <h2 className="text-sm font-mono text-zinc-400 uppercase tracking-widest">
+        <section className="space-y-3">
+          <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
             Pipeline de Despliegue & DevOps
           </h2>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-5 font-mono text-xs text-zinc-300 overflow-x-auto whitespace-pre leading-relaxed">
+          <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
             {project.devopsFlow}
           </div>
         </section>
@@ -135,16 +135,16 @@ export default async function ProjectDetailPage({
 
       {/* Highlights */}
       {project.highlights && project.highlights.length > 0 && (
-        <section className="space-y-4">
-          <h2 className="text-sm font-mono text-zinc-400 uppercase tracking-widest">
+        <section className="space-y-3">
+          <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
             Características Técnicas Destacadas
           </h2>
-          <div className="border border-zinc-800 bg-zinc-950/40 rounded-lg p-6">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-300">
+          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-lg p-6">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-zinc-200">
               {project.highlights.map((h, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-zinc-500 font-mono mt-0.5">•</span>
-                  <span>{h}</span>
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-white font-bold mt-0.5">•</span>
+                  <span className="leading-relaxed">{h}</span>
                 </li>
               ))}
             </ul>
@@ -153,15 +153,15 @@ export default async function ProjectDetailPage({
       )}
 
       {/* Tech Stack */}
-      <section className="space-y-4 border-t border-zinc-900 pt-8">
-        <h2 className="text-sm font-mono text-zinc-400 uppercase tracking-widest">
+      <section className="space-y-3 border-t border-zinc-800 pt-8">
+        <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
           Tecnologías Utilizadas
         </h2>
-        <div className="flex flex-wrap gap-2 text-xs font-mono">
+        <div className="flex flex-wrap gap-2 text-xs font-mono text-zinc-200">
           {project.technologies.map((t) => (
             <span
               key={t}
-              className="px-3 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300"
+              className="px-3 py-1.5 rounded bg-zinc-900 border border-zinc-700 font-medium"
             >
               {t}
             </span>
@@ -170,23 +170,22 @@ export default async function ProjectDetailPage({
       </section>
 
       {/* Bottom Navigation */}
-      <div className="border-t border-zinc-900 pt-8 flex items-center justify-between">
+      <div className="border-t border-zinc-800 pt-8 flex items-center justify-between">
         <Link
           href="/proyectos"
-          className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1.5 transition-colors"
+          className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1.5 transition-colors font-medium"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Volver al catálogo de proyectos</span>
+          <ArrowLeft className="w-4 h-4" />
+          <span>Volver al catálogo</span>
         </Link>
         <Link
           href="/contacto"
-          className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1.5 transition-colors"
+          className="btn-primary text-xs"
         >
           <span>Hablemos de este proyecto</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </article>
   );
 }
-

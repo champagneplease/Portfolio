@@ -87,17 +87,17 @@ export default function DevOpsPage() {
     <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16">
       {/* Header */}
       <div className="space-y-4">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
           Orientación Técnica
         </span>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
           Explorando DevOps & Cloud
         </h1>
-        <div className="space-y-3 max-w-2xl text-sm sm:text-base text-zinc-400 leading-relaxed">
+        <div className="space-y-3 max-w-3xl text-base sm:text-lg text-zinc-200 leading-relaxed">
           <p>
             Mi camino profesional está comenzando a expandirse desde el desarrollo Backend hacia infraestructura y DevOps.
           </p>
-          <p>
+          <p className="text-zinc-300">
             Actualmente estoy profundizando en containerización, despliegues, infraestructura como código y servicios cloud, con la convicción de que un buen desarrollador backend debe entender cómo vive su código en producción.
           </p>
         </div>
@@ -108,29 +108,29 @@ export default function DevOpsPage() {
         {DEVOPS_TRACKS.map((t, idx) => (
           <div
             key={t.name}
-            className="border border-zinc-800 bg-zinc-950/70 rounded-lg p-6 sm:p-8 space-y-5"
+            className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg"
           >
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-900 pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-4">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-zinc-400">0{idx + 1}</span>
-                <h2 className="text-xl font-bold text-white">{t.name}</h2>
+                <span className="text-sm font-mono text-zinc-400 font-semibold">0{idx + 1}</span>
+                <h2 className="text-2xl font-bold text-white">{t.name}</h2>
               </div>
-              <span className="text-xs font-mono px-2.5 py-0.5 rounded border border-zinc-700 bg-zinc-900 text-zinc-300">
+              <span className="text-xs font-mono px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-medium">
                 {t.status}
               </span>
             </div>
 
             <div className="space-y-2">
-              <div className="text-sm font-semibold text-zinc-200">{t.concept}</div>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-3xl">
+              <div className="text-base font-semibold text-white">{t.concept}</div>
+              <p className="text-sm sm:text-base text-zinc-200 leading-relaxed max-w-3xl">
                 {t.description}
               </p>
             </div>
 
             {t.sample && (
               <div className="pt-2">
-                <div className="text-[11px] font-mono text-zinc-400 mb-1">Snippet ilustrativo:</div>
-                <pre className="font-mono text-xs text-zinc-300 bg-black p-4 rounded border border-zinc-900 overflow-x-auto whitespace-pre leading-relaxed">
+                <div className="text-xs font-mono text-zinc-300 mb-1.5 font-medium">Snippet ilustrativo:</div>
+                <pre className="font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
                   {t.sample}
                 </pre>
               </div>
@@ -140,24 +140,23 @@ export default function DevOpsPage() {
       </div>
 
       {/* CTA Box */}
-      <div className="border border-zinc-800 bg-zinc-950 p-6 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="border border-zinc-700 bg-[#0c0c0e] p-8 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg">
         <div>
-          <h3 className="text-base font-semibold text-white">
+          <h3 className="text-lg font-bold text-white">
             ¿Querés ver cómo apliqué esto en un caso real?
           </h3>
-          <p className="text-xs text-zinc-400 mt-0.5">
+          <p className="text-sm text-zinc-300 mt-1">
             Conocé cómo desplegué Burger Sosa en Railway usando Docker y PostgreSQL.
           </p>
         </div>
         <Link
           href="/proyectos/burger-sosa"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-colors shrink-0"
+          className="btn-primary"
         >
           <span>Ver caso Burger Sosa</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>
   );
 }
-
