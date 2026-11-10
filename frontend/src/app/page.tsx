@@ -44,7 +44,7 @@ export default function HomePage() {
 
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-                  Soy <span className="text-white">Nacho Miranda</span>
+                  Nacho Miranda
                 </h1>
 
                 {/* Real-time Typewriter in NestJS Ruby Red (Locked on a single line, no wrapping or layout shift) */}

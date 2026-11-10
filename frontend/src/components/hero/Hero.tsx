@@ -29,9 +29,9 @@ export function Hero() {
 
           {/* Heading */}
           <div className="space-y-2">
-            <p className="text-emerald-400 font-mono text-sm tracking-wide">
-              Hola, soy Nacho Miranda.
-            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+              Nacho Miranda
+            </h1>
             <div className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#e0234e] whitespace-nowrap min-h-[1.2em] flex items-center">
               <TypewriterText text="Backend Developer!" className="whitespace-nowrap" />
             </div>
