@@ -237,8 +237,8 @@ export function TechStackSection() {
               distance={20}
               className="space-y-4 border-b border-zinc-800/60 pb-10 last:border-b-0 last:pb-0"
             >
-              {/* Category Header Row */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              {/* Category Header: Title and subtitle stacked together */}
+              <div className="space-y-1">
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <span className="text-xs sm:text-sm font-mono text-[#e0234e] font-semibold tracking-wider">
                     {category.number} //
@@ -253,9 +253,9 @@ export function TechStackSection() {
                     </span>
                   )}
                 </div>
-                <span className="text-xs sm:text-sm font-mono text-zinc-400">
+                <p className="text-xs sm:text-sm font-mono text-zinc-400">
                   {category.subtitle}
-                </span>
+                </p>
               </div>
 
               {/* Items Grid: Larger, Prominent & Highly Legible on Mobile */}
@@ -263,7 +263,11 @@ export function TechStackSection() {
                 {category.items.map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl hover:bg-zinc-900/50 transition-all duration-200 group select-none"
+                    className={`flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl transition-all duration-200 group select-none ${
+                      item.featured
+                        ? 'bg-gradient-to-r from-[#e0234e]/12 via-[#e0234e]/5 to-transparent border-l-[3px] border-[#e0234e] pl-3 sm:pl-3.5'
+                        : 'hover:bg-zinc-900/50 border-l-[3px] border-transparent hover:border-zinc-600 pl-3 sm:pl-3.5'
+                    }`}
                   >
                     {/* Icon Container: Larger 44-48px size with 24-28px SVG */}
                     <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-zinc-900/70 border border-zinc-800/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-zinc-600 transition-all shadow-sm">
@@ -280,17 +284,8 @@ export function TechStackSection() {
 
                     {/* Content: Prominent Typography */}
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors truncate">
-                          {item.name}
-                        </span>
-                        {item.featured && (
-                          <span
-                            title="Stack principal"
-                            className="w-1.5 h-1.5 rounded-full bg-[#e0234e] shrink-0"
-                            aria-hidden="true"
-                          />
-                        )}
+                      <div className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors truncate">
+                        {item.name}
                       </div>
                       <div className="text-xs sm:text-sm font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors truncate">
                         {item.role}
