@@ -1,0 +1,37 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id               String   @id @default(uuid())
+  slug             String   @unique
+  title            String
+  category         String
+  description      String
+  longDescription  String?
+  featured         Boolean  @default(false)
+  liveUrl          String?
+  githubUrl        String?
+  technologies     String[]
+  architectureFlow String?
+  devopsFlow       String?
+  highlights       String[]
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  ipAddress String?
+  createdAt DateTime @default(now())
+}
