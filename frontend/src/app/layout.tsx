@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 
 export const viewport: Viewport = {
   themeColor: '#000000',
-  colorScheme: 'dark',
+  colorScheme: 'light dark',
   width: 'device-width',
   initialScale: 1,
 };
@@ -66,9 +66,15 @@ export default function RootLayout({
       data-radius="sharp"
       data-type="software"
       className="dark"
+      suppressHydrationWarning
     >
       <head>
-        <meta name="color-scheme" content="dark" />
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.classList.toggle("dark",t==="dark");document.documentElement.classList.toggle("light",t==="light");var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=t;}catch(e){}})();`,
+          }}
+        />
         <meta name="page-type" content="software" />
         <meta name="site-kind" content="software" />
         {/* Google Fonts: Host Grotesk + JetBrains Mono */}

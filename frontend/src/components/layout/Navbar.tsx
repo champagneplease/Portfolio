@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '@/components/ui/Icons';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Inicio' },
@@ -64,8 +65,10 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Social / External */}
+        {/* Social / External + Theme Toggle */}
         <div className="hidden md:flex items-center gap-4 text-xs font-mono">
+          <ThemeToggle />
+          <span className="w-px h-4 bg-zinc-800" />
           <a
             href="https://github.com/champagneplease"
             target="_blank"
@@ -98,29 +101,32 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile menu trigger with fluid morphing hamburger icon */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden relative w-10 h-10 rounded-lg flex flex-col items-center justify-center gap-1.5 text-zinc-300 hover:text-white hover:bg-zinc-900/60 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-600"
-          aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={mobileMenuOpen}
-        >
-          <span
-            className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-              mobileMenuOpen ? 'translate-y-[8px] rotate-45 bg-[#e0234e]' : 'bg-current'
-            }`}
-          />
-          <span
-            className={`w-5 h-[2px] rounded-full transition-all duration-200 ease-out origin-center ${
-              mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 bg-current'
-            }`}
-          />
-          <span
-            className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-              mobileMenuOpen ? '-translate-y-[8px] -rotate-45 bg-[#e0234e]' : 'bg-current'
-            }`}
-          />
-        </button>
+        {/* Mobile controls: Theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="relative w-10 h-10 rounded-lg flex flex-col items-center justify-center gap-1.5 text-zinc-300 hover:text-white hover:bg-zinc-900/60 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-600 cursor-pointer"
+            aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileMenuOpen}
+          >
+            <span
+              className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                mobileMenuOpen ? 'translate-y-[8px] rotate-45 bg-[#e0234e]' : 'bg-current'
+              }`}
+            />
+            <span
+              className={`w-5 h-[2px] rounded-full transition-all duration-200 ease-out origin-center ${
+                mobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 bg-current'
+              }`}
+            />
+            <span
+              className={`w-5 h-[2px] rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
+                mobileMenuOpen ? '-translate-y-[8px] -rotate-45 bg-[#e0234e]' : 'bg-current'
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer with smooth unfolding transition & staggered item reveal */}
