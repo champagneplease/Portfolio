@@ -73,7 +73,7 @@ export function DeveloperGreeting() {
     const first = GREETINGS[0];
     return (
       <div className="h-[62px] sm:h-14 flex flex-col justify-center select-none w-full max-w-xl">
-        <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/90 px-3 sm:px-4 py-2 font-mono text-[11px] sm:text-xs md:text-sm shadow-sm backdrop-blur-sm space-y-1">
+        <div className="greeting-terminal-box rounded-lg border border-zinc-800/80 bg-zinc-950/90 px-3 sm:px-4 py-2 font-mono text-[11px] sm:text-xs md:text-sm shadow-sm backdrop-blur-sm space-y-1">
           <div className="flex items-center gap-1.5 sm:gap-2 text-zinc-300 min-w-0">
             <span className="text-emerald-400 font-bold shrink-0">$</span>
             <span className="text-zinc-100 font-medium truncate sm:hidden">
@@ -105,7 +105,7 @@ export function DeveloperGreeting() {
     <div className="h-[62px] sm:h-14 flex flex-col justify-center select-none w-full max-w-xl">
       <div
         aria-live="polite"
-        className="rounded-lg border border-zinc-800/80 bg-zinc-950/90 px-3 sm:px-4 py-2 font-mono text-[11px] sm:text-xs md:text-sm shadow-sm backdrop-blur-sm space-y-1 transition-all duration-300 ease-out"
+        className="greeting-terminal-box rounded-lg border border-zinc-800/80 bg-zinc-950/90 px-3 sm:px-4 py-2 font-mono text-[11px] sm:text-xs md:text-sm shadow-sm backdrop-blur-sm space-y-1 transition-all duration-300 ease-out"
         style={{
           opacity: fade ? 1 : 0,
           transform: fade ? 'translateY(0)' : 'translateY(-3px)',

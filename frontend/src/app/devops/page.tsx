@@ -133,7 +133,7 @@ export default function DevOpsPage() {
                 {t.sample && (
                   <div className="pt-2">
                     <div className="text-xs font-mono text-zinc-300 mb-1.5 font-medium">Snippet ilustrativo:</div>
-                    <pre className="font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
+                    <pre className="code-snippet-pre font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
                       {t.sample}
                     </pre>
                   </div>

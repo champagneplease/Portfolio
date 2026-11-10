@@ -49,7 +49,7 @@ export default function HomePage() {
                 <div className="text-[clamp(1.65rem,4.4vw,3.6rem)] sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight min-h-[1.2em] flex items-center leading-none whitespace-nowrap overflow-visible">
                   <TypewriterText
                     text="Backend Developer!"
-                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight whitespace-nowrap"
+                    className="text-[#e0234e] drop-shadow-[0_0_32px_rgba(224,35,78,0.55)] font-extrabold tracking-tight whitespace-nowrap typewriter-glow"
                   />
                 </div>
               </div>
@@ -94,12 +94,12 @@ export default function HomePage() {
 
           {/* Minimal Terminal Card */}
           <ScrollReveal direction="up" delay={200} distance={24} className="max-w-2xl">
-            <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e]/95 p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl backdrop-blur-sm">
+            <div className="terminal-card rounded-lg border border-zinc-700 bg-[#0c0c0e]/95 p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl backdrop-blur-sm">
               <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 text-zinc-400 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                   <span className="ml-2 text-zinc-300 font-medium">
                     nacho@macbook ~
                   </span>
@@ -189,7 +189,7 @@ export default function HomePage() {
 
               {/* Architecture Comparison Grid (Slides in from Right) */}
               <ScrollReveal direction="right" distance={36} duration={850} className="lg:col-span-6 space-y-4">
-                <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
+                <div className="architecture-card border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm shadow-xl">
                   <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
                     <span>Arquitectura Backend</span>
                     <span className="text-zinc-400 text-xs">REST API</span>
@@ -211,7 +211,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
+                <div className="architecture-card border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm shadow-xl">
                   <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
                     <span>Pipeline DevOps</span>
                     <span className="text-zinc-400 text-xs">CI/CD</span>

@@ -487,48 +487,162 @@ html.light [class*="invert"] {
   filter: none !important;
 }
 
-/* Developer Terminal Windows: Preserve authentic dark console aesthetic */
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"],
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"],
-html.light pre.bg-black {
-  background-color: #111116 !important;
+/* ==========================================================================
+   CODE SNIPPETS, TERMINALS & ARCHITECTURE DIAGRAMS (HIGH-CONTRAST CONSOLE)
+   Developer terminal windows, bash prompts, Dockerfiles, and architecture
+   ASCII flow charts maintain an authentic, deep-dark terminal aesthetic
+   (#0d0d12) with vivid, readable syntax colors in both light & dark modes.
+   ========================================================================== */
+
+html.light pre,
+html.light code,
+html.light .code-snippet-pre,
+html.light .terminal-card,
+html.light .architecture-card,
+html.light .architecture-flow-box,
+html.light .greeting-terminal-box {
+  background-color: #0e0e14 !important;
   border-color: #27272a !important;
+  color: #f4f4f5 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25) !important;
 }
 
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] *,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] *,
-html.light pre.bg-black * {
-  color: inherit;
+/* Preserve bright high-contrast text inside all terminal & code containers */
+html.light pre,
+html.light pre *,
+html.light .code-snippet-pre,
+html.light .code-snippet-pre *,
+html.light .terminal-card,
+html.light .terminal-card *,
+html.light .architecture-card,
+html.light .architecture-card *,
+html.light .architecture-flow-box,
+html.light .architecture-flow-box *,
+html.light .greeting-terminal-box,
+html.light .greeting-terminal-box * {
+  /* Prevent broad light-mode black text overrides */
 }
 
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] .text-white,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] .text-white,
-html.light pre.bg-black .text-white {
+html.light .terminal-card .text-white,
+html.light .architecture-card .text-white,
+html.light .greeting-terminal-box .text-white,
+html.light .architecture-flow-box .text-white,
+html.light .code-snippet-pre .text-white {
   color: #ffffff !important;
 }
 
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] .text-zinc-400,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] .text-zinc-400,
-html.light pre.bg-black .text-zinc-400 {
-  color: #a1a1aa !important;
+html.light .terminal-card .text-zinc-100,
+html.light .architecture-card .text-zinc-100,
+html.light .greeting-terminal-box .text-zinc-100,
+html.light .architecture-flow-box .text-zinc-100,
+html.light .code-snippet-pre .text-zinc-100,
+html.light pre.text-zinc-100 {
+  color: #f4f4f5 !important;
 }
 
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] .text-zinc-300,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] .text-zinc-300,
-html.light pre.bg-black .text-zinc-300 {
-  color: #d4d4d8 !important;
-}
-
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] .text-zinc-200,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] .text-zinc-200,
-html.light pre.bg-black .text-zinc-200 {
+html.light .terminal-card .text-zinc-200,
+html.light .architecture-card .text-zinc-200,
+html.light .greeting-terminal-box .text-zinc-200,
+html.light .architecture-flow-box .text-zinc-200,
+html.light .code-snippet-pre .text-zinc-200 {
   color: #e4e4e7 !important;
 }
 
-html.light [class*="font-mono"][class*="rounded-"][class*="p-5"] .text-zinc-100,
-html.light [class*="font-mono"][class*="rounded-"][class*="p-6"] .text-zinc-100,
-html.light pre.bg-black .text-zinc-100 {
-  color: #f4f4f5 !important;
+html.light .terminal-card .text-zinc-300,
+html.light .architecture-card .text-zinc-300,
+html.light .greeting-terminal-box .text-zinc-300,
+html.light .architecture-flow-box .text-zinc-300,
+html.light .code-snippet-pre .text-zinc-300 {
+  color: #d4d4d8 !important;
+}
+
+html.light .terminal-card .text-zinc-400,
+html.light .architecture-card .text-zinc-400,
+html.light .greeting-terminal-box .text-zinc-400,
+html.light .architecture-flow-box .text-zinc-400,
+html.light .code-snippet-pre .text-zinc-400 {
+  color: #a1a1aa !important;
+}
+
+html.light .terminal-card .text-zinc-500,
+html.light .architecture-card .text-zinc-500,
+html.light .greeting-terminal-box .text-zinc-500,
+html.light .architecture-flow-box .text-zinc-500,
+html.light .code-snippet-pre .text-zinc-500 {
+  color: #71717a !important;
+}
+
+/* Syntax status colors inside terminal/architecture blocks */
+html.light .terminal-card .text-emerald-400,
+html.light .terminal-card .text-emerald-300,
+html.light .architecture-card .text-emerald-400,
+html.light .architecture-card .text-emerald-300,
+html.light .greeting-terminal-box .text-emerald-400,
+html.light .code-snippet-pre .text-emerald-400,
+html.light .architecture-flow-box .text-emerald-400 {
+  color: #34d399 !important;
+}
+
+html.light .terminal-card .text-sky-400,
+html.light .architecture-card .text-sky-400,
+html.light .greeting-terminal-box .text-sky-400,
+html.light .code-snippet-pre .text-sky-400,
+html.light .architecture-flow-box .text-sky-400 {
+  color: #38bdf8 !important;
+}
+
+html.light .terminal-card .text-\[\#e0234e\],
+html.light .architecture-card .text-\[\#e0234e\],
+html.light .greeting-terminal-box .text-\[\#e0234e\] {
+  color: #ff5376 !important;
+}
+
+html.light .terminal-card .border-zinc-800,
+html.light .architecture-card .border-zinc-800,
+html.light .greeting-terminal-box .border-zinc-800,
+html.light .architecture-flow-box .border-zinc-800 {
+  border-color: #27272a !important;
+}
+
+/* ==========================================================================
+   ANIMATIONS & GLOWS IN LIGHT MODE
+   Clean, sharp animations without muddy neon drop-shadow smudges on white
+   ========================================================================== */
+
+/* Typewriter glow: remove the heavy 32px drop-shadow blur on light mode */
+html.light .typewriter-glow,
+html.light [class*="drop-shadow-\[0_0_32px"] {
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Relief underline bars in light mode */
+html.light [class*="shadow-\[0_2px_10px_rgba(224,35,78,0.85)\]"],
+html.light [class*="shadow-\[0_0_14px_rgba(224,35,78,0.85)\]"] {
+  box-shadow: 0 1px 4px rgba(224, 35, 78, 0.45) !important;
+}
+
+/* Pulse glow halo in light mode: subtle soft aura */
+html.light .animate-pulse-glow {
+  opacity: 0.15 !important;
+}
+
+/* Blinking dot in light mode: clear sharp pulse */
+html.light .animate-dot-blink {
+  animation: dotBlinkLight 950ms ease-in-out infinite !important;
+}
+
+@keyframes dotBlinkLight {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 3px rgba(224, 35, 78, 0.5));
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(0.85);
+    filter: none;
+  }
 }
 
 /* Footer in light mode */

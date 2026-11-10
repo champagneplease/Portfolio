@@ -115,7 +115,7 @@ export default async function ProjectDetailPage({
           <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
             Flujo de Arquitectura Backend
           </h2>
-          <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
+          <div className="architecture-flow-box rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
             {project.architectureFlow}
           </div>
         </section>
@@ -127,7 +127,7 @@ export default async function ProjectDetailPage({
           <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
             Pipeline de Despliegue & DevOps
           </h2>
-          <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
+          <div className="architecture-flow-box rounded-lg border border-zinc-700 bg-[#0c0c0e] p-6 font-mono text-xs sm:text-sm text-zinc-200 overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
             {project.devopsFlow}
           </div>
         </section>
