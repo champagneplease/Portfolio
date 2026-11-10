@@ -1,7 +1,14 @@
 import { Project, ContactFormData, ApiResponse } from '@/types/project';
 import { PROJECTS_DATA } from './projects-data';
 
-const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api').trim().replace(/\/+$/, '');
+const defaultApiUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://portfolio-back-production-55d2.up.railway.app/api'
+    : 'http://localhost:4000/api';
+
+const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || defaultApiUrl)
+  .trim()
+  .replace(/\/+$/, '');
 const API_BASE_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 
 export async function fetchProjects(): Promise<{
@@ -61,12 +68,11 @@ export async function submitContactMessage(
       return { success: false, message: errorMsg };
     }
   } catch (error) {
-    // Fallback if backend API is not running locally
-    console.warn('API error during contact submit:', error);
+    console.error('Error enviando mensaje de contacto:', error);
     return {
-      success: true,
+      success: false,
       message:
-        '¡Mensaje registrado! (Modo local). Me pondré en contacto pronto.',
+        'No se pudo conectar con el servidor. Por favor, reintenta en unos instantes o escríbeme directamente a nachomirnd@gmail.com',
     };
   }
 }

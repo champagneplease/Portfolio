@@ -187,222 +187,251 @@ export default function ContactPage() {
           </div>
         </ScrollReveal>
 
-        {/* Contact Form (Slides in from Right) */}
+        {/* Contact Form / Success State (Slides in from Right) */}
         <ScrollReveal direction="right" distance={36} className="md:col-span-7 border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-            {/* Honeypot field for anti-spam */}
-            <div style={{ display: "none" }} aria-hidden="true">
-              <label htmlFor="hp-field">Honeypot</label>
-              <input
-                id="hp-field"
-                name="honeypot"
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={formData.honeypot}
-                onChange={handleChange}
-              />
-            </div>
+          {status.type === "success" ? (
+            <div className="py-8 px-4 text-center space-y-6 animate-fade-in-up">
+              {/* Animated pulsating emerald beacon */}
+              <div className="relative mx-auto w-16 h-16 rounded-full bg-emerald-500/10 border-2 border-emerald-500/60 flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.35)]">
+                <span className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping opacity-60" />
+                <CheckCircle2 className="w-8 h-8 text-emerald-400 relative z-10" />
+              </div>
 
-            {/* Nombre Field (up to 35 chars) */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="name"
-                  className="block text-xs font-mono text-zinc-200 font-semibold"
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold text-white tracking-tight">
+                  ¡Mensaje enviado con éxito!
+                </h3>
+                <p className="text-sm text-zinc-300 max-w-md mx-auto leading-relaxed">
+                  {status.message}
+                </p>
+                <div className="pt-2 text-xs font-mono text-zinc-500">
+                  Guardado en PostgreSQL y notificado al correo de Nacho Miranda.
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800">
+                <button
+                  type="button"
+                  onClick={() => setStatus({ type: "idle", message: "" })}
+                  className="btn-secondary text-xs px-5 py-2.5 font-mono inline-flex items-center gap-2 cursor-pointer hover:border-zinc-500 transition-all"
                 >
-                  Nombre <span className="text-[#e0234e]">*</span>
-                </label>
-                <span
-                  className={`text-[11px] font-mono ${
-                    formData.name.length >= 35
-                      ? "text-[#e0234e] font-semibold"
-                      : "text-zinc-500"
+                  <Send className="w-3.5 h-3.5 text-[#e0234e]" />
+                  <span>Enviar otro mensaje</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+              {/* Honeypot field for anti-spam */}
+              <div style={{ display: "none" }} aria-hidden="true">
+                <label htmlFor="hp-field">Honeypot</label>
+                <input
+                  id="hp-field"
+                  name="honeypot"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Nombre Field (up to 35 chars) */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-mono text-zinc-200 font-semibold"
+                  >
+                    Nombre <span className="text-[#e0234e]">*</span>
+                  </label>
+                  <span
+                    className={`text-[11px] font-mono ${
+                      formData.name.length >= 35
+                        ? "text-[#e0234e] font-semibold"
+                        : "text-zinc-500"
+                    }`}
+                  >
+                    {formData.name.length}/35
+                  </span>
+                </div>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  maxLength={35}
+                  autoComplete="name"
+                  disabled={loading}
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Tu nombre o empresa (hasta 35 caracteres)"
+                  className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none disabled:opacity-60 ${
+                    errors.name
+                      ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
+                      : "border border-zinc-700 focus:border-white"
                   }`}
-                >
-                  {formData.name.length}/35
-                </span>
-              </div>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                maxLength={35}
-                autoComplete="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Tu nombre o empresa (hasta 35 caracteres)"
-                className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none ${
-                  errors.name
-                    ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
-                    : "border border-zinc-700 focus:border-white"
-                }`}
-              />
-              {errors.name && (
-                <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
-                  <span className="text-[#e0234e] font-bold">•</span>
-                  <span>{errors.name}</span>
-                </p>
-              )}
-            </div>
-
-            {/* Email Field (Valid email format) */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="email"
-                  className="block text-xs font-mono text-zinc-200 font-semibold"
-                >
-                  Email <span className="text-[#e0234e]">*</span>
-                </label>
-                <span className="text-[11px] font-mono text-zinc-500">
-                  ej. tu@correo.com
-                </span>
-              </div>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="tu@correo.com"
-                className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none ${
-                  errors.email
-                    ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
-                    : "border border-zinc-700 focus:border-white"
-                }`}
-              />
-              {errors.email && (
-                <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
-                  <span className="text-[#e0234e] font-bold">•</span>
-                  <span>{errors.email}</span>
-                </p>
-              )}
-            </div>
-
-            {/* Asunto Field (3-100 chars) */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="subject"
-                  className="block text-xs font-mono text-zinc-200 font-semibold"
-                >
-                  Asunto <span className="text-[#e0234e]">*</span>
-                </label>
-                <span
-                  className={`text-[11px] font-mono ${
-                    formData.subject.length >= 100
-                      ? "text-[#e0234e] font-semibold"
-                      : "text-zinc-500"
-                  }`}
-                >
-                  {formData.subject.length}/100
-                </span>
-              </div>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                required
-                maxLength={100}
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="Propuesta laboral / Consulta técnica"
-                className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none ${
-                  errors.subject
-                    ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
-                    : "border border-zinc-700 focus:border-white"
-                }`}
-              />
-              {errors.subject && (
-                <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
-                  <span className="text-[#e0234e] font-bold">•</span>
-                  <span>{errors.subject}</span>
-                </p>
-              )}
-            </div>
-
-            {/* Mensaje Field (up to 500 chars) */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="message"
-                  className="block text-xs font-mono text-zinc-200 font-semibold"
-                >
-                  Mensaje <span className="text-[#e0234e]">*</span>
-                </label>
-                <span
-                  className={`text-[11px] font-mono ${
-                    formData.message.length >= 500
-                      ? "text-[#e0234e] font-semibold"
-                      : "text-zinc-500"
-                  }`}
-                >
-                  {formData.message.length}/500
-                </span>
-              </div>
-              <textarea
-                id="message"
-                name="message"
-                required
-                maxLength={500}
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Contame brevemente sobre tu equipo, proyecto o propuesta (hasta 500 caracteres)..."
-                className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors resize-y min-h-[110px] focus:outline-none ${
-                  errors.message
-                    ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
-                    : "border border-zinc-700 focus:border-white"
-                }`}
-              />
-              {errors.message && (
-                <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
-                  <span className="text-[#e0234e] font-bold">•</span>
-                  <span>{errors.message}</span>
-                </p>
-              )}
-            </div>
-
-            {status.type !== "idle" && (
-              <div
-                className={`p-3.5 rounded-lg text-xs font-mono flex items-center gap-2 border ${
-                  status.type === "success"
-                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                    : "border-red-500/40 bg-red-500/10 text-red-300"
-                }`}
-                role="alert"
-              >
-                {status.type === "success" ? (
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                ) : (
-                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                />
+                {errors.name && (
+                  <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
+                    <span className="text-[#e0234e] font-bold">•</span>
+                    <span>{errors.name}</span>
+                  </p>
                 )}
-                <span>{status.message}</span>
               </div>
-            )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn-primary w-full disabled:opacity-50 py-3 text-sm font-semibold"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Enviando mensaje...</span>
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  <span>Enviar mensaje</span>
-                </>
+              {/* Email Field (Valid email format) */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-mono text-zinc-200 font-semibold"
+                  >
+                    Email <span className="text-[#e0234e]">*</span>
+                  </label>
+                  <span className="text-[11px] font-mono text-zinc-500">
+                    ej. tu@correo.com
+                  </span>
+                </div>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  disabled={loading}
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="tu@correo.com"
+                  className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none disabled:opacity-60 ${
+                    errors.email
+                      ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
+                      : "border border-zinc-700 focus:border-white"
+                  }`}
+                />
+                {errors.email && (
+                  <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
+                    <span className="text-[#e0234e] font-bold">•</span>
+                    <span>{errors.email}</span>
+                  </p>
+                )}
+              </div>
+
+              {/* Asunto Field (3-100 chars) */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="subject"
+                    className="block text-xs font-mono text-zinc-200 font-semibold"
+                  >
+                    Asunto <span className="text-[#e0234e]">*</span>
+                  </label>
+                  <span
+                    className={`text-[11px] font-mono ${
+                      formData.subject.length >= 100
+                        ? "text-[#e0234e] font-semibold"
+                        : "text-zinc-500"
+                    }`}
+                  >
+                    {formData.subject.length}/100
+                  </span>
+                </div>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  required
+                  maxLength={100}
+                  disabled={loading}
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Propuesta laboral / Consulta técnica"
+                  className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors focus:outline-none disabled:opacity-60 ${
+                    errors.subject
+                      ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
+                      : "border border-zinc-700 focus:border-white"
+                  }`}
+                />
+                {errors.subject && (
+                  <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
+                    <span className="text-[#e0234e] font-bold">•</span>
+                    <span>{errors.subject}</span>
+                  </p>
+                )}
+              </div>
+
+              {/* Mensaje Field (up to 500 chars) */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="message"
+                    className="block text-xs font-mono text-zinc-200 font-semibold"
+                  >
+                    Mensaje <span className="text-[#e0234e]">*</span>
+                  </label>
+                  <span
+                    className={`text-[11px] font-mono ${
+                      formData.message.length >= 500
+                        ? "text-[#e0234e] font-semibold"
+                        : "text-zinc-500"
+                    }`}
+                  >
+                    {formData.message.length}/500
+                  </span>
+                </div>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  maxLength={500}
+                  rows={4}
+                  disabled={loading}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Contame brevemente sobre tu equipo, proyecto o propuesta (hasta 500 caracteres)..."
+                  className={`w-full px-4 py-3 rounded-lg bg-black text-sm text-white placeholder-zinc-500 transition-colors resize-y min-h-[110px] focus:outline-none disabled:opacity-60 ${
+                    errors.message
+                      ? "border border-red-500/80 focus:border-red-500 focus:ring-1 focus:ring-red-500/50"
+                      : "border border-zinc-700 focus:border-white"
+                  }`}
+                />
+                {errors.message && (
+                  <p className="text-xs font-mono text-red-400 flex items-center gap-1.5 pt-0.5">
+                    <span className="text-[#e0234e] font-bold">•</span>
+                    <span>{errors.message}</span>
+                  </p>
+                )}
+              </div>
+
+              {status.type === "error" && (
+                <div
+                  className="p-3.5 rounded-lg text-xs font-mono flex items-center gap-2 border border-red-500/40 bg-red-500/10 text-red-300 animate-fade-in"
+                  role="alert"
+                >
+                  <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                  <span>{status.message}</span>
+                </div>
               )}
-            </button>
-          </form>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-primary w-full disabled:opacity-75 py-3 text-sm font-semibold transition-all relative overflow-hidden group cursor-pointer"
+              >
+                {loading ? (
+                  <span className="inline-flex items-center gap-2.5 animate-pulse">
+                    <Loader2 className="w-4 h-4 animate-spin text-[#e0234e]" />
+                    <span>Registrando y enviando mensaje...</span>
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-2">
+                    <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <span>Enviar mensaje</span>
+                  </span>
+                )}
+              </button>
+            </form>
+          )}
         </ScrollReveal>
       </div>
     </div>
