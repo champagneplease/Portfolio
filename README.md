@@ -1,7 +1,7 @@
 # Nacho Miranda — Personal Portfolio & Technical Platform
 
 > **Estudiante de Desarrollo de Software | Backend Developer | Python & TypeScript**  
-> *Backend, APIs, arquitectura y despliegue de aplicaciones en producción.*
+> _Backend, APIs, arquitectura y despliegue de aplicaciones en producción._
 
 Este repositorio contiene la arquitectura completa de mi portfolio personal profesional, diseñado y construido con una separación limpia entre **Frontend en Next.js + TypeScript** y **Backend en NestJS + TypeScript + PostgreSQL**, orquestado con **Docker & Docker Compose**.
 
@@ -62,6 +62,7 @@ portfolio/
 ## 🚀 Tecnologías Implementadas
 
 ### Backend
+
 - **NestJS 11 + TypeScript**: Arquitectura modular basada en inyección de dependencias, controladores, servicios y DTOs fuertemente tipados.
 - **PostgreSQL 16**: Base de datos relacional para persistencia de proyectos y mensajes de contacto.
 - **Prisma ORM**: Modelado de esquema, migraciones declarativas y generación de cliente tipado.
@@ -72,6 +73,7 @@ portfolio/
 - **Resiliencia técnica**: En caso de indisponibilidad temporal de la base de datos, los servicios backend entran en modo fallback sin colapsar el proceso del servidor.
 
 ### Frontend
+
 - **Next.js 16 (App Router) + React 19 + TypeScript**: Renderizado híbrido rápido y seguro.
 - **Tailwind CSS v4**: Sistema de diseño dark mode con paleta técnica minimalista, espacio negativo generoso y bordes sutiles.
 - **SEO & Accesibilidad**:
@@ -81,6 +83,7 @@ portfolio/
 - **Formularios robustos**: Trampa honeypot invisible contra bots spam y validación contextual posterior a la interacción (`:user-invalid`).
 
 ### DevOps e Infraestructura
+
 - **Multi-stage Dockerfiles**: Imágenes ligeras basadas en Alpine Linux con ejecución segura bajo usuarios no privilegiados (`node` y `nextjs`).
 - **Docker Compose**: Entorno local reproducible con healthcheck en PostgreSQL (`pg_isready`) y redes internas aisladas.
 
@@ -102,6 +105,7 @@ docker compose up --build
 ```
 
 Una vez levantado:
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:4000/api
 - **Health check**: http://localhost:4000/api/health
@@ -173,12 +177,12 @@ node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app
 
 ## 🔌 Endpoints de la API REST
 
-| Método | Endpoint | Descripción | Rate Limit |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/health` | Estado del servicio, uptime y conexión a base de datos | Estándar |
-| `GET` | `/api/projects` | Listado completo de proyectos (admite `?featured=true`) | Estándar |
-| `GET` | `/api/projects/:slug` | Detalle técnico y flujo de arquitectura de un proyecto | Estándar |
-| `POST` | `/api/contact` | Recepción y validación de mensajes con trampa honeypot | 5 req / min |
+| Método | Endpoint              | Descripción                                             | Rate Limit  |
+| :----- | :-------------------- | :------------------------------------------------------ | :---------- |
+| `GET`  | `/api/health`         | Estado del servicio, uptime y conexión a base de datos  | Estándar    |
+| `GET`  | `/api/projects`       | Listado completo de proyectos (admite `?featured=true`) | Estándar    |
+| `GET`  | `/api/projects/:slug` | Detalle técnico y flujo de arquitectura de un proyecto  | Estándar    |
+| `POST` | `/api/contact`        | Recepción y validación de mensajes con trampa honeypot  | 5 req / min |
 
 ---
 
@@ -214,7 +218,6 @@ node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app
 
 - **Nombre**: Nacho Miranda
 - **Rol**: Estudiante de Desarrollo de Software / Junior Backend Developer
-- **Email**: [contactonachomiranda@gmail.com](mailto:contactonachomiranda@gmail.com)
+- **Email**: [nachomirnd@gmail.com](mailto:nachomirnd@gmail.com)
 - **LinkedIn**: [linkedin.com/in/nacho-miranda](https://linkedin.com/in/nacho-miranda)
 - **GitHub**: [github.com/champagneplease](https://github.com/champagneplease)
-

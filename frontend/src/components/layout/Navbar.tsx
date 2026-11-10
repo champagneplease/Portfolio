@@ -26,7 +26,7 @@ export function Navbar() {
           href="/"
           className="text-sm font-semibold tracking-tight text-white hover:text-zinc-300 transition-colors flex items-center gap-2"
         >
-          <span>nacho miranda</span>
+          <span>Nacho Miranda</span>
           <span className="text-xs text-zinc-400 font-mono font-normal">/ backend</span>
         </Link>
 

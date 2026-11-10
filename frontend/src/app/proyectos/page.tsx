@@ -14,7 +14,7 @@ export default function ProjectsPage() {
   const secondaryProjects = PROJECTS_DATA.filter((p) => !p.featured);
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16">
+    <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
       {/* Page Header */}
       <div className="space-y-3">
         <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">

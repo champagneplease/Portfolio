@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
@@ -30,16 +31,33 @@ const EVOLUTION_STEPS = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-16">
+    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
       {/* 1. Header & Bio */}
       <section className="space-y-6">
-        <div className="space-y-3">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-            Perfil Profesional
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-            Sobre mí
-          </h1>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-zinc-700 bg-zinc-900 shrink-0 shadow-xl ring-2 ring-[#e0234e]/30">
+            <Image
+              src="/nacho-miranda.jpg"
+              alt="Nacho Miranda — Backend Developer"
+              fill
+              quality={100}
+              priority
+              style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+              className="filter contrast-[1.02]"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+              Perfil Profesional
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Sobre mí
+            </h1>
+            <p className="text-sm font-mono text-[#e0234e] font-semibold">
+              Estudiante de Desarrollo de Software • Junior Backend Developer
+            </p>
+          </div>
         </div>
 
         <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed">

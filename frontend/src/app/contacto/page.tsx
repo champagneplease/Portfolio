@@ -1,73 +1,78 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
-import { submitContactMessage } from '@/lib/api';
+import { useState } from "react";
+import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { submitContactMessage } from "@/lib/api";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    honeypot: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    honeypot: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{
-    type: 'idle' | 'success' | 'error';
+    type: "idle" | "success" | "error";
     message: string;
-  }>({ type: 'idle', message: '' });
+  }>({ type: "idle", message: "" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    if (status.type !== 'idle') {
-      setStatus({ type: 'idle', message: '' });
+    if (status.type !== "idle") {
+      setStatus({ type: "idle", message: "" });
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
       setStatus({
-        type: 'error',
-        message: 'Por favor, completa todos los campos requeridos.',
+        type: "error",
+        message: "Por favor, completa todos los campos requeridos.",
       });
       return;
     }
 
     setLoading(true);
-    setStatus({ type: 'idle', message: '' });
+    setStatus({ type: "idle", message: "" });
 
     const response = await submitContactMessage(formData);
     setLoading(false);
 
     if (response.success) {
       setStatus({
-        type: 'success',
+        type: "success",
         message: response.message,
       });
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        honeypot: '',
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        honeypot: "",
       });
     } else {
       setStatus({
-        type: 'error',
+        type: "error",
         message: response.message,
       });
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12">
+    <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up">
       {/* Header */}
       <div className="space-y-3">
         <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
@@ -77,7 +82,9 @@ export default function ContactPage() {
           ¿Hablamos?
         </h1>
         <p className="text-base sm:text-lg text-zinc-200 max-w-xl leading-relaxed">
-          Si estás buscando un desarrollador Backend Junior, querés intercambiar ideas sobre un proyecto o simplemente hablar de tecnología, podés contactarme.
+          Si estás buscando un desarrollador Backend Junior, querés intercambiar
+          ideas sobre un proyecto o simplemente hablar de tecnología, podés
+          contactarme.
         </p>
       </div>
 
@@ -91,13 +98,15 @@ export default function ContactPage() {
 
             <div className="space-y-3 text-sm">
               <a
-                href="mailto:contactonachomiranda@gmail.com"
+                href="mailto:nachomirnd@gmail.com"
                 className="flex items-center gap-3 p-3.5 rounded-lg border border-zinc-700 bg-black hover:border-zinc-500 transition-colors text-zinc-200 hover:text-white"
               >
                 <Mail className="w-5 h-5 text-white shrink-0" />
                 <div>
                   <div className="text-xs text-zinc-400 font-mono">Email</div>
-                  <div className="font-mono text-xs sm:text-sm text-white font-medium">contactonachomiranda@gmail.com</div>
+                  <div className="font-mono text-xs sm:text-sm text-white font-medium">
+                    nachomirnd@gmail.com
+                  </div>
                 </div>
               </a>
 
@@ -109,8 +118,12 @@ export default function ContactPage() {
               >
                 <LinkedinIcon className="w-5 h-5 text-white shrink-0" />
                 <div>
-                  <div className="text-xs text-zinc-400 font-mono">LinkedIn</div>
-                  <div className="font-mono text-xs sm:text-sm text-white font-medium">linkedin.com/in/nacho-miranda</div>
+                  <div className="text-xs text-zinc-400 font-mono">
+                    LinkedIn
+                  </div>
+                  <div className="font-mono text-xs sm:text-sm text-white font-medium">
+                    linkedin.com/in/nacho-miranda
+                  </div>
                 </div>
               </a>
 
@@ -123,14 +136,17 @@ export default function ContactPage() {
                 <GithubIcon className="w-5 h-5 text-white shrink-0" />
                 <div>
                   <div className="text-xs text-zinc-400 font-mono">GitHub</div>
-                  <div className="font-mono text-xs sm:text-sm text-white font-medium">github.com/champagneplease</div>
+                  <div className="font-mono text-xs sm:text-sm text-white font-medium">
+                    github.com/champagneplease
+                  </div>
                 </div>
               </a>
             </div>
           </div>
 
           <div className="border border-zinc-800 bg-[#0c0c0e] p-4 rounded-lg text-xs font-mono text-zinc-300">
-            Formulario conectado a la API de NestJS con validación de DTOs y rate limiting (5 req / min).
+            Formulario conectado a la API de NestJS con validación de DTOs y
+            rate limiting (5 req / min).
           </div>
         </div>
 
@@ -138,7 +154,7 @@ export default function ContactPage() {
         <div className="md:col-span-7 border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             {/* Honeypot field for anti-spam */}
-            <div style={{ display: 'none' }} aria-hidden="true">
+            <div style={{ display: "none" }} aria-hidden="true">
               <label htmlFor="hp-field">Honeypot</label>
               <input
                 id="hp-field"
@@ -152,7 +168,10 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="name" className="block text-xs font-mono text-zinc-200 font-semibold">
+              <label
+                htmlFor="name"
+                className="block text-xs font-mono text-zinc-200 font-semibold"
+              >
                 Nombre <span className="text-red-400">*</span>
               </label>
               <input
@@ -169,7 +188,10 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="email" className="block text-xs font-mono text-zinc-200 font-semibold">
+              <label
+                htmlFor="email"
+                className="block text-xs font-mono text-zinc-200 font-semibold"
+              >
                 Email <span className="text-red-400">*</span>
               </label>
               <input
@@ -186,7 +208,10 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="subject" className="block text-xs font-mono text-zinc-200 font-semibold">
+              <label
+                htmlFor="subject"
+                className="block text-xs font-mono text-zinc-200 font-semibold"
+              >
                 Asunto <span className="text-red-400">*</span>
               </label>
               <input
@@ -202,7 +227,10 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="message" className="block text-xs font-mono text-zinc-200 font-semibold">
+              <label
+                htmlFor="message"
+                className="block text-xs font-mono text-zinc-200 font-semibold"
+              >
                 Mensaje <span className="text-red-400">*</span>
               </label>
               <textarea
@@ -217,16 +245,16 @@ export default function ContactPage() {
               />
             </div>
 
-            {status.type !== 'idle' && (
+            {status.type !== "idle" && (
               <div
                 className={`p-3.5 rounded-lg text-xs font-mono flex items-center gap-2 border ${
-                  status.type === 'success'
-                    ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300'
-                    : 'border-red-500/40 bg-red-500/10 text-red-300'
+                  status.type === "success"
+                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                    : "border-red-500/40 bg-red-500/10 text-red-300"
                 }`}
                 role="alert"
               >
-                {status.type === 'success' ? (
+                {status.type === "success" ? (
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 ) : (
                   <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />

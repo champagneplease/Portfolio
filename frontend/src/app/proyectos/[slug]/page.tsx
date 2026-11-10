@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <article className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12">
+    <article className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up">
       {/* Back button */}
       <div>
         <Link
