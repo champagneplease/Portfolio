@@ -205,7 +205,7 @@ export default function ContactPage() {
                   {status.message}
                 </p>
                 <div className="pt-2 text-xs font-mono text-zinc-500">
-                  Guardado en PostgreSQL y notificado al correo de Nacho Miranda.
+                  Notificado al correo de Nacho Miranda.
                 </div>
               </div>
 
