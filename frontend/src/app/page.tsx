@@ -71,8 +71,8 @@ export default function HomePage() {
                 .
               </p>
 
-              {/* Action Buttons & Social Icons */}
-              <div className="space-y-5 pt-2">
+              {/* Action Buttons */}
+              <div className="pt-2">
                 <div className="flex flex-wrap items-center gap-4">
                   <Link href="/proyectos" className="btn-primary">
                     <span>Ver proyectos</span>
@@ -82,44 +82,6 @@ export default function HomePage() {
                   <Link href="/contacto" className="btn-secondary">
                     <span>Contactarme</span>
                   </Link>
-                </div>
-
-                {/* Social circular buttons matching inspiration layout */}
-                <div className="flex items-center gap-3 pt-1">
-                  <a
-                    href="https://github.com/champagneplease"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub de Nacho Miranda"
-                    title="GitHub"
-                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
-                  >
-                    <GithubIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  </a>
-
-                  <a
-                    href="https://linkedin.com/in/nacho-miranda"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn de Nacho Miranda"
-                    title="LinkedIn"
-                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
-                  >
-                    <LinkedinIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  </a>
-
-                  <a
-                    href="mailto:nachomirnd@gmail.com"
-                    aria-label="Enviar correo a Nacho Miranda"
-                    title="Email: nachomirnd@gmail.com"
-                    className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md group"
-                  >
-                    <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  </a>
-
-                  <span className="text-xs font-mono text-zinc-400 pl-2">
-                    nachomirnd@gmail.com
-                  </span>
                 </div>
               </div>
             </ScrollReveal>
