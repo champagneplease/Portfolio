@@ -5,257 +5,338 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 interface TechItem {
   name: string;
+  role: string;
   iconSrc: string;
   invert?: boolean;
   featured?: boolean;
-  badge?: string;
 }
 
-interface TechCategory {
+interface StackCategory {
+  number: string;
   title: string;
+  subtitle: string;
+  isPrincipal?: boolean;
   items: TechItem[];
 }
 
-const CATEGORIES: TechCategory[] = [
+const CATEGORIES: StackCategory[] = [
   {
+    number: '01',
     title: 'Backend Development',
+    subtitle: 'APIs, arquitectura y desarrollo de servicios',
+    isPrincipal: true,
     items: [
       {
         name: 'NestJS',
+        role: 'Backend TypeScript',
         iconSrc: '/assets/icons/demo/nestjs.svg',
         featured: true,
-        badge: 'Foco Principal',
       },
       {
         name: 'Node.js',
+        role: 'Runtime JavaScript',
         iconSrc: '/assets/icons/demo/nodejs.svg',
       },
       {
-        name: 'TypeScript',
-        iconSrc: '/assets/icons/demo/typescript.svg',
+        name: 'FastAPI',
+        role: 'APIs con Python',
+        iconSrc: '/assets/icons/demo/fastapi.svg',
       },
       {
-        name: 'Python',
-        iconSrc: '/assets/icons/demo/python.svg',
-      },
-      {
-        name: 'Express.js',
-        iconSrc: '/assets/icons/demo/express.svg',
-        invert: true,
-      },
-      {
-        name: 'PostgreSQL',
-        iconSrc: '/assets/icons/demo/postgres.svg',
-      },
-      {
-        name: 'Prisma ORM',
-        iconSrc: '/assets/icons/demo/prisma.svg',
-        invert: true,
-      },
-      {
-        name: 'MongoDB',
-        iconSrc: '/assets/icons/demo/mongodb.svg',
+        name: 'Django',
+        role: 'Backend Python',
+        iconSrc: '/assets/icons/demo/django.svg',
       },
     ],
   },
   {
+    number: '02',
     title: 'DevOps & Cloud',
+    subtitle: 'Infraestructura, contenedores y despliegues',
+    isPrincipal: true,
     items: [
       {
         name: 'Docker',
+        role: 'Contenedores aislados',
         iconSrc: '/assets/icons/demo/docker.svg',
       },
       {
         name: 'Docker Compose',
+        role: 'Orquestación de servicios',
         iconSrc: '/assets/icons/demo/docker.svg',
       },
       {
-        name: 'AWS',
-        iconSrc: '/assets/icons/demo/aws.svg',
-        invert: true,
-      },
-      {
-        name: 'Railway',
-        iconSrc: '/assets/icons/demo/railway.svg',
-        invert: true,
-      },
-      {
         name: 'Linux & Bash',
+        role: 'Servidores & CLI',
         iconSrc: '/assets/icons/demo/bash.svg',
         invert: true,
       },
       {
-        name: 'GitHub Actions',
-        iconSrc: '/assets/icons/demo/github-actions.svg',
+        name: 'AWS',
+        role: 'Cloud (EC2, S3)',
+        iconSrc: '/assets/icons/demo/aws.svg',
+        invert: true,
       },
       {
+        name: 'Nginx',
+        role: 'Reverse Proxy & Web Server',
+        iconSrc: '/assets/icons/demo/nginx.svg',
+      },
+      {
+        name: 'Terraform',
+        role: 'Infrastructure as Code',
+        iconSrc: '/assets/icons/demo/terraform.svg',
+      },
+      {
+        name: 'Railway',
+        role: 'PaaS & Producción',
+        iconSrc: '/assets/icons/demo/railway.svg',
+        invert: true,
+      },
+      {
+        name: 'Render',
+        role: 'Cloud Deployment',
+        iconSrc: '/assets/icons/demo/render.svg',
+        invert: true,
+      },
+    ],
+  },
+  {
+    number: '03',
+    title: 'Databases & Data Management',
+    subtitle: 'Persistencia, consultas y gestión de datos',
+    items: [
+      {
+        name: 'PostgreSQL',
+        role: 'Base de datos relacional',
+        iconSrc: '/assets/icons/demo/postgres.svg',
+      },
+      {
+        name: 'MySQL',
+        role: 'Base de datos relacional',
+        iconSrc: '/assets/icons/demo/mysql.svg',
+      },
+      {
+        name: 'MongoDB',
+        role: 'Base de datos NoSQL',
+        iconSrc: '/assets/icons/demo/mongodb.svg',
+      },
+      {
+        name: 'Supabase',
+        role: 'Backend-as-a-Service',
+        iconSrc: '/assets/icons/demo/supabase.svg',
+      },
+      {
+        name: 'SQL & DB Tools',
+        role: 'Queries & Schemas',
+        iconSrc: '/assets/icons/demo/sql.svg',
+        invert: true,
+      },
+    ],
+  },
+  {
+    number: '04',
+    title: 'CI/CD & Version Control',
+    subtitle: 'Automatización y control de versiones',
+    items: [
+      {
         name: 'Git',
+        role: 'Control de versiones',
         iconSrc: '/assets/icons/demo/git.svg',
       },
       {
-        name: 'REST APIs',
-        iconSrc: '/assets/icons/demo/openapi.svg',
-      },
-    ],
-  },
-  {
-    title: 'Frontend Development',
-    items: [
-      {
-        name: 'HTML5',
-        iconSrc: '/assets/icons/demo/html.svg',
-      },
-      {
-        name: 'CSS3',
-        iconSrc: '/assets/icons/demo/css.svg',
-      },
-      {
-        name: 'JavaScript',
-        iconSrc: '/assets/icons/demo/js.svg',
-      },
-      {
-        name: 'React',
-        iconSrc: '/assets/icons/demo/react.svg',
-      },
-      {
-        name: 'Next.js',
-        iconSrc: '/assets/icons/demo/nextjs.svg',
-        invert: true,
-      },
-      {
-        name: 'Tailwind CSS',
-        iconSrc: '/assets/icons/demo/tailwindcss.svg',
-      },
-      {
-        name: 'Bootstrap',
-        iconSrc: '/assets/icons/demo/bootstrap.svg',
-      },
-      {
-        name: 'Responsive Design',
-        iconSrc: '/assets/icons/demo/ui-smartphone.svg',
-        invert: true,
-      },
-    ],
-  },
-  {
-    title: 'Tools & Technologies',
-    items: [
-      {
         name: 'GitHub',
+        role: 'Alojamiento de código',
         iconSrc: '/assets/icons/demo/github.svg',
         invert: true,
       },
       {
+        name: 'GitHub Actions',
+        role: 'Pipelines CI/CD',
+        iconSrc: '/assets/icons/demo/github-actions.svg',
+      },
+    ],
+  },
+  {
+    number: '05',
+    title: 'Frontend Development',
+    subtitle: 'Desarrollo de interfaces y aplicaciones web',
+    items: [
+      {
+        name: 'Next.js',
+        role: 'App Router & SSR',
+        iconSrc: '/assets/icons/demo/nextjs.svg',
+        invert: true,
+      },
+      {
+        name: 'React',
+        role: 'Interfaces reactivas',
+        iconSrc: '/assets/icons/demo/react.svg',
+      },
+      {
+        name: 'Tailwind CSS',
+        role: 'Diseño utilitario',
+        iconSrc: '/assets/icons/demo/tailwindcss.svg',
+      },
+    ],
+  },
+  {
+    number: '06',
+    title: 'Development Tools',
+    subtitle: 'Herramientas de desarrollo y productividad',
+    items: [
+      {
         name: 'Postman',
+        role: 'API Testing & Docs',
         iconSrc: '/assets/icons/demo/postman.svg',
       },
       {
-        name: 'CLI',
-        iconSrc: '/assets/icons/demo/ui-terminal.svg',
-        invert: true,
-      },
-      {
         name: 'VS Code',
+        role: 'Editor de código',
         iconSrc: '/assets/icons/demo/visual-studio-code.svg',
       },
       {
-        name: 'MySQL',
-        iconSrc: '/assets/icons/demo/mysql.svg',
+        name: 'Antigravity',
+        role: 'AI-Assisted Development',
+        iconSrc: '/assets/icons/demo/antigravity.svg',
       },
       {
-        name: 'SQL',
-        iconSrc: '/assets/icons/demo/sql.svg',
+        name: 'Vercel',
+        role: 'Web Deployment',
+        iconSrc: '/assets/icons/demo/vercel.svg',
         invert: true,
       },
       {
-        name: 'Linux Tux',
-        iconSrc: '/assets/icons/demo/linux-tux.svg',
-      },
-      {
-        name: 'JSON / DTOs',
-        iconSrc: '/assets/icons/demo/json.svg',
+        name: 'Netlify',
+        role: 'Web Deployment',
+        iconSrc: '/assets/icons/demo/netlify.svg',
       },
     ],
   },
 ];
 
-function TechCard({ item }: { item: TechItem }) {
-  const isFeatured = item.featured;
-
+function CategoryPanel({ category }: { category: StackCategory }) {
   return (
-    <div
-      className={`group relative rounded-2xl p-6 sm:p-7 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-2 cursor-default select-none ${
-        isFeatured
-          ? 'bg-gradient-to-b from-[#e0234e]/12 via-[#0e0e12] to-[#0e0e12] border border-[#e0234e]/60 shadow-[0_4px_24px_-4px_rgba(224,35,78,0.25)] hover:border-[#e0234e] hover:shadow-[0_12px_32px_rgba(224,35,78,0.4)]'
-          : 'bg-[#0e0e12] border border-zinc-800/90 shadow-md hover:border-zinc-600 hover:bg-zinc-900/70 hover:shadow-[0_12px_28px_-6px_rgba(0,0,0,0.6)]'
-      }`}
-    >
-      {/* Featured Badge */}
-      {item.badge && (
-        <span className="absolute -top-2.5 px-2.5 py-0.5 rounded-full bg-[#e0234e] text-[10px] font-mono font-bold text-white shadow-md tracking-wider uppercase">
-          {item.badge}
-        </span>
-      )}
+    <div className="card-taste border border-zinc-800/80 bg-[#0c0c0e]/95 rounded-xl p-5 sm:p-6 space-y-4 shadow-md transition-all duration-300 hover:border-zinc-700">
+      {/* Panel Header */}
+      <div className="flex items-start justify-between gap-3 border-b border-zinc-800/80 pb-3.5">
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-mono text-zinc-400 font-semibold">
+              {category.number} /
+            </span>
+            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              {category.title}
+            </h3>
+          </div>
+          <p className="text-xs text-zinc-400 font-mono mt-1">
+            {category.subtitle}
+          </p>
+        </div>
 
-      {/* Tech Icon Container */}
-      <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mb-3.5 transition-transform duration-300 group-hover:scale-110">
-        <Image
-          src={item.iconSrc}
-          alt={item.name}
-          width={48}
-          height={48}
-          className={`w-10 h-10 sm:w-12 sm:h-12 object-contain ${
-            item.invert ? 'filter invert brightness-125' : ''
-          }`}
-        />
+        {category.isPrincipal && (
+          <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
+            Principal
+          </span>
+        )}
       </div>
 
-      {/* Tech Label */}
-      <span className="text-sm sm:text-base font-semibold text-zinc-100 group-hover:text-white transition-colors tracking-tight">
-        {item.name}
-      </span>
+      {/* Compact Items Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        {category.items.map((item) => (
+          <div
+            key={item.name}
+            className={`group flex items-center gap-2.5 p-2.5 rounded-lg border transition-all duration-200 select-none ${
+              item.featured
+                ? 'border-[#e0234e]/50 bg-gradient-to-r from-[#e0234e]/10 to-zinc-900/60 shadow-[0_0_12px_rgba(224,35,78,0.15)] hover:border-[#e0234e]'
+                : 'border-zinc-800/80 bg-zinc-900/50 hover:bg-zinc-800/60 hover:border-zinc-700'
+            }`}
+          >
+            {/* Compact Icon */}
+            <div className="w-8 h-8 rounded-md bg-zinc-900/90 border border-zinc-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <Image
+                src={item.iconSrc}
+                alt={item.name}
+                width={20}
+                height={20}
+                className={`w-5 h-5 object-contain ${
+                  item.invert ? 'filter invert brightness-125' : ''
+                }`}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="min-w-0 flex-1">
+              <div className="text-xs sm:text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
+                {item.name}
+              </div>
+              <div className="text-[10px] sm:text-[11px] font-mono text-zinc-400 truncate">
+                {item.role}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 export function TechStackSection() {
+  const leftColumn = [CATEGORIES[0], CATEGORIES[2], CATEGORIES[4]]; // 01 Backend, 03 Databases, 05 Frontend
+  const rightColumn = [CATEGORIES[1], CATEGORIES[3], CATEGORIES[5]]; // 02 DevOps, 04 CI/CD, 06 Tools
+
   return (
-    <section className="border-t border-zinc-800/80 bg-black py-20 px-6 overflow-hidden">
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* Section Header (Inspired by reference My Skills + Underline relief) */}
+    <section className="border-t border-zinc-800/80 bg-black py-16 sm:py-20 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto space-y-12">
+        {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="text-center space-y-2.5">
+            <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest font-semibold">
+              Tecnologías & Arquitectura
+            </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-              My Skills
+              Skills & Stack
             </h2>
-            {/* Center accent underline matching DevFolioX reference */}
+            {/* Center accent underline bar */}
             <div
               aria-hidden="true"
               className="mx-auto mt-2 h-1 w-14 rounded-full bg-[#e0234e] shadow-[0_0_14px_rgba(224,35,78,0.85)]"
             />
+            <p className="text-sm sm:text-base text-zinc-300 max-w-xl mx-auto pt-1 leading-relaxed">
+              Herramientas, arquitectura y tecnologías con las que construyo y despliego software en producción.
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* Categories Stack */}
-        <div className="space-y-16">
-          {CATEGORIES.map((category, idx) => (
-            <ScrollReveal
-              key={category.title}
-              direction="up"
-              delay={idx * 80}
-              className="space-y-6"
-            >
-              <h3 className="text-xl sm:text-2xl font-bold text-white text-center tracking-tight">
-                {category.title}
-              </h3>
+        {/* 2-Column Balanced Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          {/* Left Column: Backend, Databases, Frontend */}
+          <div className="space-y-6">
+            {leftColumn.map((category, idx) => (
+              <ScrollReveal
+                key={category.number}
+                direction="left"
+                delay={idx * 75}
+                distance={30}
+              >
+                <CategoryPanel category={category} />
+              </ScrollReveal>
+            ))}
+          </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-                {category.items.map((tech) => (
-                  <TechCard key={tech.name} item={tech} />
-                ))}
-              </div>
-            </ScrollReveal>
-          ))}
+          {/* Right Column: DevOps & Cloud, CI/CD, Development Tools */}
+          <div className="space-y-6">
+            {rightColumn.map((category, idx) => (
+              <ScrollReveal
+                key={category.number}
+                direction="right"
+                delay={idx * 75}
+                distance={30}
+              >
+                <CategoryPanel category={category} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

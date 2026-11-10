@@ -75,7 +75,7 @@ export default function AboutPage() {
             <p>
               Me interesan especialmente los problemas que requieren pensar más allá del código: arquitectura, comunicación entre servicios, bases de datos, seguridad, despliegue y mantenimiento.
             </p>
-            <div className="border-l-2 border-white pl-4 py-2 text-zinc-100 font-medium italic text-lg bg-zinc-900/40 rounded-r">
+            <div className="border-l-2 border-[#e0234e] pl-4 py-2 text-zinc-100 font-medium italic text-lg bg-zinc-900/40 rounded-r">
               «Creo que programar no consiste solamente en escribir código, sino en entender el problema y encontrar una solución simple, mantenible y adecuada.»
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold tracking-tight text-white">
             Más allá del código
           </h2>
-          <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed border-l-2 border-white pl-5 py-2">
+          <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed border-l-2 border-[#e0234e] pl-5 py-2">
             <p>
               En una época donde las herramientas de IA forman parte cada vez más del desarrollo, considero todavía más importante comprender los fundamentos.
             </p>
