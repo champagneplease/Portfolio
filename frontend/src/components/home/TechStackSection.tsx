@@ -220,7 +220,7 @@ export function TechStackSection() {
                   className="h-1 w-12 rounded-full bg-[#e0234e]"
                 />
               </div>
-              <p className="text-xs sm:text-sm text-zinc-300 font-mono max-w-md sm:text-right">
+              <p className="text-[11px] sm:text-xs text-zinc-500 font-mono max-w-sm sm:text-right leading-relaxed opacity-75">
                 Herramientas, arquitectura y tecnologías con las que construyo y despliego software en producción.
               </p>
             </div>
@@ -228,65 +228,65 @@ export function TechStackSection() {
         </ScrollReveal>
 
         {/* Categories: Unboxed, Clean & Airy Rows */}
-        <div className="space-y-10">
+        <div className="space-y-12">
           {CATEGORIES.map((category, idx) => (
             <ScrollReveal
               key={category.number}
               direction="up"
               delay={idx * 50}
               distance={20}
-              className="space-y-4 border-b border-zinc-800/60 pb-8 last:border-b-0 last:pb-0"
+              className="space-y-4 border-b border-zinc-800/60 pb-10 last:border-b-0 last:pb-0"
             >
               {/* Category Header Row */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-xs font-mono text-[#e0234e] font-semibold tracking-wider">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  <span className="text-xs sm:text-sm font-mono text-[#e0234e] font-semibold tracking-wider">
                     {category.number} //
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
                     {category.title}
                   </h3>
                   {category.isPrincipal && (
-                    <span className="ml-2 px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
                       Foco Principal
                     </span>
                   )}
                 </div>
-                <span className="text-xs font-mono text-zinc-400">
+                <span className="text-xs sm:text-sm font-mono text-zinc-400">
                   {category.subtitle}
                 </span>
               </div>
 
-              {/* Items Grid: Unboxed, Airy, Sleek */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 pt-1">
+              {/* Items Grid: Larger, Prominent & Highly Legible on Mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 pt-2">
                 {category.items.map((item) => (
                   <div
                     key={item.name}
-                    className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-200 group select-none ${
+                    className={`flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl transition-all duration-200 group select-none ${
                       item.featured
-                        ? 'bg-gradient-to-r from-[#e0234e]/10 via-[#e0234e]/5 to-transparent border-l-2 border-[#e0234e] pl-2.5'
-                        : 'hover:bg-zinc-900/40 border-l-2 border-transparent hover:border-zinc-700 pl-2.5'
+                        ? 'bg-gradient-to-r from-[#e0234e]/12 via-[#e0234e]/5 to-transparent border-l-[3px] border-[#e0234e] pl-3 sm:pl-3.5'
+                        : 'hover:bg-zinc-900/50 border-l-[3px] border-transparent hover:border-zinc-600 pl-3 sm:pl-3.5'
                     }`}
                   >
-                    {/* Icon */}
-                    <div className="w-8 h-8 rounded-md bg-zinc-900/60 border border-zinc-800/80 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-zinc-600 transition-all">
+                    {/* Icon Container: Larger 44-48px size with 24-28px SVG */}
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-zinc-900/70 border border-zinc-800/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-zinc-600 transition-all shadow-sm">
                       <Image
                         src={item.iconSrc}
                         alt={item.name}
-                        width={20}
-                        height={20}
-                        className={`w-5 h-5 object-contain ${
+                        width={28}
+                        height={28}
+                        className={`w-6 h-6 sm:w-7 sm:h-7 object-contain ${
                           item.invert ? 'filter invert brightness-125' : ''
                         }`}
                       />
                     </div>
 
-                    {/* Content */}
+                    {/* Content: Prominent Typography */}
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
+                      <div className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors truncate">
                         {item.name}
                       </div>
-                      <div className="text-[11px] font-mono text-zinc-400 truncate">
+                      <div className="text-xs sm:text-sm font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors truncate">
                         {item.role}
                       </div>
                     </div>
