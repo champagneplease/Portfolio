@@ -4,7 +4,7 @@ export class CreateContactDto {
   @IsNotEmpty({ message: 'El nombre es obligatorio' })
   @IsString({ message: 'El nombre debe ser una cadena de texto' })
   @MinLength(2, { message: 'El nombre debe tener al menos 2 caracteres' })
-  @MaxLength(100, { message: 'El nombre no puede exceder 100 caracteres' })
+  @MaxLength(35, { message: 'El nombre no puede exceder 35 caracteres' })
   name!: string;
 
   @IsNotEmpty({ message: 'El correo electrónico es obligatorio' })
@@ -21,7 +21,7 @@ export class CreateContactDto {
   @IsNotEmpty({ message: 'El mensaje es obligatorio' })
   @IsString({ message: 'El mensaje debe ser texto' })
   @MinLength(10, { message: 'El mensaje debe contener al menos 10 caracteres' })
-  @MaxLength(3000, { message: 'El mensaje no puede exceder 3000 caracteres' })
+  @MaxLength(500, { message: 'El mensaje no puede exceder 500 caracteres' })
   message!: string;
 
   @IsOptional()
