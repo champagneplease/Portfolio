@@ -40,6 +40,14 @@ export function Footer() {
           >
             LinkedIn
           </a>
+          <a
+            href="https://www.instagram.com/_nachomirnd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            Instagram
+          </a>
         </div>
       </div>
     </footer>

@@ -220,4 +220,5 @@ node .agents/skills/design-taste-frontend/scripts/copy-lint.mjs frontend/src/app
 - **Rol**: Estudiante de Desarrollo de Software / Junior Backend Developer
 - **Email**: [nachomirnd@gmail.com](mailto:nachomirnd@gmail.com)
 - **LinkedIn**: [linkedin.com/in/nachomirnd](https://www.linkedin.com/in/nachomirnd/)
+- **Instagram**: [@_nachomirnd](https://www.instagram.com/_nachomirnd/)
 - **GitHub**: [github.com/champagneplease](https://github.com/champagneplease)

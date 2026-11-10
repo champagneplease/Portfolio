@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Mail, MapPin } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
+import { GithubIcon, LinkedinIcon, InstagramIcon } from '@/components/ui/Icons';
 
 interface HeroProfileProps {
   imageSrc?: string;
@@ -9,6 +9,7 @@ interface HeroProfileProps {
   location?: string;
   githubUrl?: string;
   linkedinUrl?: string;
+  instagramUrl?: string;
 }
 
 export function HeroProfile({
@@ -18,6 +19,7 @@ export function HeroProfile({
   location = 'Catamarca, Argentina',
   githubUrl = 'https://github.com/champagneplease',
   linkedinUrl = 'https://www.linkedin.com/in/nachomirnd/',
+  instagramUrl = 'https://www.instagram.com/_nachomirnd/',
 }: HeroProfileProps) {
   return (
     <div className="flex flex-col items-center">
@@ -71,7 +73,7 @@ export function HeroProfile({
           <span>{location}</span>
         </div>
 
-        {/* Social Icons (GitHub, LinkedIn) */}
+        {/* Social Icons (GitHub, LinkedIn, Instagram) */}
         <div className="flex items-center justify-center gap-3 pt-1.5">
           <a
             href={githubUrl}
@@ -89,10 +91,21 @@ export function HeroProfile({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn de Nacho Miranda"
-            title="LinkedIn: Nacho Miranda"
+            title="LinkedIn: /in/nachomirnd"
             className="w-9 h-9 rounded-full border border-zinc-700 bg-zinc-900/90 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md hover:scale-110"
           >
             <LinkedinIcon className="w-4 h-4" />
+          </a>
+
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Nacho Miranda"
+            title="Instagram: @_nachomirnd"
+            className="w-9 h-9 rounded-full border border-zinc-700 bg-zinc-900/90 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center text-zinc-300 shadow-md hover:scale-110"
+          >
+            <InstagramIcon className="w-4 h-4" />
           </a>
         </div>
       </div>

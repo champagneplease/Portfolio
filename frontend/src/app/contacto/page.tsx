@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/Icons";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { submitContactMessage } from "@/lib/api";
 import { contactSchema, type ContactFormData } from "@/lib/validations/contact";
@@ -161,6 +161,21 @@ export default function ContactPage() {
                   <div className="text-xs text-zinc-400 font-mono">GitHub</div>
                   <div className="font-mono text-xs sm:text-sm text-white font-medium">
                     github.com/champagneplease
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://www.instagram.com/_nachomirnd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3.5 rounded-lg border border-zinc-700 bg-black hover:border-zinc-500 transition-colors text-zinc-200 hover:text-white"
+              >
+                <InstagramIcon className="w-5 h-5 text-white shrink-0" />
+                <div>
+                  <div className="text-xs text-zinc-400 font-mono">Instagram</div>
+                  <div className="font-mono text-xs sm:text-sm text-white font-medium">
+                    @_nachomirnd
                   </div>
                 </div>
               </a>
