@@ -20,18 +20,20 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-tight text-white hover:text-zinc-300 transition-colors flex items-center gap-2"
-        >
-          <span>Nacho Miranda</span>
-          <span className="text-xs text-zinc-400 font-mono font-normal">/ backend</span>
-        </Link>
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Left: Brand */}
+        <div className="flex-1 flex items-center justify-start">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-tight text-white hover:text-zinc-300 transition-colors flex items-center gap-2 whitespace-nowrap"
+          >
+            <span>Nacho Miranda</span>
+            <span className="text-xs text-zinc-400 font-mono font-normal">/ backend</span>
+          </Link>
+        </div>
 
-        {/* Desktop Navigation: Unboxed, loose with active relief indicator */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm">
+        {/* Center: Desktop Navigation Sections */}
+        <nav className="hidden md:flex flex-none items-center gap-6 lg:gap-8 text-sm">
           {NAV_ITEMS.map((item) => {
             const isActive =
               item.href === '/'
@@ -65,40 +67,43 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Social / External + Theme Toggle */}
-        <div className="hidden md:flex items-center gap-4 text-xs font-mono">
-          <ThemeToggle />
-          <span className="w-px h-4 bg-zinc-800" />
+        {/* Right: Social Icons + Theme Toggle at the far right corner */}
+        <div className="hidden md:flex flex-1 items-center justify-end gap-1.5 text-xs font-mono">
           <a
             href="https://github.com/champagneplease"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
             aria-label="GitHub de Nacho Miranda"
+            title="GitHub"
           >
             <GithubIcon className="w-4 h-4" />
-            <span>GitHub</span>
           </a>
           <a
             href="https://www.linkedin.com/in/nachomirnd/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
             aria-label="LinkedIn de Nacho Miranda"
+            title="LinkedIn"
           >
             <LinkedinIcon className="w-4 h-4" />
-            <span>LinkedIn</span>
           </a>
           <a
             href="https://www.instagram.com/_nachomirnd/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
             aria-label="Instagram de Nacho Miranda"
+            title="Instagram"
           >
             <InstagramIcon className="w-4 h-4" />
-            <span>Instagram</span>
           </a>
+
+          <span className="w-px h-4 bg-zinc-800/80 mx-1.5" />
+
+          {/* Dark / Light toggle button on far right corner */}
+          <ThemeToggle />
         </div>
 
         {/* Mobile controls: Theme toggle + hamburger */}
