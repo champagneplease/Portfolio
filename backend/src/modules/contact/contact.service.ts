@@ -57,6 +57,64 @@ export class ContactService {
   }
 
   /**
+   * Diagnostic test method to verify Resend API integration and return raw status.
+   */
+  async testEmail() {
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const destinationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'nachomirnd@gmail.com';
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'Nacho Portfolio <onboarding@resend.dev>';
+
+    if (!resendApiKey) {
+      return {
+        configured: false,
+        error: 'RESEND_API_KEY no está presente en las variables de entorno de este contenedor.',
+        destinationEmail,
+        fromEmail,
+        hint: 'Ve a Railway -> Servicio Backend -> pestaña Variables -> agrega RESEND_API_KEY y haz Redeploy si es necesario.',
+      };
+    }
+
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${resendApiKey}`,
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [destinationEmail],
+          subject: 'Prueba de Diagnostico Resend - Portfolio Nacho Miranda',
+          html: '<h3>¡Conexión de Resend funcionando!</h3><p>Si recibes este correo, la entrega de notificaciones está activa y operativa al 100%.</p>',
+        }),
+      });
+
+      const responseText = await response.text();
+      let responseJson: any = null;
+      try {
+        responseJson = JSON.parse(responseText);
+      } catch {
+        responseJson = responseText;
+      }
+
+      return {
+        configured: true,
+        keyPrefix: `${resendApiKey.slice(0, 6)}...`,
+        destinationEmail,
+        fromEmail,
+        httpStatus: response.status,
+        ok: response.ok,
+        resendResponse: responseJson,
+      };
+    } catch (err) {
+      return {
+        configured: true,
+        error: (err as Error)?.message || 'Fetch error',
+      };
+    }
+  }
+
+  /**
    * Dispatches an email notification to the portfolio owner (e.g. via Resend API).
    * Safe and non-blocking: if RESEND_API_KEY is not configured, it simply logs and skips.
    */
