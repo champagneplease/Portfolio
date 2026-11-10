@@ -247,8 +247,9 @@ export function TechStackSection() {
                     {category.title}
                   </h3>
                   {category.isPrincipal && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#e0234e]/15 border border-[#e0234e]/40 text-[#e0234e] text-[10px] font-mono font-bold tracking-wider uppercase">
-                      Foco Principal
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#e0234e]" aria-hidden="true" />
+                      foco principal
                     </span>
                   )}
                 </div>
@@ -262,11 +263,7 @@ export function TechStackSection() {
                 {category.items.map((item) => (
                   <div
                     key={item.name}
-                    className={`flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl transition-all duration-200 group select-none ${
-                      item.featured
-                        ? 'bg-gradient-to-r from-[#e0234e]/12 via-[#e0234e]/5 to-transparent border-l-[3px] border-[#e0234e] pl-3 sm:pl-3.5'
-                        : 'hover:bg-zinc-900/50 border-l-[3px] border-transparent hover:border-zinc-600 pl-3 sm:pl-3.5'
-                    }`}
+                    className="flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl hover:bg-zinc-900/50 transition-all duration-200 group select-none"
                   >
                     {/* Icon Container: Larger 44-48px size with 24-28px SVG */}
                     <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-zinc-900/70 border border-zinc-800/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-zinc-600 transition-all shadow-sm">
@@ -283,8 +280,17 @@ export function TechStackSection() {
 
                     {/* Content: Prominent Typography */}
                     <div className="min-w-0 flex-1">
-                      <div className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors truncate">
-                        {item.name}
+                      <div className="flex items-center gap-2">
+                        <span className="text-base sm:text-lg font-bold text-zinc-100 group-hover:text-white transition-colors truncate">
+                          {item.name}
+                        </span>
+                        {item.featured && (
+                          <span
+                            title="Stack principal"
+                            className="w-1.5 h-1.5 rounded-full bg-[#e0234e] shrink-0"
+                            aria-hidden="true"
+                          />
+                        )}
                       </div>
                       <div className="text-xs sm:text-sm font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors truncate">
                         {item.role}
