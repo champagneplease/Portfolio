@@ -13,6 +13,7 @@ import {
   Mail,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { DeveloperGreeting } from "@/components/hero/DeveloperGreeting";
 import { TypewriterText } from "@/components/hero/TypewriterText";
 import { NetworkBackground } from "@/components/hero/NetworkBackground";
 import { HeroProfile } from "@/components/hero/HeroProfile";
@@ -38,10 +39,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column (Greeting, Name, Real-time Typewriter in NestJS Red) */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-700/80 bg-zinc-900/90 text-xs font-mono text-zinc-300 backdrop-blur-sm shadow-sm transition-transform hover:scale-105">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Hola mundo. Te doy la bienvenida a mi portfolio</span>
-              </div>
+              {/* Dynamic Developer Terminal Greeting (No static box/pill) */}
+              <DeveloperGreeting />
 
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
