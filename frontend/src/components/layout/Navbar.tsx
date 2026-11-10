@@ -138,24 +138,13 @@ export function Navbar() {
                     transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(-6px)',
                     opacity: mobileMenuOpen ? 1 : 0,
                   }}
-                  className={`relative py-2.5 px-3 rounded-lg text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between group ${
+                  className={`py-2.5 px-3 rounded-lg text-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center ${
                     isActive
-                      ? 'text-white bg-zinc-900/90 font-semibold'
-                      : 'text-zinc-400 hover:text-white hover:bg-zinc-900/40'
+                      ? 'text-white font-semibold border-l-2 border-[#e0234e] bg-zinc-900/70 pl-3.5'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-900/30'
                   }`}
                 >
-                  <span className="flex items-center gap-2.5">
-                    {isActive && (
-                      <span
-                        aria-hidden="true"
-                        className="w-1.5 h-1.5 rounded-full bg-[#e0234e] shadow-[0_0_8px_#e0234e]"
-                      />
-                    )}
-                    <span>{item.label}</span>
-                  </span>
-                  {isActive && (
-                    <span className="text-xs font-mono text-[#e0234e]">activo</span>
-                  )}
+                  <span>{item.label}</span>
                 </Link>
               );
             })}
