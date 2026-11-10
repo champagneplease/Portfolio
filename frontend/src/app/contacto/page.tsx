@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { submitContactMessage } from "@/lib/api";
 
 export default function ContactPage() {
@@ -74,23 +75,25 @@ export default function ContactPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-12 animate-fade-in-up">
       {/* Header */}
-      <div className="space-y-3">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Contacto
-        </span>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-          ¿Hablamos?
-        </h1>
-        <p className="text-base sm:text-lg text-zinc-200 max-w-xl leading-relaxed">
-          Si estás buscando un desarrollador Backend Junior, querés intercambiar
-          ideas sobre un proyecto o simplemente hablar de tecnología, podés
-          contactarme.
-        </p>
-      </div>
+      <ScrollReveal direction="up">
+        <div className="space-y-3">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Contacto
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+            ¿Hablamos?
+          </h1>
+          <p className="text-base sm:text-lg text-zinc-200 max-w-xl leading-relaxed">
+            Si estás buscando un desarrollador Backend Junior, querés intercambiar
+            ideas sobre un proyecto o simplemente hablar de tecnología, podés
+            contactarme.
+          </p>
+        </div>
+      </ScrollReveal>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-        {/* Direct Channels */}
-        <div className="md:col-span-5 space-y-5">
+        {/* Direct Channels (Slides in from Left) */}
+        <ScrollReveal direction="left" distance={36} className="md:col-span-5 space-y-5">
           <div className="border border-zinc-700 bg-[#0c0c0e] p-6 rounded-xl space-y-4 shadow-lg">
             <h2 className="text-xs font-mono text-zinc-300 uppercase tracking-wider font-semibold">
               Canales Directos
@@ -148,10 +151,10 @@ export default function ContactPage() {
             Formulario conectado a la API de NestJS con validación de DTOs y
             rate limiting (5 req / min).
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Contact Form */}
-        <div className="md:col-span-7 border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl shadow-lg">
+        {/* Contact Form (Slides in from Right) */}
+        <ScrollReveal direction="right" distance={36} className="md:col-span-7 border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             {/* Honeypot field for anti-spam */}
             <div style={{ display: "none" }} aria-hidden="true">
@@ -281,7 +284,7 @@ export default function ContactPage() {
               )}
             </button>
           </form>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

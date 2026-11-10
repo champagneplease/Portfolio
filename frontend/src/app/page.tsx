@@ -17,6 +17,7 @@ import { DeveloperGreeting } from "@/components/hero/DeveloperGreeting";
 import { TypewriterText } from "@/components/hero/TypewriterText";
 import { NetworkBackground } from "@/components/hero/NetworkBackground";
 import { HeroProfile } from "@/components/hero/HeroProfile";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PROJECTS_DATA } from "@/lib/projects-data";
 
 export default function HomePage() {
@@ -35,10 +36,10 @@ export default function HomePage() {
         <NetworkBackground />
 
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 space-y-12 animate-fade-in-up">
-          {/* Main Grid: Presentation left / Profile circle right */}
+          {/* Main Grid: Presentation left / Profile circle right (Smooth lateral entrance) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column (Greeting, Name, Real-time Typewriter in NestJS Red) */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Left Column (Slides in from Left) */}
+            <ScrollReveal direction="left" distance={32} duration={800} className="lg:col-span-7 space-y-6">
               {/* Dynamic Developer Terminal Greeting (No static box/pill) */}
               <DeveloperGreeting />
 
@@ -121,392 +122,439 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Right Column (Circular Profile Picture with high-res photo and NestJS halo) */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            {/* Right Column (Slides in from Right) */}
+            <ScrollReveal direction="right" distance={32} duration={800} className="lg:col-span-5 flex justify-center lg:justify-end">
               <HeroProfile
                 imageSrc="/nacho-miranda.jpg"
                 alt="Nacho Miranda — Backend Developer"
               />
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Minimal Terminal Card */}
-          <div className="max-w-2xl rounded-lg border border-zinc-700 bg-[#0c0c0e]/95 p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl backdrop-blur-sm">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 text-zinc-400 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
-                <span className="ml-2 text-zinc-300 font-medium">
-                  nacho@macbook ~
-                </span>
-              </div>
-              <span className="text-zinc-400">bash</span>
-            </div>
-
-            <div className="space-y-3">
-              <div>
-                <div className="text-zinc-400 flex items-center gap-1.5">
-                  <span className="text-white font-bold">$</span>
-                  <span className="text-white">whoami</span>
+          <ScrollReveal direction="up" delay={200} distance={24} className="max-w-2xl">
+            <div className="rounded-lg border border-zinc-700 bg-[#0c0c0e]/95 p-5 font-mono text-xs sm:text-sm text-zinc-200 space-y-3 shadow-2xl backdrop-blur-sm">
+              <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 text-zinc-400 text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                  <span className="ml-2 text-zinc-300 font-medium">
+                    nacho@macbook ~
+                  </span>
                 </div>
-                <div className="text-zinc-100 pl-4 font-semibold mt-0.5">
-                  nacho-miranda
-                </div>
+                <span className="text-zinc-400">bash</span>
               </div>
 
-              <div>
-                <div className="text-zinc-400 flex items-center gap-1.5">
-                  <span className="text-white font-bold">$</span>
-                  <span className="text-white">focus</span>
-                </div>
-                <div className="text-zinc-200 pl-4 mt-0.5 space-y-1">
-                  <div>
-                    • backend (NestJS, Express, Python, PostgreSQL, Prisma)
+              <div className="space-y-3">
+                <div>
+                  <div className="text-zinc-400 flex items-center gap-1.5">
+                    <span className="text-white font-bold">$</span>
+                    <span className="text-white">whoami</span>
                   </div>
-                  <div>• devops & cloud (Docker, AWS, Terraform, Linux)</div>
-                  <div>• arquitectura y software real en producción</div>
+                  <div className="text-zinc-100 pl-4 font-semibold mt-0.5">
+                    nacho-miranda
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-zinc-400 flex items-center gap-1.5">
+                    <span className="text-white font-bold">$</span>
+                    <span className="text-white">focus</span>
+                  </div>
+                  <div className="text-zinc-200 pl-4 mt-0.5 space-y-1">
+                    <div>
+                      • backend (NestJS, Express, Python, PostgreSQL, Prisma)
+                    </div>
+                    <div>• devops & cloud (Docker, AWS, Terraform, Linux)</div>
+                    <div>• arquitectura y software real en producción</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* 2. BURGER SOSA FEATURED SPOTLIGHT */}
       <section className="border-t border-zinc-800 bg-[#08080a] py-20">
         <div className="max-w-5xl mx-auto px-6 space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
-            <div>
-              <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-                01 / Proyecto Principal
+          <ScrollReveal direction="up">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
+              <div>
+                <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                  01 / Proyecto Principal
+                </span>
+                <h2 className="text-3xl font-bold tracking-tight text-white mt-1">
+                  Burger Sosa
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-zinc-300">
+                Desplegado y activo en Railway
               </span>
-              <h2 className="text-3xl font-bold tracking-tight text-white mt-1">
-                Burger Sosa
-              </h2>
             </div>
-            <span className="text-xs font-mono text-zinc-300">
-              Desplegado y activo en Railway
-            </span>
-          </div>
+          </ScrollReveal>
 
           <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-10 space-y-8 shadow-xl">
-            <div className="space-y-4 max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                <span className="px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-semibold">
-                  ● Software real en producción
-                </span>
-                <span className="text-zinc-300 font-medium">
-                  Full Stack / NestJS / PostgreSQL / Docker
-                </span>
-              </div>
-
-              <p className="text-lg sm:text-xl text-white font-medium leading-relaxed">
-                Burger Sosa fue desarrollado para resolver una necesidad
-                operativa y comercial real de un negocio gastronómico y
-                actualmente se encuentra desplegado y funcionando en producción.
-              </p>
-
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-                Pasó de ser código en desarrollo a convertirse en una
-                herramienta de uso diario: administración de productos,
-                inventario, horarios, estados de pedidos en tiempo real,
-                integración directa con WhatsApp y persistencia en PostgreSQL
-                con NestJS.
-              </p>
-            </div>
-
-            {/* Architecture Comparison Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
-                <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
-                  <span>Arquitectura Backend</span>
-                  <span className="text-zinc-400 text-xs">REST API</span>
+            {/* Split row: Left text slides from left, Right architecture slides from right */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <ScrollReveal direction="left" distance={36} duration={850} className="lg:col-span-6 space-y-4">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                  <span className="px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-semibold">
+                    ● Software real en producción
+                  </span>
+                  <span className="text-zinc-300 font-medium">
+                    Full Stack / NestJS / PostgreSQL / Docker
+                  </span>
                 </div>
-                <div className="text-zinc-300 leading-relaxed py-1 space-y-1.5">
-                  <div className="text-white font-medium">
-                    React / TypeScript (Client & Admin)
-                  </div>
-                  <div className="text-zinc-400 pl-4">↓ HTTPS / REST</div>
-                  <div className="text-white font-medium pl-4">
-                    NestJS Controllers (Validation & Guards)
-                  </div>
-                  <div className="text-zinc-400 pl-8">↓ Service Layer</div>
-                  <div className="text-white font-medium pl-8">Prisma ORM</div>
-                  <div className="text-zinc-400 pl-12">↓ SQL Queries</div>
-                  <div className="text-emerald-300 font-semibold pl-12">
-                    PostgreSQL (Production DB)
-                  </div>
-                </div>
-              </div>
 
-              <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
-                <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
-                  <span>Pipeline DevOps</span>
-                  <span className="text-zinc-400 text-xs">CI/CD</span>
-                </div>
-                <div className="text-zinc-300 leading-relaxed py-1 space-y-1.5">
-                  <div className="text-white font-medium">
-                    Git Version Control
+                <p className="text-lg sm:text-xl text-white font-medium leading-relaxed">
+                  Burger Sosa fue desarrollado para resolver una necesidad
+                  operativa y comercial real de un negocio gastronómico y
+                  actualmente se encuentra desplegado y funcionando en producción.
+                </p>
+
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  Pasó de ser código en desarrollo a convertirse en una
+                  herramienta de uso diario: administración de productos,
+                  inventario, horarios, estados de pedidos en tiempo real,
+                  integración directa con WhatsApp y persistencia en PostgreSQL
+                  con NestJS.
+                </p>
+              </ScrollReveal>
+
+              {/* Architecture Comparison Grid (Slides in from Right) */}
+              <ScrollReveal direction="right" distance={36} duration={850} className="lg:col-span-6 space-y-4">
+                <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
+                  <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
+                    <span>Arquitectura Backend</span>
+                    <span className="text-zinc-400 text-xs">REST API</span>
                   </div>
-                  <div className="text-zinc-400 pl-4">↓ Feature Branches</div>
-                  <div className="text-white font-medium pl-4">
-                    Docker Container (Multi-stage)
-                  </div>
-                  <div className="text-zinc-400 pl-8">↓ Automated Build</div>
-                  <div className="text-white font-medium pl-8">
-                    Railway Deployment
-                  </div>
-                  <div className="text-zinc-400 pl-12">↓ Healthcheck & SSL</div>
-                  <div className="text-emerald-300 font-semibold pl-12">
-                    Production Live
+                  <div className="text-zinc-300 leading-relaxed py-1 space-y-1.5">
+                    <div className="text-white font-medium">
+                      React / TypeScript (Client & Admin)
+                    </div>
+                    <div className="text-zinc-400 pl-4">↓ HTTPS / REST</div>
+                    <div className="text-white font-medium pl-4">
+                      NestJS Controllers (Validation & Guards)
+                    </div>
+                    <div className="text-zinc-400 pl-8">↓ Service Layer</div>
+                    <div className="text-white font-medium pl-8">Prisma ORM</div>
+                    <div className="text-zinc-400 pl-12">↓ SQL Queries</div>
+                    <div className="text-emerald-300 font-semibold pl-12">
+                      PostgreSQL (Production DB)
+                    </div>
                   </div>
                 </div>
-              </div>
+
+                <div className="border border-zinc-700 bg-black p-5 rounded-lg space-y-3 font-mono text-xs sm:text-sm">
+                  <div className="text-white font-semibold pb-2 border-b border-zinc-800 flex items-center justify-between">
+                    <span>Pipeline DevOps</span>
+                    <span className="text-zinc-400 text-xs">CI/CD</span>
+                  </div>
+                  <div className="text-zinc-300 leading-relaxed py-1 space-y-1.5">
+                    <div className="text-white font-medium">
+                      Git Version Control
+                    </div>
+                    <div className="text-zinc-400 pl-4">↓ Feature Branches</div>
+                    <div className="text-white font-medium pl-4">
+                      Docker Container (Multi-stage)
+                    </div>
+                    <div className="text-zinc-400 pl-8">↓ Automated Build</div>
+                    <div className="text-white font-medium pl-8">
+                      Railway Deployment
+                    </div>
+                    <div className="text-zinc-400 pl-12">↓ Healthcheck & SSL</div>
+                    <div className="text-emerald-300 font-semibold pl-12">
+                      Production Live
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Three key pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-zinc-800 text-sm">
-              <div className="space-y-1.5">
-                <div className="font-semibold text-white">Mobile-First</div>
-                <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
-                  La aplicación fue pensada principalmente para usuarios
-                  móviles, priorizando una experiencia rápida y clara desde
-                  dispositivos celulares.
-                </p>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="font-semibold text-white">SEO & Indexación</div>
-                <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
-                  Además del desarrollo, trabajé en su presencia en buscadores
-                  mediante optimización SEO, sitemap XML estructurado e
-                  indexación en Google.
-                </p>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="font-semibold text-white">
-                  PostgreSQL & NestJS
+            <ScrollReveal direction="up" delay={150}>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-zinc-800 text-sm">
+                <div className="space-y-1.5">
+                  <div className="font-semibold text-white">Mobile-First</div>
+                  <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
+                    La aplicación fue pensada principalmente para usuarios
+                    móviles, priorizando una experiencia rápida y clara desde
+                    dispositivos celulares.
+                  </p>
                 </div>
-                <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
-                  Modelado relacional estricto con Prisma ORM, DTOs validados y
-                  servicios modulares desacoplados.
-                </p>
+
+                <div className="space-y-1.5">
+                  <div className="font-semibold text-white">SEO & Indexación</div>
+                  <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
+                    Además del desarrollo, trabajé en su presencia en buscadores
+                    mediante optimización SEO, sitemap XML estructurado e
+                    indexación en Google.
+                  </p>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="font-semibold text-white">
+                    PostgreSQL & NestJS
+                  </div>
+                  <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
+                    Modelado relacional estricto con Prisma ORM, DTOs validados y
+                    servicios modulares desacoplados.
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Actions */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
-              <div className="flex items-center gap-3">
-                <a
-                  href={
-                    burgerSosa.liveUrl || "https://burger-sosa.up.railway.app/"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <span>Visitar sitio en producción</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <Link href="/proyectos/burger-sosa" className="btn-secondary">
-                  <span>Ver análisis técnico</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+            <ScrollReveal direction="up" delay={250}>
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+                <div className="flex items-center gap-3">
+                  <a
+                    href={
+                      burgerSosa.liveUrl || "https://burger-sosa.up.railway.app/"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    <span>Visitar sitio en producción</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <Link href="/proyectos/burger-sosa" className="btn-secondary">
+                    <span>Ver análisis técnico</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+                <div className="text-xs font-mono text-zinc-300">
+                  Railway • Docker • PostgreSQL • NestJS • React
+                </div>
               </div>
-              <div className="text-xs font-mono text-zinc-300">
-                Railway • Docker • PostgreSQL • NestJS • React
-              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. MÁS ALLÁ DEL CÓDIGO (Lateral reveals: text from left, quote from right) */}
+      <section className="max-w-5xl mx-auto px-6 py-20 space-y-8">
+        <ScrollReveal direction="up">
+          <div className="space-y-2">
+            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+              02 / Criterio
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-white">
+              Más allá del código
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* Left: Manifesto from the left */}
+          <ScrollReveal direction="left" distance={36} duration={850} className="md:col-span-7 space-y-4 text-zinc-200 text-base leading-relaxed">
+            <p>
+              En una época donde las herramientas de IA forman parte cada vez más
+              del desarrollo, considero todavía más importante comprender los
+              fundamentos.
+            </p>
+            <p>
+              Utilizo herramientas de IA como apoyo para investigar, acelerar
+              tareas y explorar soluciones, pero mi objetivo es entender qué estoy
+              construyendo, por qué funciona y qué consecuencias tiene cada
+              decisión técnica.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/sobre-mi"
+                className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1.5 transition-colors font-medium"
+              >
+                <span>Conocer mi perfil y metodología de trabajo</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-          </div>
+          </ScrollReveal>
+
+          {/* Right: Bold quote card slides from the right, completing the section */}
+          <ScrollReveal direction="right" distance={36} duration={850} className="md:col-span-5">
+            <div className="border border-zinc-700/80 bg-[#0c0c0e] p-6 rounded-xl space-y-3 shadow-xl ring-1 ring-zinc-800">
+              <span className="text-xs font-mono text-[#e0234e] font-semibold uppercase tracking-wider">
+                ● Filosofía de desarrollo
+              </span>
+              <div className="text-white font-semibold text-lg sm:text-xl leading-relaxed border-l-2 border-[#e0234e] pl-4 py-1">
+                «Me interesa desarrollar criterio técnico, no solamente producir código.»
+              </div>
+              <p className="text-xs text-zinc-400 font-mono pl-4">
+                Fundamentos • Arquitectura • Mantenibilidad
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* 3. MÁS ALLÁ DEL CÓDIGO */}
-      <section className="max-w-5xl mx-auto px-6 py-20 space-y-6">
-        <div className="space-y-2">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-            02 / Criterio
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">
-            Más allá del código
-          </h2>
-        </div>
-
-        <div className="max-w-3xl space-y-4 text-zinc-200 text-base leading-relaxed">
-          <p>
-            En una época donde las herramientas de IA forman parte cada vez más
-            del desarrollo, considero todavía más importante comprender los
-            fundamentos.
-          </p>
-          <p>
-            Utilizo herramientas de IA como apoyo para investigar, acelerar
-            tareas y explorar soluciones, pero mi objetivo es entender qué estoy
-            construyendo, por qué funciona y qué consecuencias tiene cada
-            decisión técnica.
-          </p>
-          <div className="text-white font-semibold border-l-2 border-white pl-4 py-2 text-lg">
-            «Me interesa desarrollar criterio técnico, no solamente producir
-            código.»
-          </div>
-        </div>
-
-        <div className="pt-2">
-          <Link
-            href="/sobre-mi"
-            className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1.5 transition-colors font-medium"
-          >
-            <span>Conocer mi perfil y metodología de trabajo</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-
-      {/* 4. EXPLORANDO DEVOPS & INFRAESTRUCTURA */}
+      {/* 4. EXPLORANDO DEVOPS & INFRAESTRUCTURA (Staggered lateral cards) */}
       <section className="border-t border-zinc-800 bg-[#08080a] py-20">
         <div className="max-w-5xl mx-auto px-6 space-y-8">
+          <ScrollReveal direction="up">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
+              <div>
+                <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                  03 / Especialización
+                </span>
+                <h2 className="text-3xl font-bold tracking-tight text-white mt-1">
+                  Explorando DevOps & Cloud
+                </h2>
+              </div>
+              <Link
+                href="/devops"
+                className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1 transition-colors font-medium"
+              >
+                <span>Ver sección DevOps completa</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={100}>
+            <p className="text-base text-zinc-300 max-w-2xl leading-relaxed">
+              Mi camino profesional está comenzando a expandirse desde el
+              desarrollo Backend hacia infraestructura y DevOps. Actualmente estoy
+              profundizando en containerización, despliegues, infraestructura como
+              código y servicios cloud.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ScrollReveal direction="left" distance={32} delay={50}>
+              <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste h-full">
+                <div className="text-xs font-mono text-zinc-400 font-semibold">
+                  01 / Docker
+                </div>
+                <div className="text-base font-bold text-white">
+                  Containerización
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Ambientes reproducibles e imágenes multi-stage optimizadas.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" distance={32} delay={150}>
+              <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste h-full">
+                <div className="text-xs font-mono text-zinc-400 font-semibold">
+                  02 / AWS
+                </div>
+                <div className="text-base font-bold text-white">
+                  Servicios Cloud
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Conceptos fundamentales de cómputo, almacenamiento y redes.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" distance={32} delay={250}>
+              <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste h-full">
+                <div className="text-xs font-mono text-zinc-400 font-semibold">
+                  03 / Terraform
+                </div>
+                <div className="text-base font-bold text-white">
+                  Infrastructure as Code
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Aprovisionamiento y automatización declarativa de recursos.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" distance={32} delay={150}>
+              <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste h-full">
+                <div className="text-xs font-mono text-zinc-400 font-semibold">
+                  04 / Deployment
+                </div>
+                <div className="text-base font-bold text-white">Producción</div>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  El proceso de llevar código a disponibilidad real con SSL y
+                  CI/CD.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. OTROS PROYECTOS (Staggered card reveal) */}
+      <section className="max-w-5xl mx-auto px-6 py-20 space-y-8">
+        <ScrollReveal direction="up">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
             <div>
               <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-                03 / Especialización
+                04 / Portafolio
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-white mt-1">
-                Explorando DevOps & Cloud
+                Otros proyectos
               </h2>
             </div>
             <Link
-              href="/devops"
+              href="/proyectos"
               className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1 transition-colors font-medium"
             >
-              <span>Ver sección DevOps completa</span>
+              <span>Ver todos los proyectos ({PROJECTS_DATA.length})</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-
-          <p className="text-base text-zinc-300 max-w-2xl leading-relaxed">
-            Mi camino profesional está comenzando a expandirse desde el
-            desarrollo Backend hacia infraestructura y DevOps. Actualmente estoy
-            profundizando en containerización, despliegues, infraestructura como
-            código y servicios cloud.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste">
-              <div className="text-xs font-mono text-zinc-400 font-semibold">
-                01 / Docker
-              </div>
-              <div className="text-base font-bold text-white">
-                Containerización
-              </div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                Ambientes reproducibles e imágenes multi-stage optimizadas.
-              </p>
-            </div>
-
-            <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste">
-              <div className="text-xs font-mono text-zinc-400 font-semibold">
-                02 / AWS
-              </div>
-              <div className="text-base font-bold text-white">
-                Servicios Cloud
-              </div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                Conceptos fundamentales de cómputo, almacenamiento y redes.
-              </p>
-            </div>
-
-            <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste">
-              <div className="text-xs font-mono text-zinc-400 font-semibold">
-                03 / Terraform
-              </div>
-              <div className="text-base font-bold text-white">
-                Infrastructure as Code
-              </div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                Aprovisionamiento y automatización declarativa de recursos.
-              </p>
-            </div>
-
-            <div className="border border-zinc-700 bg-[#0c0c0e] p-5 rounded-lg space-y-2 card-taste">
-              <div className="text-xs font-mono text-zinc-400 font-semibold">
-                04 / Deployment
-              </div>
-              <div className="text-base font-bold text-white">Producción</div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                El proceso de llevar código a disponibilidad real con SSL y
-                CI/CD.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. OTROS PROYECTOS */}
-      <section className="max-w-5xl mx-auto px-6 py-20 space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800 pb-4">
-          <div>
-            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-              04 / Portafolio
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-white mt-1">
-              Otros proyectos
-            </h2>
-          </div>
-          <Link
-            href="/proyectos"
-            className="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-1 transition-colors font-medium"
-          >
-            <span>Ver todos los proyectos ({PROJECTS_DATA.length})</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {secondaryProjects.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/proyectos/${p.slug}`}
-              className="border border-zinc-700 bg-[#0c0c0e] p-6 rounded-lg space-y-3 block card-taste group"
-            >
-              <div className="text-xs font-mono text-zinc-400 font-medium">
-                {p.category}
-              </div>
-              <h3 className="text-lg font-bold text-white group-hover:text-zinc-200 transition-colors flex items-center justify-between">
-                <span>{p.title}</span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-white" />
-              </h3>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                {p.description}
-              </p>
-              <div className="pt-2 text-xs font-mono text-zinc-400 border-t border-zinc-800">
-                {p.technologies.slice(0, 3).join(" • ")}
-              </div>
-            </Link>
-          ))}
+          {secondaryProjects.map((p, idx) => {
+            const dir = idx === 0 ? "left" : idx === 2 ? "right" : "up";
+            const delay = idx * 100;
+            return (
+              <ScrollReveal key={p.slug} direction={dir} distance={30} delay={delay}>
+                <Link
+                  href={`/proyectos/${p.slug}`}
+                  className="border border-zinc-700 bg-[#0c0c0e] p-6 rounded-lg space-y-3 block card-taste group h-full"
+                >
+                  <div className="text-xs font-mono text-zinc-400 font-medium">
+                    {p.category}
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-zinc-200 transition-colors flex items-center justify-between">
+                    <span>{p.title}</span>
+                    <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-white" />
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    {p.description}
+                  </p>
+                  <div className="pt-2 text-xs font-mono text-zinc-400 border-t border-zinc-800">
+                    {p.technologies.slice(0, 3).join(" • ")}
+                  </div>
+                </Link>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </section>
 
       {/* 6. CALL TO ACTION FINAL */}
       <section className="border-t border-zinc-800 bg-[#08080a] py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center space-y-5">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            ¿Hablamos?
-          </h2>
-          <p className="text-base text-zinc-300 leading-relaxed max-w-xl mx-auto">
-            Si estás buscando un desarrollador Backend Junior, querés
-            intercambiar ideas sobre un proyecto o simplemente hablar de
-            tecnología, podés contactarme.
-          </p>
-          <div className="pt-2">
-            <Link href="/contacto" className="btn-primary text-sm px-6 py-3">
-              <span>Ir al formulario de contacto</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+        <ScrollReveal direction="up" distance={30}>
+          <div className="max-w-3xl mx-auto px-6 text-center space-y-5">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              ¿Hablamos?
+            </h2>
+            <p className="text-base text-zinc-300 leading-relaxed max-w-xl mx-auto">
+              Si estás buscando un desarrollador Backend Junior, querés
+              intercambiar ideas sobre un proyecto o simplemente hablar de
+              tecnología, podés contactarme.
+            </p>
+            <div className="pt-2">
+              <Link href="/contacto" className="btn-primary text-sm px-6 py-3">
+                <span>Ir al formulario de contacto</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

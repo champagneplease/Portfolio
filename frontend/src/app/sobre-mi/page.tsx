@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export const metadata = {
   title: 'Sobre mí | Nacho Miranda',
@@ -33,169 +34,181 @@ export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
       {/* 1. Header & Bio */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-zinc-700 bg-zinc-900 shrink-0 shadow-xl ring-2 ring-[#e0234e]/30">
-            <Image
-              src="/nacho-miranda.jpg"
-              alt="Nacho Miranda — Backend Developer"
-              fill
-              quality={100}
-              priority
-              style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
-              className="filter contrast-[1.02]"
-            />
+      <ScrollReveal direction="left" distance={36}>
+        <section className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-zinc-700 bg-zinc-900 shrink-0 shadow-xl ring-2 ring-[#e0234e]/30">
+              <Image
+                src="/nacho-miranda.jpg"
+                alt="Nacho Miranda — Backend Developer"
+                fill
+                quality={100}
+                priority
+                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+                className="filter contrast-[1.02]"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                Perfil Profesional
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+                Sobre mí
+              </h1>
+              <p className="text-sm font-mono text-[#e0234e] font-semibold">
+                Estudiante de Desarrollo de Software • Junior Backend Developer
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-              Perfil Profesional
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-              Sobre mí
-            </h1>
-            <p className="text-sm font-mono text-[#e0234e] font-semibold">
-              Estudiante de Desarrollo de Software • Junior Backend Developer
+          <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed">
+            <p>
+              Soy estudiante de Desarrollo de Software y desarrollador Backend en formación, con experiencia construyendo APIs, aplicaciones web y sistemas conectados a bases de datos.
             </p>
+            <p>
+              Mi principal enfoque está en el desarrollo Backend con <strong className="text-white">Python y TypeScript</strong>, trabajando con tecnologías como <strong className="text-white">NestJS, Express, Django, Flask y FastAPI</strong>.
+            </p>
+            <p>
+              En paralelo, estoy profundizando en infraestructura y DevOps, especialmente en <strong className="text-white">Docker, despliegue de aplicaciones, AWS y Terraform</strong>.
+            </p>
+            <p>
+              Me interesan especialmente los problemas que requieren pensar más allá del código: arquitectura, comunicación entre servicios, bases de datos, seguridad, despliegue y mantenimiento.
+            </p>
+            <div className="border-l-2 border-white pl-4 py-2 text-zinc-100 font-medium italic text-lg bg-zinc-900/40 rounded-r">
+              «Creo que programar no consiste solamente en escribir código, sino en entender el problema y encontrar una solución simple, mantenible y adecuada.»
+            </div>
           </div>
-        </div>
-
-        <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed">
-          <p>
-            Soy estudiante de Desarrollo de Software y desarrollador Backend en formación, con experiencia construyendo APIs, aplicaciones web y sistemas conectados a bases de datos.
-          </p>
-          <p>
-            Mi principal enfoque está en el desarrollo Backend con <strong className="text-white">Python y TypeScript</strong>, trabajando con tecnologías como <strong className="text-white">NestJS, Express, Django, Flask y FastAPI</strong>.
-          </p>
-          <p>
-            En paralelo, estoy profundizando en infraestructura y DevOps, especialmente en <strong className="text-white">Docker, despliegue de aplicaciones, AWS y Terraform</strong>.
-          </p>
-          <p>
-            Me interesan especialmente los problemas que requieren pensar más allá del código: arquitectura, comunicación entre servicios, bases de datos, seguridad, despliegue y mantenimiento.
-          </p>
-          <div className="border-l-2 border-white pl-4 py-2 text-zinc-100 font-medium italic text-lg bg-zinc-900/40 rounded-r">
-            «Creo que programar no consiste solamente en escribir código, sino en entender el problema y encontrar una solución simple, mantenible y adecuada.»
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* 2. Actualmente enfocado en */}
-      <section className="space-y-4 border-t border-zinc-800 pt-10">
-        <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Actualmente estoy enfocado en
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-100 border border-zinc-700 bg-[#0c0c0e] p-6 rounded-xl shadow-lg">
-          {CURRENT_FOCUS.map((item) => (
-            <div key={item} className="flex items-center gap-2.5">
-              <span className="text-white font-bold font-mono">›</span>
-              <span className="font-medium">{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Más allá del código (Filosofía frente a IA) */}
-      <section className="space-y-4 border-t border-zinc-800 pt-10">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Filosofía
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight text-white">
-          Más allá del código
-        </h2>
-        <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed border-l-2 border-white pl-5 py-2">
-          <p>
-            En una época donde las herramientas de IA forman parte cada vez más del desarrollo, considero todavía más importante comprender los fundamentos.
-          </p>
-          <p>
-            Utilizo herramientas de IA como apoyo para investigar, acelerar tareas y explorar soluciones, pero mi objetivo es entender qué estoy construyendo, por qué funciona y qué consecuencias tiene cada decisión técnica.
-          </p>
-          <p className="text-white font-semibold text-xl">
-            Me interesa desarrollar criterio técnico, no solamente producir código.
-          </p>
-        </div>
-      </section>
-
-      {/* 4. De proyectos a producción */}
-      <section className="space-y-6 border-t border-zinc-800 pt-10">
-        <div className="space-y-2">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-            Evolución
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight text-white">
-            De proyectos a producción
+      <ScrollReveal direction="right" distance={36}>
+        <section className="space-y-4 border-t border-zinc-800 pt-10">
+          <h2 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Actualmente estoy enfocado en
           </h2>
-          <p className="text-sm sm:text-base text-zinc-300">
-            El camino que transformó conceptos teóricos en software utilizado por un negocio real.
-          </p>
-        </div>
-
-        <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg">
-          <div className="grid grid-cols-1 gap-4">
-            {EVOLUTION_STEPS.map((step) => (
-              <div key={step.step} className="flex items-start gap-4 text-sm sm:text-base">
-                <span className="font-mono text-white font-bold shrink-0 mt-0.5">{step.step}</span>
-                <div>
-                  <span className="font-bold text-white">{step.title}: </span>
-                  <span className="text-zinc-200">{step.desc}</span>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-100 border border-zinc-700 bg-[#0c0c0e] p-6 rounded-xl shadow-lg">
+            {CURRENT_FOCUS.map((item) => (
+              <div key={item} className="flex items-center gap-2.5">
+                <span className="text-white font-bold font-mono">›</span>
+                <span className="font-medium">{item}</span>
               </div>
             ))}
           </div>
+        </section>
+      </ScrollReveal>
 
-          <div className="pt-5 border-t border-zinc-800 text-sm sm:text-base text-white font-medium italic">
-            «Uno de mis objetivos actuales es transformar el conocimiento técnico en software que realmente pueda utilizarse.»
+      {/* 3. Más allá del código (Filosofía frente a IA) */}
+      <ScrollReveal direction="left" distance={36}>
+        <section className="space-y-4 border-t border-zinc-800 pt-10">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Filosofía
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">
+            Más allá del código
+          </h2>
+          <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed border-l-2 border-white pl-5 py-2">
+            <p>
+              En una época donde las herramientas de IA forman parte cada vez más del desarrollo, considero todavía más importante comprender los fundamentos.
+            </p>
+            <p>
+              Utilizo herramientas de IA como apoyo para investigar, acelerar tareas y explorar soluciones, pero mi objetivo es entender qué estoy construyendo, por qué funciona y qué consecuencias tiene cada decisión técnica.
+            </p>
+            <p className="text-white font-semibold text-xl">
+              Me interesa desarrollar criterio técnico, no solamente producir código.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* 4. De proyectos a producción */}
+      <ScrollReveal direction="up" distance={36}>
+        <section className="space-y-6 border-t border-zinc-800 pt-10">
+          <div className="space-y-2">
+            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+              Evolución
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-white">
+              De proyectos a producción
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300">
+              El camino que transformó conceptos teóricos en software utilizado por un negocio real.
+            </p>
+          </div>
+
+          <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg">
+            <div className="grid grid-cols-1 gap-4">
+              {EVOLUTION_STEPS.map((step) => (
+                <div key={step.step} className="flex items-start gap-4 text-sm sm:text-base">
+                  <span className="font-mono text-white font-bold shrink-0 mt-0.5">{step.step}</span>
+                  <div>
+                    <span className="font-bold text-white">{step.title}: </span>
+                    <span className="text-zinc-200">{step.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-5 border-t border-zinc-800 text-sm sm:text-base text-white font-medium italic">
+              «Uno de mis objetivos actuales es transformar el conocimiento técnico en software que realmente pueda utilizarse.»
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* 5. Qué estoy buscando */}
-      <section className="space-y-4 border-t border-zinc-800 pt-10">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Oportunidades
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight text-white">
-          ¿Qué estoy buscando?
-        </h2>
-        <div className="border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed shadow-lg">
-          <p>
-            Estoy buscando mi <strong className="text-white">primera oportunidad profesional como desarrollador Backend / Software Developer</strong>, donde pueda seguir aprendiendo, asumir responsabilidades y aportar desde mis conocimientos actuales.
-          </p>
-          <p>
-            Me interesan especialmente los equipos donde pueda trabajar con APIs, bases de datos, arquitectura backend, Docker, cloud o infraestructura, y donde exista espacio para aprender de desarrolladores con más experiencia.
-          </p>
-        </div>
-      </section>
+      <ScrollReveal direction="right" distance={36}>
+        <section className="space-y-4 border-t border-zinc-800 pt-10">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Oportunidades
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">
+            ¿Qué estoy buscando?
+          </h2>
+          <div className="border border-zinc-700 bg-[#0c0c0e] p-6 sm:p-8 rounded-xl space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed shadow-lg">
+            <p>
+              Estoy buscando mi <strong className="text-white">primera oportunidad profesional como desarrollador Backend / Software Developer</strong>, donde pueda seguir aprendiendo, asumir responsabilidades y aportar desde mis conocimientos actuales.
+            </p>
+            <p>
+              Me interesan especialmente los equipos donde pueda trabajar con APIs, bases de datos, arquitectura backend, Docker, cloud o infraestructura, y donde exista espacio para aprender de desarrolladores con más experiencia.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* 6. Me gustan los problemas difíciles */}
-      <section className="space-y-4 border-t border-zinc-800 pt-10">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Resolución de problemas
-        </span>
-        <h2 className="text-3xl font-bold tracking-tight text-white">
-          Me gustan los problemas difíciles.
-        </h2>
-        <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed">
-          <p>
-            Una de las partes que más disfruto del desarrollo es encontrarme con un problema que inicialmente no sé cómo resolver.
-          </p>
-          <p>
-            Investigar, probar alternativas, equivocarme, entender qué está fallando y finalmente encontrar una solución es una de las cosas que más me motiva.
-          </p>
-          <p className="text-zinc-300">
-            También disfruto intercambiar ideas con otras personas y analizar diferentes enfoques para llegar a una solución.
-          </p>
-        </div>
+      <ScrollReveal direction="left" distance={36}>
+        <section className="space-y-4 border-t border-zinc-800 pt-10">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Resolución de problemas
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">
+            Me gustan los problemas difíciles.
+          </h2>
+          <div className="space-y-4 text-base sm:text-lg text-zinc-200 leading-relaxed">
+            <p>
+              Una de las partes que más disfruto del desarrollo es encontrarme con un problema que inicialmente no sé cómo resolver.
+            </p>
+            <p>
+              Investigar, probar alternativas, equivocarme, entender qué está fallando y finalmente encontrar una solución es una de las cosas que más me motiva.
+            </p>
+            <p className="text-zinc-300">
+              También disfruto intercambiar ideas con otras personas y analizar diferentes enfoques para llegar a una solución.
+            </p>
+          </div>
 
-        <div className="pt-6">
-          <Link
-            href="/contacto"
-            className="btn-primary"
-          >
-            <span>Hablemos de oportunidades</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+          <div className="pt-4">
+            <Link
+              href="/contacto"
+              className="btn-primary"
+            >
+              <span>Hablemos de oportunidades</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }

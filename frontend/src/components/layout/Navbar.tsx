@@ -30,8 +30,8 @@ export function Navbar() {
           <span className="text-xs text-zinc-400 font-mono font-normal">/ backend</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        {/* Desktop Navigation with refined pill transitions */}
+        <nav className="hidden md:flex items-center gap-1.5 text-sm p-1 rounded-lg border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-md">
           {NAV_ITEMS.map((item) => {
             const isActive =
               item.href === '/'
@@ -41,10 +41,10 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-colors py-1 ${
+                className={`px-3.5 py-1.5 rounded-md text-xs sm:text-sm transition-all duration-250 ease-out ${
                   isActive
-                    ? 'text-white font-bold border-b border-white'
-                    : 'text-zinc-300 hover:text-white font-medium'
+                    ? 'text-white bg-zinc-800 shadow-sm ring-1 ring-zinc-700 font-semibold'
+                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/80 font-medium'
                 }`}
               >
                 {item.label}

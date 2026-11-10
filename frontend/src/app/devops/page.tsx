@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Terminal } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export const metadata = {
   title: 'DevOps & Infraestructura | Nacho Miranda',
@@ -86,57 +87,61 @@ export default function DevOpsPage() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-16 animate-fade-in-up">
       {/* Header */}
-      <div className="space-y-4">
-        <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-          Orientación Técnica
-        </span>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-          Explorando DevOps & Cloud
-        </h1>
-        <div className="space-y-3 max-w-3xl text-base sm:text-lg text-zinc-200 leading-relaxed">
-          <p>
-            Mi camino profesional está comenzando a expandirse desde el desarrollo Backend hacia infraestructura y DevOps.
-          </p>
-          <p className="text-zinc-300">
-            Actualmente estoy profundizando en containerización, despliegues, infraestructura como código y servicios cloud, con la convicción de que un buen desarrollador backend debe entender cómo vive su código en producción.
-          </p>
-        </div>
-      </div>
-
-      {/* Tracks Grid */}
-      <div className="space-y-8">
-        {DEVOPS_TRACKS.map((t, idx) => (
-          <div
-            key={t.name}
-            className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg"
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-4">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-mono text-zinc-400 font-semibold">0{idx + 1}</span>
-                <h2 className="text-2xl font-bold text-white">{t.name}</h2>
-              </div>
-              <span className="text-xs font-mono px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-medium">
-                {t.status}
-              </span>
-            </div>
-
-            <div className="space-y-2">
-              <div className="text-base font-semibold text-white">{t.concept}</div>
-              <p className="text-sm sm:text-base text-zinc-200 leading-relaxed max-w-3xl">
-                {t.description}
-              </p>
-            </div>
-
-            {t.sample && (
-              <div className="pt-2">
-                <div className="text-xs font-mono text-zinc-300 mb-1.5 font-medium">Snippet ilustrativo:</div>
-                <pre className="font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
-                  {t.sample}
-                </pre>
-              </div>
-            )}
+      <ScrollReveal direction="up">
+        <div className="space-y-4">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+            Orientación Técnica
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+            Explorando DevOps & Cloud
+          </h1>
+          <div className="space-y-3 max-w-3xl text-base sm:text-lg text-zinc-200 leading-relaxed">
+            <p>
+              Mi camino profesional está comenzando a expandirse desde el desarrollo Backend hacia infraestructura y DevOps.
+            </p>
+            <p className="text-zinc-300">
+              Actualmente estoy profundizando en containerización, despliegues, infraestructura como código y servicios cloud, con la convicción de que un buen desarrollador backend debe entender cómo vive su código en producción.
+            </p>
           </div>
-        ))}
+        </div>
+      </ScrollReveal>
+
+      {/* Tracks Grid (Alternating smooth lateral entrances) */}
+      <div className="space-y-8">
+        {DEVOPS_TRACKS.map((t, idx) => {
+          const dir = idx % 2 === 0 ? 'left' : 'right';
+          return (
+            <ScrollReveal key={t.name} direction={dir} distance={36} duration={800}>
+              <div className="border border-zinc-700 bg-[#0c0c0e] rounded-xl p-6 sm:p-8 space-y-5 shadow-lg card-taste">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-mono text-zinc-400 font-semibold">0{idx + 1}</span>
+                    <h2 className="text-2xl font-bold text-white">{t.name}</h2>
+                  </div>
+                  <span className="text-xs font-mono px-3 py-1 rounded border border-zinc-600 bg-zinc-800 text-white font-medium">
+                    {t.status}
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="text-base font-semibold text-white">{t.concept}</div>
+                  <p className="text-sm sm:text-base text-zinc-200 leading-relaxed max-w-3xl">
+                    {t.description}
+                  </p>
+                </div>
+
+                {t.sample && (
+                  <div className="pt-2">
+                    <div className="text-xs font-mono text-zinc-300 mb-1.5 font-medium">Snippet ilustrativo:</div>
+                    <pre className="font-mono text-xs sm:text-sm text-zinc-100 bg-black p-5 rounded-lg border border-zinc-800 overflow-x-auto whitespace-pre leading-relaxed shadow-inner">
+                      {t.sample}
+                    </pre>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          );
+        })}
       </div>
 
       {/* CTA Box */}
