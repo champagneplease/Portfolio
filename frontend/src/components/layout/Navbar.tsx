@@ -48,16 +48,16 @@ export function Navbar() {
                 }`}
               >
                 <span>{item.label}</span>
-                {/* Relief indicator underneath */}
+                {/* Slim relief indicator underneath with fluid entrance animation */}
                 {isActive ? (
                   <span
                     aria-hidden="true"
-                    className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] rounded-full bg-gradient-to-r from-[#e0234e] via-[#ff4d6d] to-[#e0234e] shadow-[0_2px_10px_rgba(224,35,78,0.85),0_0_2px_rgba(255,255,255,0.7)]"
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full bg-gradient-to-r from-[#e0234e] via-[#ff5376] to-[#e0234e] shadow-[0_1px_8px_rgba(224,35,78,0.75)] animate-nav-line"
                   />
                 ) : (
                   <span
                     aria-hidden="true"
-                    className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] rounded-full bg-zinc-700/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full bg-zinc-600/40 scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-250 ease-out"
                   />
                 )}
               </Link>
@@ -114,13 +114,19 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`py-1.5 text-sm transition-colors ${
+                  className={`relative py-1.5 text-sm transition-colors ${
                     isActive
-                      ? 'text-white font-semibold pl-2.5 border-l-2 border-[#e0234e]'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'text-white font-semibold pl-3'
+                      : 'text-zinc-400 hover:text-zinc-200 pl-3'
                   }`}
                 >
-                  {item.label}
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-[#e0234e] to-[#ff5376] shadow-[0_0_8px_rgba(224,35,78,0.7)] animate-nav-mobile"
+                    />
+                  )}
+                  <span>{item.label}</span>
                 </Link>
               );
             })}

@@ -17,11 +17,11 @@ export function ScrollReveal({
   children,
   direction = 'up',
   delay = 0,
-  duration = 750,
-  distance = 36,
+  duration = 700,
+  distance = 32,
   className = '',
-  threshold = 0.15,
-  once = true,
+  threshold = 0.08,
+  once = false,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -51,7 +51,7 @@ export function ScrollReveal({
       },
       {
         threshold,
-        rootMargin: '0px 0px -40px 0px', // Trigger slightly before it hits the bottom
+        rootMargin: '0px 0px -25px 0px',
       },
     );
 
@@ -83,6 +83,10 @@ export function ScrollReveal({
     }
   };
 
+  const transitionStyle = isVisible
+    ? `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
+    : 'opacity 180ms ease-out 0ms, transform 180ms ease-out 0ms';
+
   return (
     <div
       ref={ref}
@@ -90,7 +94,7 @@ export function ScrollReveal({
       style={{
         opacity: !isMounted || isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: transitionStyle,
         willChange: 'opacity, transform',
       }}
     >
